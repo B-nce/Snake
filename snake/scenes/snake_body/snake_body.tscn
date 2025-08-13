@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://7q465atragqy"]
 
-[ext_resource type="Texture2D" uid="uid://b35k6afrvb0p5" path="res://sprites/ball_python_body_straight.png" id="1_3sbvb"]
-[ext_resource type="Script" uid="uid://chmswtms1u7fd" path="res://snake_body.gd" id="1_jyhgw"]
-[ext_resource type="Texture2D" uid="uid://bag8qakvfdnk1" path="res://sprites/ball_python_body_turn.png" id="2_jyhgw"]
-[ext_resource type="Texture2D" uid="uid://bghtn4piwd86w" path="res://sprites/ball_python_tail.png" id="3_3sbvb"]
+[ext_resource type="Texture2D" uid="uid://cftylin82p67e" path="res://assets/sprites/ball_python_body_straight.png" id="1_3sbvb"]
+[ext_resource type="Script" uid="uid://chmswtms1u7fd" path="res://scenes/snake_body/snake_body.gd" id="1_jyhgw"]
+[ext_resource type="Texture2D" uid="uid://bwcnp6as1looc" path="res://assets/sprites/ball_python_body_turn.png" id="2_jyhgw"]
+[ext_resource type="Texture2D" uid="uid://cw8s4fbkof8x2" path="res://assets/sprites/ball_python_tail.png" id="3_3sbvb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ubm33"]
 size = Vector2(16, 16)
