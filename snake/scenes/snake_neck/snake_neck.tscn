@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnqwtct24fo5x"]
+
+[ext_resource type="Texture2D" uid="uid://0t0tgyfu4ac3" path="res://ball_python_body_straight.png" id="1_7umlx"]
+[ext_resource type="Texture2D" uid="uid://nophi3bin00d" path="res://ball_python_body_turn.png" id="2_cvpv4"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BallPythonBodyStraight" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_7umlx")
+
+[node name="BallPythonBodyTurn" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture = ExtResource("2_cvpv4")
