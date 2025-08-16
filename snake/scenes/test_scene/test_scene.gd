@@ -3,5 +3,5 @@ extends Node2D
 
 func  _ready() -> void:
 	var player: Player = $Player
-	player.initialize("res://assets/sprites/ball_python.png", Vector2(50,50))
+	player.initialize("res://assets/sprites/ball_python.png")
 	

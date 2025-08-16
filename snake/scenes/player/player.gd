@@ -9,12 +9,11 @@ const SnakeSpriteTypes = preload("res://scenes/player/snake_sprite_types.gd")
 var _body_parts: Array[BodyPart] = []
 
   
-func initialize(snake_sprite_path: String, intial_position: Vector2) -> void:
+func initialize(snake_sprite_path: String) -> void:
 	self.sprite_file_path = snake_sprite_path
-	self.position = intial_position
 	
-	var tail_postion: Vector2 = Vector2(intial_position.x, intial_position.y + Constants.SPRITE_SIZE)
-	var head: BodyPart = BodyPart.new(snake_sprite_path, intial_position, SnakeSpriteTypes.Type.HEAD)
+	var tail_postion: Vector2 = Vector2(position.x, position.y + Constants.SPRITE_SIZE)
+	var head: BodyPart = BodyPart.new(snake_sprite_path, position, SnakeSpriteTypes.Type.HEAD)
 	var tail: BodyPart = BodyPart.new(snake_sprite_path, tail_postion, SnakeSpriteTypes.Type.TAIL)
 	self.add_child(head)
 	self.add_child(tail) #TODO invent something better
