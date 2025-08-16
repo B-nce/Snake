@@ -31,7 +31,7 @@ func _input(event):
 			move()
 			%MoveTimer.start()
 
-func move():
+func move() -> void:
 	global_position += direction * 16
 	#rotation_degrees = rot
 	move_and_slide()
@@ -40,5 +40,5 @@ func move():
 func _on_timer_timeout() -> void:
 	move()
 	
-func take_damage():
+func take_damage() -> void:
 	health_points -= 1
