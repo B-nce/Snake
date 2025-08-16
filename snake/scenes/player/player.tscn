@@ -1,28 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://iocv5fo1fth5"]
 
-[ext_resource type="Texture2D" uid="uid://bpaes0rw6kfwf" path="res://assets/sprites/ball_python_head.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://chxrivw74ah0o" path="res://scenes/player/player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://omkcrp6e5gms" path="res://scenes/player/body_part.gd" id="2_dovo2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(16, 16)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8afob"]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(100, 100)
-shape = SubResource("RectangleShape2D_onrkg")
+shape = SubResource("RectangleShape2D_8afob")
 
-[node name="BallPythonHead" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-texture_filter = 1
-position = Vector2(100, 100)
-texture = ExtResource("1_4flbx")
-
-[node name="MoveTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-autostart = true
-
-[connection signal="timeout" from="MoveTimer" to="." method="_on_timer_timeout"]
+[node name="BodyPart" type="Sprite2D" parent="."]
+script = ExtResource("2_dovo2")

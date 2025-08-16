@@ -1,38 +1,47 @@
+class_name Player
 extends CharacterBody2D
 
-var direction = Vector2(0, -1)
-var rot = 0
-var health_points = 1
-var score = 0
 
-func _input(event):
+const SnakeSpriteTypes = preload("res://scenes/player/snake_sprite_types.gd")
+@export var direction: float = Constants.ROTATION_UP
+@export var health_points: int = 1
+@export var sprite_file_path: String
+var _sprite_path: String
+var _body_parts: Array[BodyPart] = []
+
+  
+func _init(snake_sprite_path: String, intial_position: Vector2) -> void:
+	self._sprite_path = snake_sprite_path
+	self.position = intial_position
+	
+	var tail_postion: Vector2 = Vector2(intial_position.x, intial_position.y + Constants.SPRITE_SIZE)
+	var head: BodyPart = BodyPart.new(snake_sprite_path, intial_position, SnakeSpriteTypes.Type.HEAD)
+	var tail: BodyPart = BodyPart.new(snake_sprite_path, tail_postion, SnakeSpriteTypes.Type.HEAD)
+	self._body_parts.append(head)
+	self._body_parts.append(tail)
+
+
+func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("up"):
-		if direction != Vector2(0,1)&& direction != Vector2(0,-1):
-			direction = Vector2(0,-1)
-			%BallPythonHead.rotation_degrees = 0
+		if(direction == Constants.ROTATION_LEFT or direction == Constants.ROTATION_RIGHT):
+			direction = Constants.ROTATION_UP
 			move()
-			%MoveTimer.start()
 	if event.is_action_pressed("down"):
-		if direction != Vector2(0,-1) && direction != Vector2(0,1):
-			direction = Vector2(0,1)
-			%BallPythonHead.rotation_degrees = 180
+		if(direction == Constants.ROTATION_LEFT or direction == Constants.ROTATION_RIGHT):
+			direction = Constants.ROTATION_DOWN
 			move()
-			%MoveTimer.start()
 	if event.is_action_pressed("right"):
-		if direction != Vector2(-1,0)&& direction != Vector2(1,0):
-			direction = Vector2(1,0)
-			%BallPythonHead.rotation_degrees = 90
+		if(direction == Constants.ROTATION_UP or direction == Constants.ROTATION_DOWN):
+			direction = Constants.ROTATION_RIGHT
 			move()
-			%MoveTimer.start()
-	if event.is_action_pressed("left")&& direction != Vector2(-1,0):
-		if direction != Vector2(1,0):
-			direction = Vector2(-1,0)
-			%BallPythonHead.rotation_degrees = 270
+	if event.is_action_pressed("left"):
+		if(direction == Constants.ROTATION_UP or direction == Constants.ROTATION_DOWN):
+			direction = Constants.ROTATION_LEFT
 			move()
-			%MoveTimer.start()
+
+
 
 func move() -> void:
-	global_position += direction * 16
 	#rotation_degrees = rot
 	move_and_slide()
 	
