@@ -6,17 +6,18 @@ const SnakeSpriteTypes = preload("res://scenes/player/snake_sprite_types.gd")
 @export var direction: float = Constants.ROTATION_UP
 @export var health_points: int = 1
 @export var sprite_file_path: String
-var _sprite_path: String
 var _body_parts: Array[BodyPart] = []
 
   
-func _init(snake_sprite_path: String, intial_position: Vector2) -> void:
-	self._sprite_path = snake_sprite_path
+func initialize(snake_sprite_path: String, intial_position: Vector2) -> void:
+	self.sprite_file_path = snake_sprite_path
 	self.position = intial_position
 	
 	var tail_postion: Vector2 = Vector2(intial_position.x, intial_position.y + Constants.SPRITE_SIZE)
 	var head: BodyPart = BodyPart.new(snake_sprite_path, intial_position, SnakeSpriteTypes.Type.HEAD)
-	var tail: BodyPart = BodyPart.new(snake_sprite_path, tail_postion, SnakeSpriteTypes.Type.HEAD)
+	var tail: BodyPart = BodyPart.new(snake_sprite_path, tail_postion, SnakeSpriteTypes.Type.TAIL)
+	self.add_child(head)
+	self.add_child(tail) #TODO invent something better
 	self._body_parts.append(head)
 	self._body_parts.append(tail)
 

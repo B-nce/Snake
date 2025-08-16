@@ -1,22 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwgyud4ob1l6v"]
+[gd_scene load_steps=3 format=3 uid="uid://dwgyud4ob1l6v"]
 
+[ext_resource type="Script" uid="uid://fk6xuocvc5sx" path="res://scenes/test_scene/test_scene.gd" id="1_8pyld"]
 [ext_resource type="PackedScene" uid="uid://iocv5fo1fth5" path="res://scenes/player/player.tscn" id="1_ia1lp"]
-[ext_resource type="PackedScene" uid="uid://cnqwtct24fo5x" path="res://scenes/snake_neck/snake_neck.tscn" id="2_coq8p"]
-[ext_resource type="PackedScene" uid="uid://7q465atragqy" path="res://scenes/snake_body/snake_body.tscn" id="2_sasra"]
 
-[node name="Node2D" type="Node2D"]
+[node name="TestScene" type="Node2D"]
+script = ExtResource("1_8pyld")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_ia1lp")]
-position = Vector2(23, 17)
-
-[node name="Node2D" parent="CharacterBody2D" instance=ExtResource("2_coq8p")]
-position = Vector2(100, 116)
-
-[node name="Area2D" parent="CharacterBody2D/Node2D" instance=ExtResource("2_sasra")]
-position = Vector2(0, 16)
-
-[node name="Area2D2" parent="CharacterBody2D/Node2D/Area2D" instance=ExtResource("2_sasra")]
-position = Vector2(0, 16)
-
-[node name="Area2D3" parent="CharacterBody2D/Node2D/Area2D/Area2D2" instance=ExtResource("2_sasra")]
-position = Vector2(0, 16)
+[node name="Player" parent="." instance=ExtResource("1_ia1lp")]

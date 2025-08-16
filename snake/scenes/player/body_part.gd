@@ -21,6 +21,6 @@ func update_sprite(new_position: Vector2, new_rotation: float, type: SnakeSprite
 func _set_sprite_type(type: SnakeSpriteTypes.Type) -> void:
 	var top_left_x: float = Constants.SPRITE_SIZE * type
 	var top_left_y: float = 0
-	var bottom_right_x: float = Constants.SPRITE_SIZE * type + (Constants.SPRITE_SIZE - 1)
-	var bottom_right_y: float = Constants.SPRITE_SIZE - 1
-	self.region_rect = Rect2(top_left_x, top_left_y, bottom_right_x, bottom_right_y)
+	var width: float = Constants.SPRITE_SIZE
+	var height: float = Constants.SPRITE_SIZE
+	self.region_rect = Rect2(top_left_x, top_left_y, width, height)
