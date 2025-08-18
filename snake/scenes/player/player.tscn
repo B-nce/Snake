@@ -14,3 +14,4 @@ position = Vector2(50, 50)
 shape = SubResource("RectangleShape2D_8afob")
 
 [node name="BodyParts" type="Node2D" parent="."]
+unique_name_in_owner = true
