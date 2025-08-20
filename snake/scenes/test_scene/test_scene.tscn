@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwgyud4ob1l6v"]
+[gd_scene load_steps=4 format=3 uid="uid://dwgyud4ob1l6v"]
 
 [ext_resource type="Script" uid="uid://fk6xuocvc5sx" path="res://scenes/test_scene/test_scene.gd" id="1_8pyld"]
 [ext_resource type="PackedScene" uid="uid://iocv5fo1fth5" path="res://scenes/player/player.tscn" id="1_ia1lp"]
+[ext_resource type="Texture2D" uid="uid://dim6tp30hkaxk" path="res://assets/sprites/green_anaconda.png" id="3_1x7oe"]
 
 [node name="TestScene" type="Node2D"]
 script = ExtResource("1_8pyld")
 
 [node name="Player" parent="." instance=ExtResource("1_ia1lp")]
-position = Vector2(50, 50)
+position = Vector2(134, 172)
+length = 8
+texture = ExtResource("3_1x7oe")
