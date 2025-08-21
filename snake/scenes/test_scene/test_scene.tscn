@@ -8,6 +8,7 @@
 script = ExtResource("1_8pyld")
 
 [node name="Player" parent="." instance=ExtResource("1_ia1lp")]
+unique_name_in_owner = true
 position = Vector2(134, 172)
 length = 8
 texture = ExtResource("3_1x7oe")

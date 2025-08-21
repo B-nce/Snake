@@ -10,7 +10,7 @@ collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_onrkg")
 
-[node name="HeadCollision" type="CollisionShape2D" parent="."]
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8afob")
 
 [node name="BodyParts" type="Node2D" parent="."]
