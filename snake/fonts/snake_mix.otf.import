@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://crucmw06axoqb"
-path="res://.godot/imported/Snake mix.otf-3dde8ec1cbb662d8f690357b07aa646d.fontdata"
+path="res://.godot/imported/snake_mix.otf-89a070c9f962be578f71fe6855e1d310.fontdata"
 
 [deps]
 
-source_file="res://fonts/Snake mix.otf"
-dest_files=["res://.godot/imported/Snake mix.otf-3dde8ec1cbb662d8f690357b07aa646d.fontdata"]
+source_file="res://fonts/snake_mix.otf"
+dest_files=["res://.godot/imported/snake_mix.otf-89a070c9f962be578f71fe6855e1d310.fontdata"]
 
 [params]
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://8ptdmrrdwojh"]
 
-[ext_resource type="FontFile" uid="uid://cm40i6mvl1t3e" path="res://fonts/SnakeBusiness.ttf" id="1_7vrkn"]
+[ext_resource type="FontFile" uid="uid://cm40i6mvl1t3e" path="res://fonts/snake_business.ttf" id="1_7vrkn"]
 [ext_resource type="Script" uid="uid://cs26lvs7bf0x2" path="res://scenes/main_menu_scene/main_menu.gd" id="1_fu7sn"]
-[ext_resource type="FontFile" uid="uid://cxaq1lpo2t7ho" path="res://fonts/BLKCHCRY.TTF" id="2_7vrkn"]
+[ext_resource type="FontFile" uid="uid://cxaq1lpo2t7ho" path="res://fonts/black_charcoal.TTF" id="2_7vrkn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
 bg_color = Color(0.684098, 0.582663, 0.445276, 1)

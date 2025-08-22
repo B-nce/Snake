@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cm40i6mvl1t3e"
-path="res://.godot/imported/SnakeBusiness.ttf-4eb2cf8c365d521afd962ca933b43590.fontdata"
+uid="uid://cxaq1lpo2t7ho"
+path="res://.godot/imported/black_charcoal.TTF-8bbd82c1d1afe6f2ba513c2df94afec8.fontdata"
 
 [deps]
 
-source_file="res://fonts/SnakeBusiness.ttf"
-dest_files=["res://.godot/imported/SnakeBusiness.ttf-4eb2cf8c365d521afd962ca933b43590.fontdata"]
+source_file="res://fonts/black_charcoal.TTF"
+dest_files=["res://.godot/imported/black_charcoal.TTF-8bbd82c1d1afe6f2ba513c2df94afec8.fontdata"]
 
 [params]
 

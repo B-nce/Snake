@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cxaq1lpo2t7ho"
-path="res://.godot/imported/BLKCHCRY.TTF-5a577e7a58ee855aa63b5082901073f1.fontdata"
+uid="uid://cm40i6mvl1t3e"
+path="res://.godot/imported/snake_business.ttf-ffb09063da69ed926275f6f248c25fb0.fontdata"
 
 [deps]
 
-source_file="res://fonts/BLKCHCRY.TTF"
-dest_files=["res://.godot/imported/BLKCHCRY.TTF-5a577e7a58ee855aa63b5082901073f1.fontdata"]
+source_file="res://fonts/snake_business.ttf"
+dest_files=["res://.godot/imported/snake_business.ttf-ffb09063da69ed926275f6f248c25fb0.fontdata"]
 
 [params]
 
