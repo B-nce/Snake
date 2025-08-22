@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://mop4are3tisa"
+path="res://.godot/imported/ClueCluedo OST Main Theme [HD] [Steam].mp3-bd974b6152d9fa5b6e92c9f5c8dcc2a8.mp3str"
+
+[deps]
+
+source_file="res://scenes/options_scene/ClueCluedo OST Main Theme [HD] [Steam].mp3"
+dest_files=["res://.godot/imported/ClueCluedo OST Main Theme [HD] [Steam].mp3-bd974b6152d9fa5b6e92c9f5c8dcc2a8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
