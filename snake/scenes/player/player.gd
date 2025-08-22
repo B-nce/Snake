@@ -10,6 +10,7 @@ const BodyPartScene: PackedScene = preload("res://scenes/body_part/body_part.tsc
 @export var texture: Texture2D = load("res://assets/sprites/ball_python.png") 
 @export var move_interval: float = 1
 var _timer: float = 0
+var _previous_tail_position: Vector2
 
   
 func _ready() -> void:
@@ -71,8 +72,8 @@ func _move_and_reset_timer() -> void:
 	_timer = 0
 	_move_snake_body()#first move the snake
 	#then add body part
-	_correct_snake_sprites()#then set new sprite types and rotations
 	_check_collision()
+	_correct_snake_sprites()#then set new sprite types and rotations
 
 
 func take_damage() -> void:
@@ -90,11 +91,15 @@ func _check_collision() -> void:
 			match group:
 				Constants.COLLISON_BODY:
 					take_damage()
+				Constants.COLLISON_APPLE:
+					_add_body_part(_previous_tail_position, SnakeSpriteTypes.Type.TAIL, Constants.COLLISON_BODY)
 
 
 func _move_snake_body() -> void:
 	var body_parts: Array[BodyPart] = []
 	body_parts.assign(%BodyParts.get_children() as Array[BodyPart])
+	
+	_previous_tail_position = body_parts[-1].position
 	
 	for i: int in range(body_parts.size() - 1, 0, -1):
 		body_parts[i].position = body_parts[i - 1].position

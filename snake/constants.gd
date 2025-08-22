@@ -10,3 +10,4 @@ const EPSILON: float = 0.001
 #collision groups
 const COLLISON_HEAD: StringName = "head"
 const COLLISON_BODY: StringName = "body"
+const COLLISON_APPLE: StringName = "apple"
