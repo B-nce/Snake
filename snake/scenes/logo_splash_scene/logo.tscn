@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3msi6y8djxi6"]
+
+[ext_resource type="Script" uid="uid://b0nr42m0psegu" path="res://scenes/logo_splash_scene/logo.gd" id="1_cc1fu"]
+[ext_resource type="Texture2D" uid="uid://bdb0a5k8lf321" path="res://assets/hrsketch.png" id="1_gvxpq"]
+[ext_resource type="FontFile" uid="uid://cxaq1lpo2t7ho" path="res://fonts/black_charcoal.TTF" id="2_cc1fu"]
+[ext_resource type="PackedScene" uid="uid://8ptdmrrdwojh" path="res://scenes/main_menu_scene/main_menu.tscn" id="2_rw364"]
+
+[node name="Logo" type="Control" node_paths=PackedStringArray("splash_screen")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cc1fu")
+load_scene = ExtResource("2_rw364")
+splash_screen = NodePath("HFlowContainer")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="HFlowContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cc1fu")
+theme_override_font_sizes/font_size = 100
+text = "Hullarabló Games"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HFlowContainer"]
+custom_minimum_size = Vector2(748, 421)
+layout_mode = 2
+texture = ExtResource("1_gvxpq")
+expand_mode = 1

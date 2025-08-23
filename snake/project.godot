@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Snake"
-run/main_scene="uid://cs3vwhjl6w3l3"
+run/main_scene="uid://8ptdmrrdwojh"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -27,6 +27,7 @@ gdscript/warnings/return_value_discarded=1
 
 [display]
 
-window/size/viewport_width=288
-window/size/viewport_height=320
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="viewport"
+<<<<<<<HEADwindow/size/viewport_width=1920
