@@ -1,0 +1,104 @@
+[gd_scene load_steps=7 format=3 uid="uid://bddu0odjfnm0e"]
+
+[ext_resource type="FontFile" uid="uid://cm40i6mvl1t3e" path="res://fonts/snake_business.ttf" id="1_t5gxd"]
+[ext_resource type="Script" uid="uid://do50scb6xxk4e" path="res://scenes/level_select/level_select.gd" id="1_vdlig"]
+[ext_resource type="FontFile" uid="uid://cxaq1lpo2t7ho" path="res://fonts/black_charcoal.TTF" id="3_3c84o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ek2u"]
+bg_color = Color(0.684098, 0.582663, 0.445276, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vdlig"]
+bg_color = Color(0.714734, 0.581304, 0.271327, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0745098, 0.423529, 0.105882, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 150
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 150
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3c84o"]
+bg_color = Color(0.714734, 0.581304, 0.271327, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0745098, 0.423529, 0.105882, 1)
+corner_radius_top_left = 150
+corner_radius_top_right = 5
+corner_radius_bottom_right = 150
+corner_radius_bottom_left = 5
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vdlig")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ek2u")
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 650.0
+offset_top = 763.0
+offset_right = 1252.0
+offset_bottom = 829.0
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_t5gxd")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/hover = SubResource("StyleBoxFlat_vdlig")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vdlig")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3c84o")
+text = "(back)"
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -153.5
+offset_right = 153.5
+offset_bottom = 126.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("3_3c84o")
+theme_override_font_sizes/font_size = 100
+text = "Level Select"
+
+[node name="Level1Button" type="Button" parent="."]
+offset_left = 650.0
+offset_top = 184.0
+offset_right = 1252.0
+offset_bottom = 250.0
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_t5gxd")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/hover = SubResource("StyleBoxFlat_vdlig")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vdlig")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3c84o")
+text = "(Level one)"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
