@@ -1,16 +1,22 @@
 extends Node2D
 
 
-const Apple = preload("res://scenes/apple/apple.tscn")
+const AppleScene: PackedScene = preload("res://scenes/apple/apple.tscn")
 @onready var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-@onready var map_size: Vector2 = $Floor.get_used_rect().size * Constants.SPRITE_SIZE
+@onready var map_size: Vector2 = ($Floor as TileMapLayer).get_used_rect().size * Constants.SPRITE_SIZE
+
 
 func _ready() -> void:
 	_spawn_apple()
 	%Player.map_size = self.map_size
 
 
-func _on_apple_eaten(apple) -> void:
+var apple_pos
+func _process(delta: float) -> void:
+	%PositionInfo.text = "HEAD: " + (%Player.position.x as String) + " " + (%Player.position.y as String) +  "\n APPLE: " + (apple_pos.x as String) + " "  + (apple_pos.y as String)
+
+
+func _on_player_apple_eaten() -> void:
 	_spawn_apple()
 
 
@@ -21,14 +27,14 @@ func _on_player_snake_death() -> void:
 	label.size = Vector2(40,40)
 
 
-func _spawn_apple():
-	var apple: Apple = Apple.instantiate()
+func _spawn_apple() ->void:
+	var apple: Apple = AppleScene.instantiate()
 	add_child(apple)
-	apple.connect("apple_eaten", Callable(self, "_on_apple_eaten"))
 
-	var apple_position: Vector2 = Vector2(randi_range(0, map_size.x) / Constants.SPRITE_SIZE, 
-		randi_range(0, map_size.y) / Constants.SPRITE_SIZE)
-		
+	var apple_position: Vector2 = Vector2(randi_range(0, map_size.x * Constants.SPRITE_SIZE) / Constants.SPRITE_SIZE, 
+		randi_range(0, map_size.y * Constants.SPRITE_SIZE) / Constants.SPRITE_SIZE)
+	
+	apple_pos = apple_position
 	while _point_in_area(apple_position):
 		apple_position = Vector2(randi_range(0, map_size.x - 1) / Constants.SPRITE_SIZE, 
 		randi_range(0, map_size.y - 1) / Constants.SPRITE_SIZE)
@@ -44,5 +50,5 @@ func _point_in_area(point: Vector2) -> bool:
 	query_parameters.position = point
 	
 	var space_state = get_world_2d().direct_space_state
-	var result: Array[Dictionary] = space_state.intersect_point(query_parameters)
+	var result: Array[Dictionary] = space_state.intersect_point(query_parameters, 1)
 	return result.size() > 0

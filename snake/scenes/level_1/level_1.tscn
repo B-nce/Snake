@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://cs3vwhjl6w3l3"]
+[gd_scene load_steps=9 format=4 uid="uid://cs3vwhjl6w3l3"]
 
 [ext_resource type="Script" uid="uid://d38dj5lexsngu" path="res://scenes/level_1/level_1.gd" id="1_janvk"]
 [ext_resource type="Texture2D" uid="uid://der2aabcpt52n" path="res://assets/sprites/static_tiles.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://iocv5fo1fth5" path="res://scenes/player/player.tscn" id="2_igcjm"]
 [ext_resource type="Script" uid="uid://bjdsp3416fmcp" path="res://scenes/wall_tile_layer/wall_tile_layer.gd" id="4_igcjm"]
-[ext_resource type="PackedScene" uid="uid://bcrrspqjibwxb" path="res://scenes/apple/apple.tscn" id="5_jr17i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_janvk"]
 texture = ExtResource("1_uwrxv")
@@ -42,7 +41,10 @@ tile_map_data = PackedByteArray("AAAGAA4AAQACAAAAAAAHAA4AAQACAAAAAAAIAA4AAQACAAA
 tile_set = SubResource("TileSet_7e5lm")
 script = ExtResource("4_igcjm")
 
-[node name="Apple" parent="." instance=ExtResource("5_jr17i")]
-position = Vector2(56, 200)
+[node name="PositionInfo" type="Label" parent="."]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
 
+[connection signal="apple_eaten" from="Player" to="." method="_on_player_apple_eaten"]
 [connection signal="snake_death" from="Player" to="." method="_on_player_snake_death"]

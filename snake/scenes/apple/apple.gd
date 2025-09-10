@@ -1,12 +1,10 @@
 class_name Apple
 extends Area2D
 
-signal apple_eaten
 
 func _ready() -> void:
+	add_to_group(Constants.COLLISION_APPLE)
+	set_collision_layer_value(Constants.COLLISION_LAYER_PLAYER, true)
+	set_collision_mask_value(Constants.COLLISION_MASK_FLOOR, true) 
+	set_collision_mask_value(Constants.COLLISION_MASK_PLAYER, true) 
 	connect("area_entered", Callable(self, "_on_area_entered"))
-
-func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group(Constants.COLLISION_HEAD):
-		emit_signal("apple_eaten", self)  
-		queue_free()

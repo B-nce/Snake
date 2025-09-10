@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 signal snake_death
+signal apple_eaten
 const SnakeSpriteTypes = preload("res://scenes/player/snake_sprite_types.gd")
 const BodyPartScene: PackedScene = preload("res://scenes/body_part/body_part.tscn")
 @export var direction: float = Constants.ROTATION_UP
@@ -78,13 +79,6 @@ func _move_and_reset_timer() -> void:
 	_correct_snake_sprites()
 
 
-func _take_damage() -> void:
-	health_points -= 1
-	if health_points <= 0:
-		movement_is_enabled = false
-		snake_death.emit()
-
-
 func _check_collision() -> void:
 	var body_parts: Array[BodyPart] = []
 	body_parts.assign(%BodyParts.get_children() as Array[BodyPart])
@@ -97,7 +91,21 @@ func _check_collision() -> void:
 				Constants.COLLISION_BODY, Constants.COLLISION_WALL, Constants.COLLISION_HEAD:
 					_take_damage()
 				Constants.COLLISION_APPLE:
-					_add_body_part(_previous_tail_position, SnakeSpriteTypes.Type.TAIL, Constants.COLLISION_BODY)
+					_eat_apple(overlap)
+					
+
+
+func _take_damage() -> void:
+	health_points -= 1
+	if health_points <= 0:
+		movement_is_enabled = false
+		snake_death.emit()
+
+
+func _eat_apple(apple: Area2D) -> void:
+	apple.queue_free()
+	_add_body_part(_previous_tail_position, SnakeSpriteTypes.Type.TAIL, Constants.COLLISION_BODY)
+	apple_eaten.emit()
 
 
 func _move_snake_body() -> void:
