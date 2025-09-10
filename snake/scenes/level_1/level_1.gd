@@ -34,7 +34,7 @@ func _spawn_apple() ->void:
 	var apple_position: Vector2 = Vector2(randi_range(0, map_size.x * Constants.SPRITE_SIZE) / Constants.SPRITE_SIZE, 
 		randi_range(0, map_size.y * Constants.SPRITE_SIZE) / Constants.SPRITE_SIZE)
 	
-	apple_pos = apple_position
+	#apple_pos = apple_position
 	while _point_in_area(apple_position):
 		apple_position = Vector2(randi_range(0, map_size.x - 1) / Constants.SPRITE_SIZE, 
 		randi_range(0, map_size.y - 1) / Constants.SPRITE_SIZE)
