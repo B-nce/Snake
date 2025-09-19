@@ -3,12 +3,12 @@ extends Node2D
 
 const AppleScene: PackedScene = preload("res://scenes/apple/apple.tscn")
 @onready var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-@onready var map_size: Vector2 = ($Floor as TileMapLayer).get_used_rect().size * Constants.SPRITE_SIZE
+@onready var map_size_in_tiles: Vector2 = ($Floor as TileMapLayer).get_used_rect().size
 
 
 func _ready() -> void:
 	_spawn_apple()
-	%Player.map_size = self.map_size
+	%Player.map_size = self.map_size_in_tiles * Constants.SPRITE_SIZE
 
 
 #var apple_pos
@@ -30,14 +30,14 @@ func _on_player_snake_death() -> void:
 func _spawn_apple() ->void:
 	var apple: Apple = AppleScene.instantiate()
 	add_child(apple)
-
-	var apple_position: Vector2 = Vector2(randi_range(0, map_size.x * Constants.SPRITE_SIZE) / Constants.SPRITE_SIZE, 
-		randi_range(0, map_size.y * Constants.SPRITE_SIZE) / Constants.SPRITE_SIZE)
+	
+	var apple_position: Vector2 = Vector2(randi_range(0, map_size_in_tiles.x - 1 ) * Constants.SPRITE_SIZE, 
+		randi_range(0, map_size_in_tiles.y - 1) * Constants.SPRITE_SIZE)
 	
 	#apple_pos = apple_position
 	while _point_in_area(apple_position):
-		apple_position = Vector2(randi_range(0, map_size.x - 1) / Constants.SPRITE_SIZE, 
-		randi_range(0, map_size.y - 1) / Constants.SPRITE_SIZE)
+		apple_position = Vector2(randi_range(0, map_size_in_tiles.x - 1 ) * Constants.SPRITE_SIZE, 
+		randi_range(0, map_size_in_tiles.y - 1) * Constants.SPRITE_SIZE)
 		
 	apple.position = apple_position
 

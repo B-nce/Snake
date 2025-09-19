@@ -15,19 +15,20 @@ const BodyPartScene: PackedScene = preload("res://scenes/body_part/body_part.tsc
 var _timer: float = 0
 var _previous_tail_position: Vector2
 
-func _init() -> void:
-	pass
 
 func _ready() -> void:
 	self.top_level = true
-	create_snake_body()
+	_create_snake_body()
+
+
+func set_snake_skin(new_texture: Texture2D) -> void:
+	self.texture = new_texture
+	_create_snake_body()
 
 
 func _process(delta: float) -> void:
-	if move_interval < 0:
-		return
 	_timer += delta 
-	if _timer >= move_interval and movement_is_enabled:
+	if movement_is_enabled and  _timer >= move_interval :
 		_move_and_reset_timer()
 
 
@@ -60,7 +61,7 @@ func _add_body_part(part_position: Vector2, type: SnakeSpriteTypes.Type, collisi
 	new_part.add_to_group(collision_group)
 
 
-func create_snake_body() -> void:
+func _create_snake_body() -> void:
 	for i: Node in %BodyParts.get_children():
 		%BodyParts.remove_child(i)
 		i.queue_free()
