@@ -15,13 +15,17 @@ const BodyPartScene: PackedScene = preload("res://scenes/body_part/body_part.tsc
 var _timer: float = 0
 var _previous_tail_position: Vector2
 
-  
+func _init() -> void:
+	pass
+
 func _ready() -> void:
 	self.top_level = true
 	create_snake_body()
 
 
 func _process(delta: float) -> void:
+	if move_interval < 0:
+		return
 	_timer += delta 
 	if _timer >= move_interval and movement_is_enabled:
 		_move_and_reset_timer()
