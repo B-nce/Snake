@@ -1,7 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
-
+signal snake_death
+signal apple_eaten
 const SnakeSpriteTypes = preload("res://scenes/player/snake_sprite_types.gd")
 const BodyPartScene: PackedScene = preload("res://scenes/body_part/body_part.tscn")
 @export var direction: float = Constants.ROTATION_UP
@@ -9,6 +10,8 @@ const BodyPartScene: PackedScene = preload("res://scenes/body_part/body_part.tsc
 @export_range(2, 100, 1) var length: int = 2
 @export var texture: Texture2D = load("res://assets/sprites/ball_python.png") 
 @export var move_interval: float = 1
+@export var movement_is_enabled: bool = true
+@export var map_size: Vector2 = Vector2(18,20)
 var _timer: float = 0
 var _previous_tail_position: Vector2
 
@@ -24,27 +27,28 @@ func _process(delta: float) -> void:
 	if move_interval < 0:
 		return
 	_timer += delta 
-	if _timer >= move_interval:
+	if _timer >= move_interval and movement_is_enabled:
 		_move_and_reset_timer()
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("up"):
-		if direction == Constants.ROTATION_LEFT or direction == Constants.ROTATION_RIGHT :
-			direction = Constants.ROTATION_UP
-			_move_and_reset_timer()
-	if event.is_action_pressed("down"):
-		if direction == Constants.ROTATION_LEFT or direction == Constants.ROTATION_RIGHT :
-			direction = Constants.ROTATION_DOWN
-			_move_and_reset_timer()
-	if event.is_action_pressed("right"):
-		if direction == Constants.ROTATION_UP or direction == Constants.ROTATION_DOWN :
-			direction = Constants.ROTATION_RIGHT
-			_move_and_reset_timer()
-	if event.is_action_pressed("left"):
-		if direction == Constants.ROTATION_UP or direction == Constants.ROTATION_DOWN :
-			direction = Constants.ROTATION_LEFT
-			_move_and_reset_timer()
+	if movement_is_enabled:
+		if event.is_action_pressed("up"):
+			if direction == Constants.ROTATION_LEFT or direction == Constants.ROTATION_RIGHT :
+				direction = Constants.ROTATION_UP
+				_move_and_reset_timer()
+		if event.is_action_pressed("down"):
+			if direction == Constants.ROTATION_LEFT or direction == Constants.ROTATION_RIGHT :
+				direction = Constants.ROTATION_DOWN
+				_move_and_reset_timer()
+		if event.is_action_pressed("right"):
+			if direction == Constants.ROTATION_UP or direction == Constants.ROTATION_DOWN :
+				direction = Constants.ROTATION_RIGHT
+				_move_and_reset_timer()
+		if event.is_action_pressed("left"):
+			if direction == Constants.ROTATION_UP or direction == Constants.ROTATION_DOWN :
+				direction = Constants.ROTATION_LEFT
+				_move_and_reset_timer()
 
 
 func _add_body_part(part_position: Vector2, type: SnakeSpriteTypes.Type, collision_group: String) -> void:
@@ -64,24 +68,19 @@ func create_snake_body() -> void:
 	var start_positon: Vector2 = position
 	for i: int in range(0, length):
 		if i == 0 :
-			_add_body_part(start_positon, SnakeSpriteTypes.Type.HEAD, Constants.COLLISON_HEAD)
+			_add_body_part(start_positon, SnakeSpriteTypes.Type.HEAD, Constants.COLLISION_HEAD)
 		elif i == length -1 :
-			_add_body_part(start_positon, SnakeSpriteTypes.Type.TAIL, Constants.COLLISON_BODY)
+			_add_body_part(start_positon, SnakeSpriteTypes.Type.TAIL, Constants.COLLISION_BODY)
 		else:
-			_add_body_part(start_positon, SnakeSpriteTypes.Type.BODY_STRAIGHT, Constants.COLLISON_BODY)
+			_add_body_part(start_positon, SnakeSpriteTypes.Type.BODY_STRAIGHT, Constants.COLLISION_BODY)
 		start_positon = Vector2(start_positon.x, start_positon.y + Constants.SPRITE_SIZE)
 
 
 func _move_and_reset_timer() -> void:
 	_timer = 0
-	_move_snake_body()#first move the snake
-	#then add body part
+	_move_snake_body()
 	_check_collision()
-	_correct_snake_sprites()#then set new sprite types and rotations
-
-
-func take_damage() -> void:
-	health_points -= 1
+	_correct_snake_sprites()
 
 
 func _check_collision() -> void:
@@ -93,10 +92,24 @@ func _check_collision() -> void:
 		for overlap: Area2D in overlaps:
 			var group: StringName = overlap.get_groups().back()
 			match group:
-				Constants.COLLISON_BODY:
-					take_damage()
-				Constants.COLLISON_APPLE:
-					_add_body_part(_previous_tail_position, SnakeSpriteTypes.Type.TAIL, Constants.COLLISON_BODY)
+				Constants.COLLISION_BODY, Constants.COLLISION_WALL, Constants.COLLISION_HEAD:
+					_take_damage()
+				Constants.COLLISION_APPLE:
+					_eat_apple(overlap)
+					
+
+
+func _take_damage() -> void:
+	health_points -= 1
+	if health_points <= 0:
+		movement_is_enabled = false
+		snake_death.emit()
+
+
+func _eat_apple(apple: Area2D) -> void:
+	apple.queue_free()
+	_add_body_part(_previous_tail_position, SnakeSpriteTypes.Type.TAIL, Constants.COLLISION_BODY)
+	apple_eaten.emit()
 
 
 func _move_snake_body() -> void:
@@ -109,6 +122,10 @@ func _move_snake_body() -> void:
 		body_parts[i].position = body_parts[i - 1].position
 	
 	self.position += Vector2(0,-1).rotated(direction) * Constants.SPRITE_SIZE
+	#The snake comes back on the other side of the map
+	self.position.x = posmod(self.position.x, map_size.x)
+	self.position.y = posmod(self.position.y, map_size.y)
+	
 	body_parts[0].position = self.position
 
 
@@ -119,8 +136,9 @@ func _correct_snake_sprites() -> void:
 	body_parts[0].update_sprite(direction, SnakeSpriteTypes.Type.HEAD)
 	
 	for n: int in range(1,body_parts.size() - 1):
-		var next_part_diff: Vector2 = body_parts[n + 1].position - body_parts[n].position
-		var prev_part_diff: Vector2 = body_parts[n - 1].position - body_parts[n].position
+		var next_part_diff: Vector2 = _wrap_diff(body_parts[n + 1].position - body_parts[n].position)
+		var prev_part_diff: Vector2 =_wrap_diff(body_parts[n - 1].position - body_parts[n].position)
+
 		var difference: Vector2 = body_parts[n - 1].position - body_parts[n + 1].position 
 		if abs(difference.x) < Constants.EPSILON or abs(difference.y) < Constants.EPSILON:
 			body_parts[n].update_sprite(prev_part_diff.angle() + PI/2, SnakeSpriteTypes.Type.BODY_STRAIGHT)
@@ -131,5 +149,11 @@ func _correct_snake_sprites() -> void:
 			body_parts[n].flip_horizontally(prev_part_diff.x + Constants.EPSILON < 0 or next_part_diff.x + Constants.EPSILON < 0) 
 			body_parts[n].flip_vertically(prev_part_diff.y + Constants.EPSILON < 0 or next_part_diff.y + Constants.EPSILON < 0) 
 	
-	var tail_difference: Vector2 = body_parts[-2].position - body_parts[-1].position 
+	var tail_difference: Vector2 = _wrap_diff(body_parts[-2].position - body_parts[-1].position) 
 	body_parts[-1].update_sprite(tail_difference.angle() + PI/2, SnakeSpriteTypes.Type.TAIL)
+
+
+#If the next or previous part is not next to the current part it means the snake is
+#wrapping around the map. In that case the prev or next part is in the opposite direction
+func _wrap_diff(diff: Vector2) -> Vector2:
+	return diff if abs(diff.x) <= Constants.SPRITE_SIZE and abs(diff.y) <= Constants.SPRITE_SIZE else -diff
