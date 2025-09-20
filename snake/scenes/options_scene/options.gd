@@ -1,5 +1,7 @@
 extends Control
 
+
+signal skin_selected
 const volume_offset : float = 0.5
 
 func _ready() -> void:	
@@ -26,3 +28,9 @@ func _on_resolutions_item_selected(index: int) -> void:
 			DisplayServer.window_set_size(Vector2i(1600,900))
 		2:
 			DisplayServer.window_set_size(Vector2i(1280,720))
+
+
+func _on_snake_skin_panel_skin_selected(snake_path: String, snake_skin: Texture2D) -> void:
+	print("_on_skin_select_button_pressedn")
+	skin_selected.emit(snake_path, snake_skin)
+	pass

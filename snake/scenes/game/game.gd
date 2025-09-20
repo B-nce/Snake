@@ -1,13 +1,38 @@
 extends Node
 
 const SAVE_PATH: String = "user://snake.save"
+const MAIN_MENU_PATH: String = "res://scenes/main_menu_scene/main_menu.tscn"
+var options: Control
 var high_Score_level_1: int = 0
 var high_Score_level_2: int = 0
 var high_Score_level_3: int = 0
-var selected_skin: String = "res://assets/sprites/ball_python.png"
+var selected_skin_path: String = "res://assets/sprites/ball_python.png"
+var snake_skin_texture: Texture2D = load(selected_skin_path)
 
 func _ready() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu_scene/main_menu.tscn")
+	var main_menu_packed: PackedScene = load(MAIN_MENU_PATH)
+	var main_menu: Node = main_menu_packed.instantiate()
+	add_child(main_menu)
+	var scenes = get_tree().current_scene
+	print(scenes)
+	main_menu.options_loaded.connect(options_loaded)
+	load_data()
+	pass
+
+
+func options_loaded(main_menu: Node) -> void:
+	var menu = get_child(0)
+	options = menu.get_child(-1)
+	print(options)
+	options.skin_selected.connect(update_skin)
+	pass
+
+
+func update_skin(new_path: String, new_texture: Texture2D) -> void:
+	print("ez lehetetlen")
+	snake_skin_texture = new_texture
+	selected_skin_path = new_path
+	save_data()
 	pass
 
 
@@ -17,7 +42,7 @@ func load_data() -> void:
 		high_Score_level_1 = file.get_var()
 		high_Score_level_2 = file.get_var()
 		high_Score_level_3 = file.get_var()
-		selected_skin = file.get_var()
+		selected_skin_path = file.get_var()
 	pass
 
 
@@ -26,5 +51,5 @@ func save_data() -> void:
 	file.store_var(high_Score_level_1)
 	file.store_var(high_Score_level_2)
 	file.store_var(high_Score_level_3)
-	file.store_var(selected_skin)
+	file.store_var(selected_skin_path)
 	pass
