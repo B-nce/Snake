@@ -124,8 +124,8 @@ func _move_snake_body() -> void:
 	
 	self.position += Vector2(0,-1).rotated(direction) * Constants.SPRITE_SIZE
 	#The snake comes back on the other side of the map
-	self.position.x = posmod(self.position.x, map_size.x)
-	self.position.y = posmod(self.position.y, map_size.y)
+	self.position.x = roundi(fposmod(self.position.x, map_size.x))
+	self.position.y = roundi(fposmod(self.position.y, map_size.y))
 	
 	body_parts[0].position = self.position
 
