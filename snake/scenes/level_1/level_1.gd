@@ -11,11 +11,6 @@ func _ready() -> void:
 	%Player.map_size = self.map_size_in_tiles * Constants.SPRITE_SIZE
 
 
-#var apple_pos
-#func _process(delta: float) -> void:
-#	%PositionInfo.text = "HEAD: " + (%Player.position.x as String) + " " + (%Player.position.y as String) +  "\n APPLE: " + (apple_pos.x as String) + " "  + (apple_pos.y as String)
-
-
 func _on_player_apple_eaten() -> void:
 	_spawn_apple()
 
