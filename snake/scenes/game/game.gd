@@ -14,39 +14,33 @@ func _ready() -> void:
 	var main_menu: Node = main_menu_packed.instantiate()
 	add_child(main_menu)
 	var scenes = get_tree().current_scene
-	print(scenes)
-	main_menu.options_loaded.connect(options_loaded)
-	main_menu.level_select_loaded.connect(level_select_loaded)
+	main_menu.options_loaded.connect(on_options_loaded)
+	main_menu.level_select_loaded.connect(on_level_select_loaded)
 	load_data()
-	pass
 
 
-func options_loaded(main_menu: Node) -> void:
+func on_options_loaded(main_menu: Node) -> void:
 	var menu = get_child(0)
 	options = menu.get_child(-1)
-	print(options)
-	options.skin_selected.connect(update_skin)
+	options.skin_selected.connect(on_skin_selected)
 	pass
 	
 
-func level_select_loaded(level_select: Node) -> void:
+func on_level_select_loaded(level_select: Node) -> void:
 	var menu = get_child(0)
 	level_select = menu.get_child(-1)
-	print(level_select)
-	level_select.level_1_start.connect(set_level_1_skin)
+	level_select.level_1_started.connect(on_level_1_started)
 	pass
 
 
-func update_skin(new_path: String, new_texture: Texture2D) -> void:
-	print("ez lehetetlen")
+func on_skin_selected(new_path: String, new_texture: Texture2D) -> void:
 	snake_skin_texture = new_texture
 	selected_skin_path = new_path
 	save_data()
 	pass
 
 
-func set_level_1_skin(level_1: Node) -> void:
-	print("ez lehetetlen")
+func on_level_1_started(level_1: Node) -> void:
 	var player = level_1.get_child(1)
 	level_1.get_child(1).set_snake_skin(snake_skin_texture)
 	pass

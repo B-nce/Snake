@@ -32,6 +32,5 @@ func _on_resolutions_item_selected(index: int) -> void:
 
 
 func _on_snake_skin_panel_skin_selected(snake_path: String, snake_skin: Texture2D) -> void:
-	print("_on_skin_select_button_pressedn")
 	skin_selected.emit(snake_path, snake_skin)
 	pass
