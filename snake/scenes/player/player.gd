@@ -77,6 +77,9 @@ func _create_snake_body() -> void:
 		start_positon = Vector2(start_positon.x, start_positon.y + Constants.SPRITE_SIZE)
 
 
+func get_player_head_position() -> Vector2:
+	return %BodyParts.get_child(0).position
+
 func _move_and_reset_timer() -> void:
 	_timer = 0
 	_move_snake_body()

@@ -37,7 +37,7 @@ position = Vector2(152, 152)
 length = 7
 
 [node name="Wall" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAGAA4AAQACAAAAAAAHAA4AAQACAAAAAAAIAA4AAQACAAAAAAAOAAwAAQACAAAAAAAOAA0AAQACAAAAAAAOAA4AAQACAAAAAAA=")
+tile_map_data = PackedByteArray("AAAGAA4AAQACAAAAAAAOAAwAAQACAAAAAAAOAA0AAQACAAAAAAAFAA4AAQACAAAAAAAEAA4AAQACAAAAAAAOAAsAAQACAAAAAAA=")
 tile_set = SubResource("TileSet_7e5lm")
 script = ExtResource("4_igcjm")
 
@@ -45,6 +45,16 @@ script = ExtResource("4_igcjm")
 unique_name_in_owner = true
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="ScoreLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 289.0
+offset_top = 1.0
+offset_right = 379.0
+offset_bottom = 53.0
+text = "0"
+
+[node name="ScoreTimer" type="Timer" parent="."]
 
 [connection signal="apple_eaten" from="Player" to="." method="_on_player_apple_eaten"]
 [connection signal="snake_death" from="Player" to="." method="_on_player_snake_death"]
