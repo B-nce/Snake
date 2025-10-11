@@ -82,12 +82,15 @@ offset_right = 391.0
 offset_bottom = 479.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 700
+theme_override_constants/separation = 600
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Level1Button" type="Button" parent="VBoxContainer/MarginContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Level1Button" type="Button" parent="VBoxContainer/VBoxContainer/MarginContainer3"]
 layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 0
@@ -101,6 +104,42 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_vdlig")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vdlig")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3c84o")
 text = "(Level one)"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Level2Button" type="Button" parent="VBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_t5gxd")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/hover = SubResource("StyleBoxFlat_vdlig")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vdlig")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3c84o")
+text = "(Level two)"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Level3Button" type="Button" parent="VBoxContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_t5gxd")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/hover = SubResource("StyleBoxFlat_vdlig")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vdlig")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3c84o")
+text = "(Level three)"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -121,5 +160,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_vdlig")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3c84o")
 text = "(back)"
 
-[connection signal="pressed" from="VBoxContainer/MarginContainer/Level1Button" to="." method="_on_level_1_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/MarginContainer3/Level1Button" to="." method="_on_level_1_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/MarginContainer/Level2Button" to="." method="_on_level_2_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/MarginContainer2/Level3Button" to="." method="_on_level_3_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer2/BackButton" to="." method="_on_back_button_pressed"]
