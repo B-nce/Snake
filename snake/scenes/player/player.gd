@@ -26,9 +26,9 @@ func set_snake_skin(new_texture: Texture2D) -> void:
 	_create_snake_body()
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	_timer += delta 
-	if movement_is_enabled and  _timer >= move_interval :
+	if _timer >= move_interval :
 		_move_and_reset_timer()
 
 
@@ -52,13 +52,14 @@ func _input(event: InputEvent) -> void:
 				_move_and_reset_timer()
 
 
-func _add_body_part(part_position: Vector2, type: SnakeSpriteTypes.Type, collision_group: String) -> void:
+func _add_body_part(part_position: Vector2, type: SnakeSpriteTypes.Type, collision_group: String) -> BodyPart:
 	var new_part: BodyPart = BodyPartScene.instantiate()
 	%BodyParts.add_child(new_part)
 	new_part.set_texture(self.texture)
 	new_part.set_sprite_type(type)
 	new_part.position = part_position
 	new_part.add_to_group(collision_group)
+	return new_part
 
 
 func _create_snake_body() -> void:
@@ -69,7 +70,10 @@ func _create_snake_body() -> void:
 	var start_positon: Vector2 = position
 	for i: int in range(0, length):
 		if i == 0 :
-			_add_body_part(start_positon, SnakeSpriteTypes.Type.HEAD, Constants.COLLISION_HEAD)
+			var head: BodyPart = _add_body_part(start_positon, SnakeSpriteTypes.Type.HEAD, Constants.COLLISION_HEAD)
+			head.connect("area_entered", _on_head_collision)
+			head.connect("body_entered", _on_head_collision)
+			head.monitoring = true
 		elif i == length -1 :
 			_add_body_part(start_positon, SnakeSpriteTypes.Type.TAIL, Constants.COLLISION_BODY)
 		else:
@@ -77,27 +81,20 @@ func _create_snake_body() -> void:
 		start_positon = Vector2(start_positon.x, start_positon.y + Constants.SPRITE_SIZE)
 
 
+func _on_head_collision(overlap: Node2D) -> void:
+	var group: StringName = overlap.get_groups().back()
+	match group:
+		Constants.COLLISION_BODY, Constants.COLLISION_WALL, Constants.COLLISION_HEAD:
+			_take_damage()
+		Constants.COLLISION_APPLE:
+			_eat_apple(overlap)
+
+
 func _move_and_reset_timer() -> void:
 	_timer = 0
-	_move_snake_body()
-	_check_collision()
-	_correct_snake_sprites()
-
-
-func _check_collision() -> void:
-	var body_parts: Array[BodyPart] = []
-	body_parts.assign(%BodyParts.get_children() as Array[BodyPart])
-	
-	var overlaps: Array[Area2D] = body_parts[0].get_overlapping_areas()
-	if overlaps:
-		for overlap: Area2D in overlaps:
-			var group: StringName = overlap.get_groups().back()
-			match group:
-				Constants.COLLISION_BODY, Constants.COLLISION_WALL, Constants.COLLISION_HEAD:
-					_take_damage()
-				Constants.COLLISION_APPLE:
-					_eat_apple(overlap)
-					
+	if movement_is_enabled :
+		_move_snake_body()
+		_correct_snake_sprites()
 
 
 func _take_damage() -> void:
@@ -107,9 +104,10 @@ func _take_damage() -> void:
 		snake_death.emit()
 
 
-func _eat_apple(apple: Area2D) -> void:
+func _eat_apple(apple: Node2D) -> void:
 	apple.queue_free()
 	_add_body_part(_previous_tail_position, SnakeSpriteTypes.Type.TAIL, Constants.COLLISION_BODY)
+	_correct_snake_sprites()
 	apple_eaten.emit()
 
 

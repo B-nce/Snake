@@ -16,10 +16,6 @@ func set_texture(sprite_texture: Texture2D) -> void:
 	sprite.texture = sprite_texture
 
 
-func set_collsion_shape_disabled(value: bool) -> void:
-	collision_shape.disabled = value
-
-
 func update_sprite(new_rotation: float, type: SnakeSpriteTypes.Type) -> void:
 	set_sprite_type(type)
 	sprite.rotation = new_rotation
