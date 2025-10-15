@@ -30,6 +30,8 @@ func on_level_select_loaded(level_select: Node) -> void:
 	var menu = get_child(0)
 	level_select = menu.get_child(-1)
 	level_select.level_1_started.connect(on_level_1_started)
+	level_select.level_2_started.connect(on_level_2_started)
+	level_select.level_3_started.connect(on_level_3_started)
 	pass
 
 
@@ -37,13 +39,21 @@ func on_skin_selected(new_path: String, new_texture: Texture2D) -> void:
 	snake_skin_texture = new_texture
 	selected_skin_path = new_path
 	save_data()
-	pass
 
 
 func on_level_1_started(level_1: Node) -> void:
-	var player = level_1.get_child(1)
-	level_1.get_child(1).set_snake_skin(snake_skin_texture)
-	pass
+	var player = level_1.get_child(0)
+	player.set_snake_skin(snake_skin_texture)
+
+
+func on_level_2_started(level_2: Node) -> void:
+	var player = level_2.get_child(0)
+	player.set_snake_skin(snake_skin_texture)
+
+
+func on_level_3_started(level_3: Node) -> void:
+	var player = level_3.get_child(0)
+	player.set_snake_skin(snake_skin_texture)
 
 
 func load_data() -> void:
