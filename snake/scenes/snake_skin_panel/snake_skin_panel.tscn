@@ -77,3 +77,6 @@ grow_vertical = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(144, 96)
 layout_mode = 2
+
+[connection signal="skin_selected" from="." to="." method="_on_skin_select_button_pressed"]
+[connection signal="pressed" from="SkinSelectButton" to="." method="_on_skin_select_button_pressed"]

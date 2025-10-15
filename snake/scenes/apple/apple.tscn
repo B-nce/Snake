@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcrrspqjibwxb"]
 
 [ext_resource type="Script" uid="uid://bw2juk81hdwsf" path="res://scenes/apple/apple.gd" id="1_q7gff"]
-[ext_resource type="Texture2D" uid="uid://pplkj0svoulg" path="res://assets/sprites/apple.png" id="1_qqfmt"]
+[ext_resource type="Texture2D" uid="uid://dr0b2prw77jtc" path="res://assets/sprites/apple_1.png" id="2_q7gff"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7gff"]
 size = Vector2(16, 16)
@@ -18,4 +18,4 @@ debug_color = Color(0.711569, 0.438858, 0.556701, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8, 8)
-texture = ExtResource("1_qqfmt")
+texture = ExtResource("2_q7gff")
