@@ -22,3 +22,15 @@ tile_map_data = PackedByteArray("AAACAA8AAAAGAAAAAAADAA8AAAAGAAAAAAAHAAIAAAAGAAA
 [connection signal="snake_death" from="Player" to="Level" method="_on_player_snake_death"]
 
 [editable path="Level"]
+[node name="ScoreLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 289.0
+offset_top = 1.0
+offset_right = 379.0
+offset_bottom = 53.0
+text = "0"
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[connection signal="apple_eaten" from="Player" to="." method="_on_player_apple_eaten"]
+[connection signal="snake_death" from="Player" to="." method="_on_player_snake_death"]
