@@ -12,7 +12,7 @@ var grid: AStarGrid2D
 func _ready() -> void:
 	_setup_astar()
 	_spawn_apple()
-	$ScoreTimer.set_wait_time(_calculate_distance(apple_position, %Player.get_player_head_position()))
+	$ScoreTimer.set_wait_time(_calculate_distance(apple_position, %Player.position))
 	$ScoreTimer.start()
 	%Player.map_size = self.map_size_in_tiles * Constants.SPRITE_SIZE
 
@@ -22,7 +22,7 @@ func _on_player_apple_eaten() -> void:
 		_update_score(_calculate_score_from_time($ScoreTimer.wait_time, $ScoreTimer.wait_time - $ScoreTimer.time_left))
 		$ScoreTimer.stop()
 	_spawn_apple()
-	$ScoreTimer.set_wait_time(_calculate_distance(apple_position, %Player.get_player_head_position()))
+	$ScoreTimer.set_wait_time(_calculate_distance(apple_position, %Player.position))
 	$ScoreTimer.start()
 
 
