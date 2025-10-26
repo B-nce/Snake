@@ -14,5 +14,5 @@ const COLLISION_WALL: StringName = "wall"
 const COLLISION_APPLE: StringName = "apple"
 
 const COLLISION_LAYER_PLAYER: int = 2
-const COLLISION_MASK_FLOOR: int = 1
-const COLLISION_MASK_PLAYER: int = 2
+const COLLISION_LAYER_ITEM: int = 1
+const COLLISION_MASK_PLAYER: int = 2 
