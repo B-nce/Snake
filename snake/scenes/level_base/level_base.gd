@@ -30,12 +30,13 @@ func _on_player_apple_eaten() -> void:
 func _initialize_map_and_player() -> void:
 	var viewport_size: Vector2 = get_viewport().get_visible_rect().size
 	var new_scale: float = viewport_size.y / (self.map_size_in_tiles.y * Constants.SPRITE_SIZE)
-	var horizontal_offset: float = (viewport_size.x  / 2) - 101
+	var map_border_size: Vector2 = self.map_size_in_tiles * new_scale * Constants.SPRITE_SIZE
+	var horizontal_offset: float = (viewport_size.x  / 2) - (map_border_size.x / 2)
 	#make map fill the screen vertically and center horizontally
 	self.scale = Vector2(new_scale, new_scale)
 	self.position.x += horizontal_offset
 	#player needs to be set separately since it's top layer
-	player.map_border = Rect2(Vector2(horizontal_offset, 0), (self.map_size_in_tiles * self.scale) * Constants.SPRITE_SIZE)
+	player.map_border = Rect2(Vector2(horizontal_offset, 0), map_border_size)
 	player.scale = self.scale
 	player.position *= self.scale
 	player.position.x += horizontal_offset
