@@ -1,0 +1,454 @@
+[gd_scene load_steps=32 format=3 uid="uid://blrf827ffsitx"]
+
+[ext_resource type="FontFile" uid="uid://cxaq1lpo2t7ho" path="res://fonts/black_charcoal.TTF" id="1_biovg"]
+[ext_resource type="Script" uid="uid://djv3qxmr51dwv" path="res://scenes/options_scene/options.gd" id="1_r1nbh"]
+[ext_resource type="FontFile" uid="uid://cm40i6mvl1t3e" path="res://fonts/snake_business.ttf" id="3_svive"]
+[ext_resource type="Texture2D" uid="uid://ds6jr0bji7rnk" path="res://assets/voice_icon_muted.png" id="4_xwbtl"]
+[ext_resource type="Texture2D" uid="uid://ca4jg8lcuxfy3" path="res://assets/voice_icon.png" id="5_hxipp"]
+[ext_resource type="AudioStream" uid="uid://mop4are3tisa" path="res://scenes/options_scene/cluedo_music.mp3" id="6_hxipp"]
+[ext_resource type="PackedScene" uid="uid://2p6lj4tqjqww" path="res://scenes/snake_skin_panel/snake_skin_panel.tscn" id="7_gqgkr"]
+[ext_resource type="Texture2D" uid="uid://bu7nrfg50q1rh" path="res://assets/sprites/ball_python.png" id="8_u36i4"]
+[ext_resource type="Texture2D" uid="uid://bad1ciikh14e5" path="res://assets/sprites/ball_python_albino.png" id="9_tj1mn"]
+[ext_resource type="Texture2D" uid="uid://1jtltnnutvlh" path="res://assets/sprites/boa_constrictor.png" id="10_dvw21"]
+[ext_resource type="Texture2D" uid="uid://c714e4wt1da34" path="res://assets/sprites/burmese_python.png" id="10_q3bbh"]
+[ext_resource type="Texture2D" uid="uid://cthnppelu3q5u" path="res://assets/sprites/corn_snake.png" id="11_435hk"]
+[ext_resource type="Texture2D" uid="uid://dpsmit8afr13f" path="res://assets/sprites/boa_constrictor_albino.png" id="11_vavnl"]
+[ext_resource type="Texture2D" uid="uid://dim6tp30hkaxk" path="res://assets/sprites/green_anaconda.png" id="12_pnhkx"]
+[ext_resource type="Texture2D" uid="uid://dj7ydapp13op4" path="res://assets/sprites/burmese_python_albino.png" id="13_dajl3"]
+[ext_resource type="Texture2D" uid="uid://bmwikfj3b2xs6" path="res://assets/sprites/king_snake.png" id="13_tlsi4"]
+[ext_resource type="Texture2D" uid="uid://cbiu6kef8lxco" path="res://assets/sprites/reticulated_python.png" id="14_cse3v"]
+[ext_resource type="Texture2D" uid="uid://clafsi82juo43" path="res://assets/sprites/emerald_tree_boa.png" id="15_cse3v"]
+[ext_resource type="Texture2D" uid="uid://clc8bj60tca8g" path="res://assets/sprites/corn_snake_albino.png" id="15_y8vwf"]
+[ext_resource type="Texture2D" uid="uid://dhjuaqvt4va8q" path="res://assets/sprites/green_anaconda_albino.png" id="19_hg67v"]
+[ext_resource type="Texture2D" uid="uid://70t2mqv8spih" path="res://assets/sprites/king_snake_albino.png" id="20_pc1xl"]
+[ext_resource type="Texture2D" uid="uid://c2gg5jtw72bmy" path="res://assets/sprites/reticulated_python_albino.png" id="21_r6tii"]
+[ext_resource type="Texture2D" uid="uid://btn450yrodklm" path="res://assets/sprites/emerald_tree_boa_young.png" id="23_hg67v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tj1mn"]
+bg_color = Color(0.682353, 0.584314, 0.447059, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvw21"]
+content_margin_left = 25.0
+content_margin_top = 10.0
+content_margin_right = 25.0
+content_margin_bottom = 5.0
+bg_color = Color(0.541176, 0.462745, 0.329412, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.121569, 0.694118, 0.172549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 150
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 150
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k87ne"]
+content_margin_left = 25.0
+content_margin_top = 10.0
+content_margin_right = 25.0
+content_margin_bottom = 5.0
+bg_color = Color(0.541176, 0.462745, 0.329412, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0745098, 0.423529, 0.105882, 1)
+corner_radius_top_left = 150
+corner_radius_top_right = 5
+corner_radius_bottom_right = 150
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttnj4"]
+bg_color = Color(0.684098, 0.582663, 0.445276, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u36i4"]
+bg_color = Color(0.0745098, 0.423529, 0.105882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqgkr"]
+bg_color = Color(0.0745098, 0.423529, 0.105882, 1)
+corner_radius_top_left = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwbtl"]
+bg_color = Color(0.714734, 0.581304, 0.271327, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0745098, 0.423529, 0.105882, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 150
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 150
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxipp"]
+bg_color = Color(0.714734, 0.581304, 0.271327, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0745098, 0.423529, 0.105882, 1)
+corner_radius_top_left = 150
+corner_radius_top_right = 5
+corner_radius_bottom_right = 150
+corner_radius_bottom_left = 5
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r1nbh")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_unselected_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_hovered_color = Color(0.121569, 0.694118, 0.172549, 1)
+theme_override_colors/font_selected_color = Color(0.121558, 0.694649, 0.174366, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/side_margin = 0
+theme_override_fonts/font = ExtResource("1_biovg")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/tabbar_background = SubResource("StyleBoxFlat_tj1mn")
+theme_override_styles/panel = SubResource("StyleBoxFlat_tj1mn")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_dvw21")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_k87ne")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_k87ne")
+current_tab = 0
+tab_focus_mode = 0
+
+[node name="Volume options" type="Control" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="BG" type="Panel" parent="TabContainer/Volume options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ttnj4")
+
+[node name="VolumeTitle" type="Label" parent="TabContainer/Volume options"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -305.5
+offset_right = 305.5
+offset_bottom = 126.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("1_biovg")
+theme_override_font_sizes/font_size = 100
+text = "Volume options"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Volume options"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 92.0
+offset_top = -124.5
+offset_right = -105.0
+offset_bottom = 124.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Volume options/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label2" type="Label" parent="TabContainer/Volume options/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("1_biovg")
+theme_override_font_sizes/font_size = 40
+text = "Volume:"
+
+[node name="VolumeSlider" type="HSlider" parent="TabContainer/Volume options/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_icons/grabber = ExtResource("5_hxipp")
+theme_override_icons/grabber_highlight = ExtResource("5_hxipp")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_u36i4")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_gqgkr")
+min_value = -50.0
+max_value = 50.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Volume options/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 90
+
+[node name="Label3" type="Label" parent="TabContainer/Volume options/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("1_biovg")
+theme_override_font_sizes/font_size = 40
+text = "Mute:"
+
+[node name="MuteBox" type="CheckBox" parent="TabContainer/Volume options/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_icons/checked = ExtResource("4_xwbtl")
+theme_override_icons/unchecked = ExtResource("5_hxipp")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/Volume options/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="TabContainer/Volume options/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("1_biovg")
+theme_override_font_sizes/font_size = 40
+text = "Resolution:"
+
+[node name="Resolutions" type="OptionButton" parent="TabContainer/Volume options/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+selected = 2
+item_count = 3
+popup/item_0/text = "1920 x 1080"
+popup/item_0/id = 0
+popup/item_1/text = "1600 x 900"
+popup/item_1/id = 1
+popup/item_2/text = "1280 x 720"
+popup/item_2/id = 2
+
+[node name="BackButton" type="Button" parent="TabContainer/Volume options/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_svive")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/hover = SubResource("StyleBoxFlat_xwbtl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xwbtl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hxipp")
+text = "(back)"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TabContainer/Volume options"]
+stream = ExtResource("6_hxipp")
+autoplay = true
+
+[node name="Skin selector" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="SkinSelectorTitle" type="Label" parent="TabContainer/Skin selector"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -253.0
+offset_right = 253.0
+offset_bottom = 126.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("1_biovg")
+theme_override_font_sizes/font_size = 100
+text = "Skin selector"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Skin selector"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 238.0
+offset_top = -303.5
+offset_right = -201.0
+offset_bottom = 254.5
+grow_horizontal = 2
+grow_vertical = 2
+vertical_scroll_mode = 2
+
+[node name="HorizontalOutsideContainer" type="HBoxContainer" parent="TabContainer/Skin selector/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 120
+
+[node name="ContainerColumn" type="VBoxContainer" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="SnakeSkinPanel" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn" instance=ExtResource("7_gqgkr")]
+layout_mode = 2
+button_text = "Ball Python"
+snake_skin = ExtResource("8_u36i4")
+skin_path = "res://assets/sprites/ball_python.png"
+
+[node name="SnakeSkinPanel3" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn" instance=ExtResource("7_gqgkr")]
+layout_mode = 2
+button_text = "Boa Constrictor"
+snake_skin = ExtResource("10_dvw21")
+skin_path = "res://assets/sprites/boa_constrictor.png"
+
+[node name="SnakeSkinPanel4" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn" instance=ExtResource("7_gqgkr")]
+layout_mode = 2
+button_text = "Burmese Python"
+snake_skin = ExtResource("10_q3bbh")
+skin_path = "res://assets/sprites/burmese_python.png"
+
+[node name="SnakeSkinPanel5" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn" instance=ExtResource("7_gqgkr")]
+layout_mode = 2
+button_text = "Corn Snake"
+snake_skin = ExtResource("11_435hk")
+skin_path = "res://assets/sprites/corn_snake.png"
+
+[node name="SnakeSkinPanel6" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn" instance=ExtResource("7_gqgkr")]
+layout_mode = 2
+button_text = "Green Anaconda"
+snake_skin = ExtResource("12_pnhkx")
+skin_path = "res://assets/sprites/green_anaconda.png"
+
+[node name="SnakeSkinPanel7" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn" instance=ExtResource("7_gqgkr")]
+layout_mode = 2
+button_text = "King Snake"
+snake_skin = ExtResource("13_tlsi4")
+skin_path = "res://assets/sprites/king_snake.png"
+
+[node name="SnakeSkinPanel8" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn" instance=ExtResource("7_gqgkr")]
+layout_mode = 2
+button_text = "Reticulated Python"
+snake_skin = ExtResource("14_cse3v")
+skin_path = "res://assets/sprites/reticulated_python.png"
+
+[node name="SnakeSkinPanel9" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn" instance=ExtResource("7_gqgkr")]
+layout_mode = 2
+button_text = "Emerald Tree Boa"
+snake_skin = ExtResource("15_cse3v")
+skin_path = "res://assets/sprites/emerald_tree_boa.png"
+
+[node name="ContainerColumn2" type="VBoxContainer" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="SnakeSkinPanel3" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2" instance=ExtResource("7_gqgkr")]
+layout_mode = 2
+button_text = "Albino Ball Python"
+snake_skin = ExtResource("9_tj1mn")
+skin_path = "res://assets/sprites/ball_python_albino.png"
+
+[node name="SnakeSkinPanel2" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2" instance=ExtResource("7_gqgkr")]
+layout_mode = 2
+button_text = "Albino Boa Constrictor"
+snake_skin = ExtResource("11_vavnl")
+skin_path = "res://assets/sprites/boa_constrictor_albino.png"
+
+[node name="SnakeSkinPanel4" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2" instance=ExtResource("7_gqgkr")]
+layout_mode = 2
+button_text = "Albino Burmese Python"
+snake_skin = ExtResource("13_dajl3")
+skin_path = "res://assets/sprites/burmese_python_albino.png"
+
+[node name="SnakeSkinPanel5" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2" instance=ExtResource("7_gqgkr")]
+layout_mode = 2
+button_text = "Albino Corn Snake"
+snake_skin = ExtResource("15_y8vwf")
+skin_path = "res://assets/sprites/corn_snake_albino.png"
+
+[node name="SnakeSkinPanel6" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2" instance=ExtResource("7_gqgkr")]
+layout_mode = 2
+button_text = "Albino Green Anaconda"
+snake_skin = ExtResource("19_hg67v")
+skin_path = "res://assets/sprites/green_anaconda_albino.png"
+
+[node name="SnakeSkinPanel7" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2" instance=ExtResource("7_gqgkr")]
+layout_mode = 2
+button_text = "Albino King Snake"
+snake_skin = ExtResource("20_pc1xl")
+skin_path = "res://assets/sprites/king_snake_albino.png"
+
+[node name="SnakeSkinPanel8" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2" instance=ExtResource("7_gqgkr")]
+layout_mode = 2
+button_text = "Albino Reticulated Python"
+snake_skin = ExtResource("21_r6tii")
+skin_path = "res://assets/sprites/reticulated_python_albino.png"
+
+[node name="SnakeSkinPanel9" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2" instance=ExtResource("7_gqgkr")]
+layout_mode = 2
+button_text = "Young Emerald Tree Boa"
+snake_skin = ExtResource("23_hg67v")
+skin_path = "res://assets/sprites/emerald_tree_boa_young.png"
+
+[node name="BackButton" type="Button" parent="TabContainer/Skin selector"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -424.0
+offset_top = -179.0
+offset_right = 424.0
+offset_bottom = -94.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_svive")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/hover = SubResource("StyleBoxFlat_xwbtl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xwbtl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hxipp")
+text = "(back)"
+
+[connection signal="value_changed" from="TabContainer/Volume options/VBoxContainer/HBoxContainer/VolumeSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="toggled" from="TabContainer/Volume options/VBoxContainer/HBoxContainer2/MuteBox" to="." method="_on_check_box_toggled"]
+[connection signal="item_selected" from="TabContainer/Volume options/VBoxContainer/HBoxContainer3/Resolutions" to="." method="_on_resolutions_item_selected"]
+[connection signal="pressed" from="TabContainer/Volume options/VBoxContainer/BackButton" to="." method="_on_button_pressed"]
+[connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn/SnakeSkinPanel" to="." method="_on_snake_skin_panel_skin_selected"]
+[connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn/SnakeSkinPanel3" to="." method="_on_snake_skin_panel_skin_selected"]
+[connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn/SnakeSkinPanel4" to="." method="_on_snake_skin_panel_skin_selected"]
+[connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn/SnakeSkinPanel5" to="." method="_on_snake_skin_panel_skin_selected"]
+[connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn/SnakeSkinPanel6" to="." method="_on_snake_skin_panel_skin_selected"]
+[connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn/SnakeSkinPanel7" to="." method="_on_snake_skin_panel_skin_selected"]
+[connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn/SnakeSkinPanel8" to="." method="_on_snake_skin_panel_skin_selected"]
+[connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn/SnakeSkinPanel9" to="." method="_on_snake_skin_panel_skin_selected"]
+[connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/SnakeSkinPanel3" to="." method="_on_snake_skin_panel_skin_selected"]
+[connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/SnakeSkinPanel2" to="." method="_on_snake_skin_panel_skin_selected"]
+[connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/SnakeSkinPanel4" to="." method="_on_snake_skin_panel_skin_selected"]
+[connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/SnakeSkinPanel5" to="." method="_on_snake_skin_panel_skin_selected"]
+[connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/SnakeSkinPanel6" to="." method="_on_snake_skin_panel_skin_selected"]
+[connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/SnakeSkinPanel7" to="." method="_on_snake_skin_panel_skin_selected"]
+[connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/SnakeSkinPanel8" to="." method="_on_snake_skin_panel_skin_selected"]
+[connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/SnakeSkinPanel9" to="." method="_on_snake_skin_panel_skin_selected"]
+[connection signal="pressed" from="TabContainer/Skin selector/BackButton" to="." method="_on_button_pressed"]

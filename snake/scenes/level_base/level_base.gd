@@ -1,0 +1,107 @@
+extends Node2D
+
+
+const AppleScene: PackedScene = preload("res://scenes/apple/apple.tscn")
+@onready var rng: RandomNumberGenerator = RandomNumberGenerator.new()
+@onready var map_size_in_tiles: Vector2 = ($Floor as TileMapLayer).get_used_rect().size
+@onready var wall_tiles: Array[Vector2i] = ($Wall as TileMapLayer).get_used_cells()
+@onready var player: Player = %Player as Player
+var apple_position: Vector2
+var grid: AStarGrid2D
+
+
+func _ready() -> void:
+	_setup_astar()
+	_spawn_apple()
+	$ScoreTimer.set_wait_time(_calculate_distance(apple_position, player.position))
+	$ScoreTimer.start()
+	_initialize_map_and_player()
+
+
+func _on_player_apple_eaten() -> void:
+	if !$ScoreTimer.is_stopped():
+		_update_score(_calculate_score_from_time($ScoreTimer.wait_time, $ScoreTimer.wait_time - $ScoreTimer.time_left))
+		$ScoreTimer.stop()
+	_spawn_apple()
+	$ScoreTimer.set_wait_time(_calculate_distance(apple_position, player.position))
+	$ScoreTimer.start()
+
+
+func _initialize_map_and_player() -> void:
+	var viewport_size: Vector2 = get_viewport().get_visible_rect().size
+	var new_scale: float = viewport_size.y / (self.map_size_in_tiles.y * Constants.SPRITE_SIZE)
+	var map_border_size: Vector2 = self.map_size_in_tiles * new_scale * Constants.SPRITE_SIZE
+	var horizontal_offset: float = (viewport_size.x  / 2) - (map_border_size.x / 2)
+	#make map fill the screen vertically and center horizontally
+	self.scale = Vector2(new_scale, new_scale)
+	self.position.x += horizontal_offset
+	#player needs to be set separately since it's top layer
+	player.map_border = Rect2(Vector2(horizontal_offset, 0), map_border_size)
+	player.scale = self.scale
+	player.position *= self.scale
+	player.position.x += horizontal_offset
+	player.create_snake_body()
+
+
+func _calculate_score_from_time(wait_time: int, time_elapsed: float) -> int:
+	if time_elapsed < wait_time/4:
+		return 3
+	else:
+		return 2 if time_elapsed < wait_time/2 else 1
+
+
+func _update_score(score: int) -> void:
+	%ScoreLabel.text = str(%ScoreLabel.text.to_int() + score)
+
+
+func _calculate_distance(a_pos: Vector2, p_pos: Vector2) -> int:
+	var a_grid_pos: Vector2 = a_pos/Constants.SPRITE_SIZE
+	var p_grid_pos: Vector2 = floor(p_pos/Constants.SPRITE_SIZE)
+	var road: Array[Vector2i] = grid.get_id_path(p_grid_pos,a_grid_pos)
+	return road.size()-1
+
+
+func _setup_astar() -> void:
+	grid = AStarGrid2D.new()
+	grid.region = ($Floor as TileMapLayer).get_used_rect()
+	grid.set_diagonal_mode(grid.DIAGONAL_MODE_NEVER)
+	grid.update()
+	for wall_tile in wall_tiles:
+		grid.set_point_solid(wall_tile)
+	grid.update()
+
+
+func _on_player_snake_death() -> void:
+	var label: Label = Label.new()
+	add_child(label)
+	label.text = "GAME OVER"
+	label.size = Vector2(40,40)
+
+
+func _spawn_apple() ->void:
+	var apple: Node2D = AppleScene.instantiate()
+	add_child(apple)
+
+	var apple_position: Vector2i = _get_random_position()
+	
+	while _point_in_area(apple_position):
+		apple_position = _get_random_position()
+		
+	apple.position = apple_position
+
+
+func _point_in_area(point: Vector2) -> bool:
+	var query_parameters: PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
+	query_parameters.collision_mask = Constants.COLLISION_MASK_PLAYER
+	query_parameters.collide_with_areas = true
+	query_parameters.collide_with_bodies = true
+	query_parameters.position = point
+	
+	var space_state = get_world_2d().direct_space_state
+	var result: Array[Dictionary] = space_state.intersect_point(query_parameters, 1)
+	return result.size() > 0
+
+
+func _get_random_position() -> Vector2i:
+	return  Vector2i(randi_range(0, map_size_in_tiles.x - 1 ) * Constants.SPRITE_SIZE, 
+		randi_range(0, map_size_in_tiles.y - 1) * Constants.SPRITE_SIZE) + Vector2i(Constants.SPRITE_SIZE / 2,Constants.SPRITE_SIZE / 2)

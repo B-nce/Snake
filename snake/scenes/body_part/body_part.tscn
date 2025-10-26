@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbog13frm4nq3"]
+
+[ext_resource type="Script" uid="uid://omkcrp6e5gms" path="res://scenes/body_part/body_part.gd" id="1_bauvx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bauvx"]
+size = Vector2(19, 19)
+
+[node name="BodyPart" type="Area2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_bauvx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_bauvx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
