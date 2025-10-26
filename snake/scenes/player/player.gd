@@ -11,19 +11,18 @@ const BodyPartScene: PackedScene = preload("res://scenes/body_part/body_part.tsc
 @export var texture: Texture2D = load("res://assets/sprites/ball_python.png") 
 @export var move_interval: float = 1
 @export var movement_is_enabled: bool = true
-@export var map_size: Vector2 = Vector2(18,20)
+@export var map_border: Rect2 = Rect2(Vector2(0,0), Vector2(18,20))
 var _timer: float = 0
 var _previous_tail_position: Vector2
 
 
 func _ready() -> void:
 	self.top_level = true
-	_create_snake_body()
 
 
 func set_snake_skin(new_texture: Texture2D) -> void:
 	self.texture = new_texture
-	_create_snake_body()
+	create_snake_body()
 
 
 func _physics_process(delta: float) -> void:
@@ -59,10 +58,11 @@ func _add_body_part(part_position: Vector2, type: SnakeSpriteTypes.Type, collisi
 	new_part.set_sprite_type(type)
 	new_part.position = part_position
 	new_part.add_to_group(collision_group)
+	new_part.scale = self.scale
 	return new_part
 
 
-func _create_snake_body() -> void:
+func create_snake_body() -> void:
 	for i: Node in %BodyParts.get_children():
 		%BodyParts.remove_child(i)
 		i.queue_free()
@@ -78,7 +78,7 @@ func _create_snake_body() -> void:
 			_add_body_part(start_positon, SnakeSpriteTypes.Type.TAIL, Constants.COLLISION_BODY)
 		else:
 			_add_body_part(start_positon, SnakeSpriteTypes.Type.BODY_STRAIGHT, Constants.COLLISION_BODY)
-		start_positon = Vector2(start_positon.x, start_positon.y + Constants.SPRITE_SIZE)
+		start_positon = Vector2(start_positon.x, start_positon.y + Constants.SPRITE_SIZE * self.scale.y)
 
 
 func _on_head_collision(overlap: Node2D) -> void:
@@ -120,10 +120,11 @@ func _move_snake_body() -> void:
 	for i: int in range(body_parts.size() - 1, 0, -1):
 		body_parts[i].position = body_parts[i - 1].position
 	
-	self.position += Vector2(0,-1).rotated(direction) * Constants.SPRITE_SIZE
+	self.position += Vector2(0,-1).rotated(direction) * Constants.SPRITE_SIZE * self.scale
 	#The snake comes back on the other side of the map
-	self.position.x = roundi(fposmod(self.position.x, map_size.x))
-	self.position.y = roundi(fposmod(self.position.y, map_size.y))
+	
+	self.position.x = roundi(map_border.position.x + fposmod(self.position.x - map_border.position.x, map_border.size.x))
+	self.position.y = roundi(map_border.position.y + fposmod(self.position.y - map_border.position.y, map_border.size.y))
 	
 	body_parts[0].position = self.position
 
@@ -155,4 +156,4 @@ func _correct_snake_sprites() -> void:
 #If the next or previous part is not next to the current part it means the snake is
 #wrapping around the map. In that case the prev or next part is in the opposite direction
 func _wrap_diff(diff: Vector2) -> Vector2:
-	return diff if abs(diff.x) <= Constants.SPRITE_SIZE and abs(diff.y) <= Constants.SPRITE_SIZE else -diff
+	return diff if abs(diff.x) <= (Constants.SPRITE_SIZE * self.scale.x) and abs(diff.y) <= (Constants.SPRITE_SIZE * self.scale.y) else -diff

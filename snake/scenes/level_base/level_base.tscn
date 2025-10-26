@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://c81kvk2hvopbe"]
 
-[ext_resource type="Script" uid="uid://d38dj5lexsngu" path="res://scenes/level_1/level_1.gd" id="1_y5ych"]
+[ext_resource type="Script" uid="uid://7eurtcxo075w" path="res://scenes/level_base/level_base.gd" id="1_ncu3c"]
+[ext_resource type="PackedScene" uid="uid://iocv5fo1fth5" path="res://scenes/player/player.tscn" id="2_kr674"]
 [ext_resource type="Texture2D" uid="uid://bvwta8y6735xf" path="res://assets/sprites/green_tile_set.png" id="2_ncu3c"]
 [ext_resource type="Texture2D" uid="uid://coti70vxrwpc3" path="res://assets/sprites/purple_tile_set.png" id="2_txia2"]
-[ext_resource type="Script" uid="uid://bjdsp3416fmcp" path="res://scenes/wall_tile_layer/wall_tile_layer.gd" id="5_lao31"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kr674"]
 texture = ExtResource("2_ncu3c")
@@ -66,6 +66,7 @@ texture = ExtResource("2_ncu3c")
 4:0/0 = 0
 5:0/0 = 0
 6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
 1:1/0 = 0
 2:1/0 = 0
@@ -90,6 +91,7 @@ texture = ExtResource("2_txia2")
 4:0/0 = 0
 5:0/0 = 0
 6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
 1:1/0 = 0
 2:1/0 = 0
@@ -106,11 +108,20 @@ texture = ExtResource("2_txia2")
 6:2/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_7e5lm"]
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
 sources/1 = SubResource("TileSetAtlasSource_xqidk")
 sources/0 = SubResource("TileSetAtlasSource_ncu3c")
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_y5ych")
+scale = Vector2(2, 2)
+script = ExtResource("1_ncu3c")
+
+[node name="Player" parent="." instance=ExtResource("2_kr674")]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(152, 152)
+length = 5
 
 [node name="Floor" type="TileMapLayer" parent="."]
 unique_name_in_owner = true
@@ -118,10 +129,9 @@ texture_filter = 1
 tile_set = SubResource("TileSet_8cj0n")
 collision_enabled = false
 
-[node name="Wall" type="TileMapLayer" parent="."]
+[node name="Wall" type="TileMapLayer" parent="." groups=["wall"]]
 texture_filter = 1
 tile_set = SubResource("TileSet_7e5lm")
-script = ExtResource("5_lao31")
 
 [node name="PositionInfo" type="Label" parent="."]
 unique_name_in_owner = true
@@ -137,3 +147,6 @@ offset_top = 1.0
 offset_right = 379.0
 offset_bottom = 53.0
 text = "0"
+
+[connection signal="apple_eaten" from="Player" to="." method="_on_player_apple_eaten"]
+[connection signal="snake_death" from="Player" to="." method="_on_player_snake_death"]
