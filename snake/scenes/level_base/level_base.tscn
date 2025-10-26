@@ -1,9 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://c81kvk2hvopbe"]
+[gd_scene load_steps=14 format=3 uid="uid://c81kvk2hvopbe"]
 
 [ext_resource type="Script" uid="uid://d38dj5lexsngu" path="res://scenes/level_1/level_1.gd" id="1_y5ych"]
 [ext_resource type="Texture2D" uid="uid://bvwta8y6735xf" path="res://assets/sprites/green_tile_set.png" id="2_ncu3c"]
 [ext_resource type="Texture2D" uid="uid://coti70vxrwpc3" path="res://assets/sprites/purple_tile_set.png" id="2_txia2"]
+[ext_resource type="Script" uid="uid://qj14a648ye8m" path="res://scenes/level_base/time_label.gd" id="5_kr674"]
 [ext_resource type="Script" uid="uid://bjdsp3416fmcp" path="res://scenes/wall_tile_layer/wall_tile_layer.gd" id="5_lao31"]
+[ext_resource type="Texture2D" uid="uid://cmh48ao1wb83h" path="res://assets/sprites/three_point_mark.png" id="6_p2h7h"]
+[ext_resource type="Texture2D" uid="uid://d1k0p4d6l4ptd" path="res://assets/sprites/two_point_mark.png" id="7_48c0a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kr674"]
 texture = ExtResource("2_ncu3c")
@@ -137,3 +140,27 @@ offset_top = 1.0
 offset_right = 379.0
 offset_bottom = 53.0
 text = "0"
+
+[node name="TimeLabel" type="Line2D" parent="."]
+points = PackedVector2Array(300, 230, 300, 30)
+width = 16.0
+default_color = Color(0.647061, 0.147944, 0.240398, 1)
+script = ExtResource("5_kr674")
+
+[node name="ThreePointMarker" type="TextureRect" parent="TimeLabel"]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 16)
+offset_left = 292.0
+offset_top = 72.0
+offset_right = 324.0
+offset_bottom = 88.0
+texture = ExtResource("6_p2h7h")
+
+[node name="TwoPointMarker" type="TextureRect" parent="TimeLabel"]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 16)
+offset_left = 292.0
+offset_top = 122.0
+offset_right = 324.0
+offset_bottom = 138.0
+texture = ExtResource("7_48c0a")

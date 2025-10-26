@@ -5,6 +5,8 @@ const AppleScene: PackedScene = preload("res://scenes/apple/apple.tscn")
 @onready var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var map_size_in_tiles: Vector2 = ($Floor as TileMapLayer).get_used_rect().size
 @onready var wall_tiles: Array[Vector2i] = ($Wall as TileMapLayer).get_used_cells()
+@onready var time_label_size = $TimeLabel.points[0].y - $TimeLabel.points[1].y
+var delta_elapsed: float = 0.0
 var apple_position: Vector2
 var grid: AStarGrid2D
 
@@ -13,8 +15,17 @@ func _ready() -> void:
 	_setup_astar()
 	_spawn_apple()
 	$ScoreTimer.set_wait_time(_calculate_distance(apple_position, %Player.position))
+	delta_elapsed = 0.0
 	$ScoreTimer.start()
 	%Player.map_size = self.map_size_in_tiles * Constants.SPRITE_SIZE
+
+
+func _process(delta: float) -> void:
+	delta_elapsed += delta
+	if(delta_elapsed >= 0.1):
+		delta_elapsed -= 0.1
+		if(!$ScoreTimer.is_stopped()):
+			$TimeLabel._decrease(20/$ScoreTimer.wait_time)
 
 
 func _on_player_apple_eaten() -> void:
@@ -23,6 +34,8 @@ func _on_player_apple_eaten() -> void:
 		$ScoreTimer.stop()
 	_spawn_apple()
 	$ScoreTimer.set_wait_time(_calculate_distance(apple_position, %Player.position))
+	$TimeLabel._reset()
+	delta_elapsed = 0.0
 	$ScoreTimer.start()
 
 
@@ -59,6 +72,7 @@ func _on_player_snake_death() -> void:
 	add_child(label)
 	label.text = "GAME OVER"
 	label.size = Vector2(40,40)
+	$ScoreTimer.stop()
 
 
 func _spawn_apple() ->void:
