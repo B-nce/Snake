@@ -43,17 +43,41 @@ func on_skin_selected(new_path: String, new_texture: Texture2D) -> void:
 
 func on_level_1_started(level_1: Node) -> void:
 	var player = level_1.get_child(0)
+	level_1.level_1_snake_death.connect(on_level_1_snake_death)
 	player.set_snake_skin(snake_skin_texture)
+	level_1.set_high_score(high_Score_level_1)
+
+
+func on_level_1_snake_death(score: int) -> void:
+	if high_Score_level_1 < score:
+		high_Score_level_1 = score
+		save_data()
 
 
 func on_level_2_started(level_2: Node) -> void:
 	var player = level_2.get_child(0)
+	level_2.level_2_snake_death.connect(on_level_2_snake_death)
 	player.set_snake_skin(snake_skin_texture)
+	level_2.set_high_score(high_Score_level_2)
+
+
+func on_level_2_snake_death(score: int) -> void:
+	if high_Score_level_2 < score:
+		high_Score_level_2 = score
+		save_data()
 
 
 func on_level_3_started(level_3: Node) -> void:
 	var player = level_3.get_child(0)
+	level_3.level_3_snake_death.connect(on_level_3_snake_death)
 	player.set_snake_skin(snake_skin_texture)
+	level_3.set_high_score(high_Score_level_3)
+
+
+func on_level_3_snake_death(score: int) -> void:
+	if high_Score_level_3 < score:
+		high_Score_level_3 = score
+		save_data()
 
 
 func load_data() -> void:
@@ -64,7 +88,6 @@ func load_data() -> void:
 		high_Score_level_3 = file.get_var()
 		selected_skin_path = file.get_var()
 		snake_skin_texture = load(selected_skin_path)
-	pass
 
 
 func save_data() -> void:
@@ -73,4 +96,3 @@ func save_data() -> void:
 	file.store_var(high_Score_level_2)
 	file.store_var(high_Score_level_3)
 	file.store_var(selected_skin_path)
-	pass

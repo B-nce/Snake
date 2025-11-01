@@ -1,16 +1,16 @@
 extends Node2D
 
 
-signal level_1_snake_death
+signal level_2_snake_death
 var high_score: int = 0
 
 
-func set_high_score(level_1_high_score: int) -> void:
-	high_score = level_1_high_score
+func set_high_score(level_2_high_score: int) -> void:
+	high_score = level_2_high_score
 	var high_score_label: Label = get_node("Level/HighScoreLabel")
 	high_score_label.text = str(high_score)
 
 
 func _on_player_snake_death() -> void:
 	var score_label: Label = get_node("Level/ScoreLabel")
-	level_1_snake_death.emit(score_label.text.to_int())
+	level_2_snake_death.emit(score_label.text.to_int())
