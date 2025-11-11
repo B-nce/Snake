@@ -170,9 +170,6 @@ offset_right = 379.0
 offset_bottom = 53.0
 text = "0"
 
-
-[connection signal="apple_eaten" from="Player" to="." method="_on_player_apple_eaten"]
-[connection signal="snake_death" from="Player" to="." method="_on_player_snake_death"]
 [node name="HighScoreLabel" type="Label" parent="."]
 unique_name_in_owner = true
 offset_left = 289.0
@@ -181,3 +178,5 @@ offset_right = 379.0
 offset_bottom = 105.0
 text = "0"
 
+[connection signal="apple_eaten" from="Player" to="." method="_on_player_apple_eaten"]
+[connection signal="snake_death" from="Player" to="." method="_on_player_snake_death"]
