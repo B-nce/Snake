@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgjosj51y5b6y"]
+[gd_scene load_steps=4 format=3 uid="uid://cgjosj51y5b6y"]
 
 [ext_resource type="Texture2D" uid="uid://der2aabcpt52n" path="res://assets/sprites/static_tiles.png" id="1_boj17"]
-[ext_resource type="Script" uid="uid://bjdsp3416fmcp" path="res://scenes/wall_tile_layer/wall_tile_layer.gd" id="2_5u4ct"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xqidk"]
 texture = ExtResource("1_boj17")
@@ -10,8 +9,9 @@ texture = ExtResource("1_boj17")
 2:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_7e5lm"]
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
 sources/1 = SubResource("TileSetAtlasSource_xqidk")
 
-[node name="Wall" type="TileMapLayer"]
+[node name="Wall" type="TileMapLayer" groups=["wall"]]
 tile_set = SubResource("TileSet_7e5lm")
-script = ExtResource("2_5u4ct")
