@@ -1,11 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://c81kvk2hvopbe"]
+[gd_scene load_steps=19 format=3 uid="uid://c81kvk2hvopbe"]
 
 [ext_resource type="Script" uid="uid://7eurtcxo075w" path="res://scenes/level_base/level_base.gd" id="1_ncu3c"]
 [ext_resource type="PackedScene" uid="uid://iocv5fo1fth5" path="res://scenes/player/player.tscn" id="2_kr674"]
 [ext_resource type="Texture2D" uid="uid://bvwta8y6735xf" path="res://assets/sprites/green_tile_set.png" id="2_ncu3c"]
 [ext_resource type="Texture2D" uid="uid://coti70vxrwpc3" path="res://assets/sprites/purple_tile_set.png" id="2_txia2"]
-[ext_resource type="Texture2D" uid="uid://drc5hgjnbu6d2" path="res://assets/sprites/tall_grass.png" id="3_kr674"]
 [ext_resource type="Shader" uid="uid://1pimjkuyeig7" path="res://scenes/level_base/tall_grass.gdshader" id="5_tn631"]
+[ext_resource type="Texture2D" uid="uid://cqm1n7i1a6s1t" path="res://assets/sprites/tall_grass_1.png" id="6_tn631"]
+[ext_resource type="Texture2D" uid="uid://c1fvsmjat7xlu" path="res://assets/sprites/tall_grass_purple_1.png" id="7_p2h7h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kr674"]
 texture = ExtResource("2_ncu3c")
@@ -119,13 +120,23 @@ sources/0 = SubResource("TileSetAtlasSource_ncu3c")
 shader = ExtResource("5_tn631")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tn631"]
-texture = ExtResource("3_kr674")
-texture_region_size = Vector2i(20, 20)
+texture = ExtResource("6_tn631")
+texture_region_size = Vector2i(20, 16)
 0:0/0 = 0
 0:0/0/material = SubResource("ShaderMaterial_tn631")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_48c0a"]
+shader = ExtResource("5_tn631")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_48c0a"]
+texture = ExtResource("7_p2h7h")
+texture_region_size = Vector2i(20, 16)
+0:0/0 = 0
+0:0/0/material = SubResource("ShaderMaterial_48c0a")
+
 [sub_resource type="TileSet" id="TileSet_p2h7h"]
-sources/0 = SubResource("TileSetAtlasSource_tn631")
+sources/1 = SubResource("TileSetAtlasSource_tn631")
+sources/2 = SubResource("TileSetAtlasSource_48c0a")
 
 [node name="Level" type="Node2D"]
 scale = Vector2(2, 2)
