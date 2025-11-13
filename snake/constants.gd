@@ -1,4 +1,3 @@
-extends Node
 
 const ROTATION_UP: float = 0
 const ROTATION_DOWN: float = PI

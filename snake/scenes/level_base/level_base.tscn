@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bvwta8y6735xf" path="res://assets/sprites/green_tile_set.png" id="2_ncu3c"]
 [ext_resource type="Texture2D" uid="uid://coti70vxrwpc3" path="res://assets/sprites/purple_tile_set.png" id="2_txia2"]
 [ext_resource type="Texture2D" uid="uid://drc5hgjnbu6d2" path="res://assets/sprites/tall_grass.png" id="3_kr674"]
-[ext_resource type="Shader" uid="uid://1pimjkuyeig7" path="res://scenes/level_base/tall_grass.gdshader" id="5_tn631"]
+[ext_resource type="Shader" path="res://scenes/level_base/tall_grass.gdshader" id="5_tn631"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kr674"]
 texture = ExtResource("2_ncu3c")

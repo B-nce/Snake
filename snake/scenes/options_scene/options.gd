@@ -1,15 +1,11 @@
 extends Control
 
 
-signal skin_selected
 const volume_offset : float = 0.5
 
 func _ready() -> void:	
 	%VolumeSlider.set_value_no_signal(AudioServer.get_bus_volume_db(0)/volume_offset)
 	%MuteBox.set_pressed_no_signal(AudioServer.is_bus_mute(0)) 
-
-func _on_button_pressed() -> void:
-	self.queue_free()
 
 
 func _on_h_slider_value_changed(value: float) -> void:
@@ -31,5 +27,10 @@ func _on_resolutions_item_selected(index: int) -> void:
 
 
 func _on_snake_skin_panel_skin_selected(snake_path: String, snake_skin: Texture2D) -> void:
-	skin_selected.emit(snake_path, snake_skin)
-	pass
+	Globals.snake_skin_texture = snake_skin
+	Globals.selected_skin_path = snake_path
+	Globals.save_data()
+
+
+func _on_back_button_pressed() -> void:
+	get_tree().change_scene_to_file(Globals.previous_scene_paths.pop_front()) 
