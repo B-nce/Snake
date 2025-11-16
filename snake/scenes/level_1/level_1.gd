@@ -1,6 +1,5 @@
 extends Node2D
 
-
 signal level_1_snake_death
 var high_score: int = 0
 
