@@ -2,6 +2,9 @@ extends Node2D
 
 
 const AppleScene: PackedScene = preload("res://scenes/apple/apple.tscn")
+@export var level_name: String
+@onready var high_score = Global.get_high_score(level_name)
+@onready var high_score_label: Label = %HighScoreLabel as Label
 @onready var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var map_size_in_tiles: Vector2 = ($Floor as TileMapLayer).get_used_rect().size
 @onready var wall_tiles: Array[Vector2i] = ($Wall as TileMapLayer).get_used_cells()
@@ -12,6 +15,7 @@ const AppleScene: PackedScene = preload("res://scenes/apple/apple.tscn")
 @onready var horizontal_offset: float = (viewport_size.x  / 2) - (map_border_size.x / 2)
 var delta_elapsed: float = 0.0
 @onready var player: Player = %Player as Player
+@onready var score: int = 0
 var apple_position: Vector2
 var grid: AStarGrid2D
 
@@ -23,6 +27,7 @@ func _ready() -> void:
 	$ScoreTimer.set_wait_time(_calculate_distance(apple_position, player.position))
 	delta_elapsed = 0.0
 	$ScoreTimer.start()
+	high_score_label.text = str(high_score)
 
 func _process(delta: float) -> void:
 	delta_elapsed += delta
@@ -33,7 +38,8 @@ func _process(delta: float) -> void:
 
 func _on_player_apple_eaten() -> void:
 	if !$ScoreTimer.is_stopped():
-		_update_score(_calculate_score_from_time($ScoreTimer.wait_time, $ScoreTimer.wait_time - $ScoreTimer.time_left))
+		score += _calculate_score_from_time($ScoreTimer.wait_time, $ScoreTimer.wait_time - $ScoreTimer.time_left)
+		_update_score(score)
 		$ScoreTimer.stop()
 	_spawn_apple()
 	$ScoreTimer.set_wait_time(_calculate_distance(apple_position, player.position))
@@ -62,7 +68,7 @@ func _calculate_score_from_time(wait_time: int, time_elapsed: float) -> int:
 
 
 func _update_score(score: int) -> void:
-	%ScoreLabel.text = str(%ScoreLabel.text.to_int() + score)
+	%ScoreLabel.text = str(score)
 
 
 func _calculate_distance(a_pos: Vector2, p_pos: Vector2) -> int:
@@ -88,6 +94,8 @@ func _on_player_snake_death() -> void:
 	add_child(label)
 	label.text = "GAME OVER"
 	label.size = Vector2(40,40)
+	if score > high_score:
+		Global.save_high_score(level_name, score)
 
 
 func _spawn_apple() ->void:

@@ -27,10 +27,8 @@ func _on_resolutions_item_selected(index: int) -> void:
 
 
 func _on_snake_skin_panel_skin_selected(snake_path: String, snake_skin: Texture2D) -> void:
-	Globals.snake_skin_texture = snake_skin
-	Globals.selected_skin_path = snake_path
-	Globals.save_data()
+	Global.save_selected_skin(snake_path)
 
 
 func _on_back_button_pressed() -> void:
-	get_tree().change_scene_to_file(Globals.previous_scene_paths.pop_front()) 
+	get_tree().change_scene_to_file(Global.previous_scene_paths.pop_front()) 

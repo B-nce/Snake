@@ -1,3 +1,4 @@
+extends Node
 
 const ROTATION_UP: float = 0
 const ROTATION_DOWN: float = PI
@@ -15,3 +16,10 @@ const COLLISION_APPLE: StringName = "apple"
 const COLLISION_LAYER_PLAYER: int = 2
 const COLLISION_LAYER_ITEM: int = 1
 const COLLISION_MASK_PLAYER: int = 2
+
+#save data keys
+const DATA_HIGHSCORES: StringName = "high_scores"
+const DATA_SELECTED_SKIN_PATH: StringName = "selected_skin_path"
+const DATA_LVL_1: StringName = "lvl1"
+const DATA_LVL_2: StringName = "lvl2"
+const DATA_LVL_3: StringName = "lvl3"
