@@ -38,9 +38,9 @@ func _process(delta: float) -> void:
 
 func _on_player_apple_eaten() -> void:
 	if !$ScoreTimer.is_stopped():
+		$ScoreTimer.stop()
 		score += _calculate_score_from_time($ScoreTimer.wait_time, $ScoreTimer.wait_time - $ScoreTimer.time_left)
 		_update_score(score)
-		$ScoreTimer.stop()
 	_spawn_apple()
 	$ScoreTimer.set_wait_time(_calculate_distance(apple_position, player.position))
 	$TimeLabel._reset()
@@ -90,12 +90,12 @@ func _setup_astar() -> void:
 
 
 func _on_player_snake_death() -> void:
-	var label: Label = Label.new()
-	add_child(label)
-	label.text = "GAME OVER"
-	label.size = Vector2(40,40)
 	if score > high_score:
 		Global.save_high_score(level_name, score)
+	var game_over: GameOverScene = load("res://scenes/game_over/game_over.tscn").instantiate()
+	get_tree().root.add_child(game_over)
+	game_over.set_score(%ScoreLabel.text)
+
 
 
 func _spawn_apple() ->void:

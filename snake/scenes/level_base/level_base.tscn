@@ -1,16 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://c81kvk2hvopbe"]
+[gd_scene load_steps=22 format=3 uid="uid://c81kvk2hvopbe"]
 
 [ext_resource type="Script" uid="uid://7eurtcxo075w" path="res://scenes/level_base/level_base.gd" id="1_ncu3c"]
 [ext_resource type="PackedScene" uid="uid://iocv5fo1fth5" path="res://scenes/player/player.tscn" id="2_kr674"]
 [ext_resource type="Texture2D" uid="uid://bvwta8y6735xf" path="res://assets/sprites/green_tile_set.png" id="2_ncu3c"]
 [ext_resource type="Texture2D" uid="uid://coti70vxrwpc3" path="res://assets/sprites/purple_tile_set.png" id="2_txia2"]
-[ext_resource type="Texture2D" uid="uid://drc5hgjnbu6d2" path="res://assets/sprites/tall_grass.png" id="3_kr674"]
 [ext_resource type="Script" uid="uid://qj14a648ye8m" path="res://scenes/level_base/time_label.gd" id="5_kr674"]
 [ext_resource type="Shader" uid="uid://1pimjkuyeig7" path="res://scenes/level_base/tall_grass.gdshader" id="5_tn631"]
 [ext_resource type="Texture2D" uid="uid://cmh48ao1wb83h" path="res://assets/sprites/three_point_mark.png" id="6_p2h7h"]
-[ext_resource type="Texture2D" uid="uid://d1k0p4d6l4ptd" path="res://assets/sprites/two_point_mark.png" id="7_48c0a"]
-[ext_resource type="Shader" uid="uid://1pimjkuyeig7" path="res://scenes/level_base/tall_grass.gdshader" id="5_tn631"]
 [ext_resource type="Texture2D" uid="uid://cqm1n7i1a6s1t" path="res://assets/sprites/tall_grass_1.png" id="6_tn631"]
+[ext_resource type="Texture2D" uid="uid://d1k0p4d6l4ptd" path="res://assets/sprites/two_point_mark.png" id="7_48c0a"]
 [ext_resource type="Texture2D" uid="uid://c1fvsmjat7xlu" path="res://assets/sprites/tall_grass_purple_1.png" id="7_p2h7h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kr674"]
@@ -187,6 +185,7 @@ offset_bottom = 53.0
 text = "0"
 
 [node name="TimeLabel" type="Line2D" parent="."]
+position = Vector2(0, 60.5)
 points = PackedVector2Array(300, 230, 300, 30)
 width = 16.0
 default_color = Color(0.647061, 0.147944, 0.240398, 1)
