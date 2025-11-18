@@ -13,3 +13,7 @@ func _ready() -> void:
 
 func _on_skin_select_button_pressed() -> void:
 	skin_selected.emit(skin_path, snake_skin)
+
+
+func set_button_disability(disabled: bool) -> void:
+	%SkinSelectButton.disabled = disabled
