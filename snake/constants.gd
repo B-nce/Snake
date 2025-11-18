@@ -23,3 +23,5 @@ const DATA_SELECTED_SKIN_PATH: StringName = "selected_skin_path"
 const DATA_LVL_1: StringName = "lvl1"
 const DATA_LVL_2: StringName = "lvl2"
 const DATA_LVL_3: StringName = "lvl3"
+const LVL_2_PREREQUISITE: int = 50
+const LVL_3_PREREQUISITE: int = 60
