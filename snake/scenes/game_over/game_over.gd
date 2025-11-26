@@ -2,8 +2,9 @@ class_name  GameOverScene
 extends Control
 
 
-func set_score(score: String) -> void:
+func set_score(score: String, high_score: bool) -> void:
 	%ScoreLabel.text = "Your score is: " + score
+	%HighScoreLabel.visible = high_score
 
 
 func _on_retry_button_pressed() -> void:

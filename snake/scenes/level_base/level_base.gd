@@ -94,7 +94,7 @@ func _on_player_snake_death() -> void:
 		Global.save_high_score(level_name, score)
 	var game_over: GameOverScene = load("res://scenes/game_over/game_over.tscn").instantiate()
 	get_tree().root.add_child(game_over)
-	game_over.set_score(%ScoreLabel.text)
+	game_over.set_score(%ScoreLabel.text, score > high_score)
 
 
 
