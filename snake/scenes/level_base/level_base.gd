@@ -38,8 +38,9 @@ func _process(delta: float) -> void:
 
 func _on_player_apple_eaten() -> void:
 	if !$ScoreTimer.is_stopped():
+		var time_elapsed = $ScoreTimer.wait_time - $ScoreTimer.time_left
 		$ScoreTimer.stop()
-		score += _calculate_score_from_time($ScoreTimer.wait_time, $ScoreTimer.wait_time - $ScoreTimer.time_left)
+		score += _calculate_score_from_time($ScoreTimer.wait_time, time_elapsed)
 		_update_score(score)
 	_spawn_apple()
 	$ScoreTimer.set_wait_time(_calculate_distance(apple_position, player.position))
