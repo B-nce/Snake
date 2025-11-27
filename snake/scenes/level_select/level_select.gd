@@ -6,15 +6,11 @@ func _ready() -> void:
 		%Level2Lock.visible = false
 	else:
 		%Level2Button.disabled = true
-		%Level2Lock.offset.x += 196
-		%Level2Lock.offset.y += %Level2Button.size.y/4
 	if Global.get_high_score(Constants.DATA_LVL_2) >= Constants.LVL_3_PREREQUISITE:
 		%Level3Button.disabled = false
 		%Level3Lock.visible = false
 	else:
 		%Level3Button.disabled = true
-		%Level3Lock.offset.x += 196
-		%Level3Lock.offset.y += %Level3Button.size.y/4
 
 
 func _on_back_button_pressed() -> void:

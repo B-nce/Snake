@@ -12,8 +12,6 @@ func _ready() -> void:
 	else:
 		%AlbinoBallPythonPanel.set_button_disability(true)
 		%AlbinoBallPythonLock.visible = true
-		%AlbinoBallPythonLock.offset.x += %AlbinoBallPythonPanel.size.x/2
-		%AlbinoBallPythonLock.offset.y += %AlbinoBallPythonPanel.size.y/4
 		
 	if Global.get_high_score(Constants.DATA_LVL_1) >= Constants.ALBINO_BOA_PREREQUISITE:
 		%AlbinoBoaPanel.set_button_disability(false)
@@ -21,8 +19,6 @@ func _ready() -> void:
 	else:
 		%AlbinoBoaPanel.set_button_disability(true)
 		%AlbinoBoaLock.visible = true
-		%AlbinoBoaLock.offset.x += %AlbinoBoaPanel.size.x/2
-		%AlbinoBoaLock.offset.y += %AlbinoBoaPanel.size.y/4
 		
 	if Global.get_high_score(Constants.DATA_LVL_2) >= Constants.ALBINO_BURMESE_PYTHON_PREREQUISITE:
 		%AlbinoBurmesePythonPanel.set_button_disability(false)
@@ -30,8 +26,6 @@ func _ready() -> void:
 	else:
 		%AlbinoBurmesePythonPanel.set_button_disability(true)
 		%AlbinoBurmesePythonLock.visible = true
-		%AlbinoBurmesePythonLock.offset.x += %AlbinoBurmesePythonPanel.size.x/2
-		%AlbinoBurmesePythonLock.offset.y += %AlbinoBurmesePythonPanel.size.y/4
 	
 	if Global.get_high_score(Constants.DATA_LVL_2) >= Constants.ALBINO_CORN_SNAKE_PREREQUISITE:
 		%AlbinoCornSnakePanel.set_button_disability(false)
@@ -39,8 +33,6 @@ func _ready() -> void:
 	else:
 		%AlbinoCornSnakePanel.set_button_disability(true)
 		%AlbinoCornSnakeLock.visible = true
-		%AlbinoCornSnakeLock.offset.x += %AlbinoCornSnakePanel.size.x/2
-		%AlbinoCornSnakeLock.offset.y += %AlbinoCornSnakePanel.size.y/4
 	
 	if Global.get_high_score(Constants.DATA_LVL_3) >= Constants.ALBINO_ANACONDA_PREREQUISITE:
 		%AlbinoAnacondaPanel.set_button_disability(false)
@@ -48,8 +40,6 @@ func _ready() -> void:
 	else:
 		%AlbinoAnacondaPanel.set_button_disability(true)
 		%AlbinoAnacondaLock.visible = true
-		%AlbinoAnacondaLock.offset.x += %AlbinoAnacondaPanel.size.x/2
-		%AlbinoAnacondaLock.offset.y += %AlbinoAnacondaPanel.size.y/4
 	
 	if Global.get_high_score(Constants.DATA_LVL_3) >= Constants.ALBINO_CORN_SNAKE_PREREQUISITE:
 		%AlbinoKingSnakePanel.set_button_disability(false)
@@ -57,8 +47,6 @@ func _ready() -> void:
 	else:
 		%AlbinoKingSnakePanel.set_button_disability(true)
 		%AlbinoKingSnakeLock.visible = true
-		%AlbinoKingSnakeLock.offset.x += %AlbinoKingSnakePanel.size.x/2
-		%AlbinoKingSnakeLock.offset.y += %AlbinoKingSnakePanel.size.y/4
 	
 	if Global.get_high_score(Constants.DATA_LVL_3) >= Constants.ALBINO_RETICULATED_PYTHON_PREREQUISITE:
 		%AlbinnoReticulatedPythonPanel.set_button_disability(false)
@@ -66,8 +54,6 @@ func _ready() -> void:
 	else:
 		%AlbinnoReticulatedPythonPanel.set_button_disability(true)
 		%AlbinoReticulatedPythonLock.visible = true
-		%AlbinoReticulatedPythonLock.offset.x += %AlbinnoReticulatedPythonPanel.size.x/2
-		%AlbinoReticulatedPythonLock.offset.y += %AlbinnoReticulatedPythonPanel.size.y/4
 	
 	if Global.get_high_score(Constants.DATA_LVL_3) >= Constants.YOUNG_TREE_BOA_PREREQUISITE:
 		%YoungTreeBoaPanel.set_button_disability(false)
@@ -75,8 +61,6 @@ func _ready() -> void:
 	else:
 		%YoungTreeBoaPanel.set_button_disability(true)
 		%YoungTreeBoaLock.visible = true
-		%YoungTreeBoaLock.offset.x += %YoungTreeBoaPanel.size.x/2
-		%YoungTreeBoaLock.offset.y += %YoungTreeBoaPanel.size.y/4
 
 
 func _on_h_slider_value_changed(value: float) -> void:

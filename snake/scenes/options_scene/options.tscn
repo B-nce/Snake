@@ -365,10 +365,21 @@ button_text = "Albino Ball Python"
 snake_skin = ExtResource("9_tj1mn")
 skin_path = "res://assets/sprites/ball_python_albino.png"
 
-[node name="AlbinoBallPythonLock" type="Sprite2D" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/AlbinoBallPythonPanel"]
+[node name="AlbinoBallPythonLock" type="TextureRect" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/AlbinoBallPythonPanel"]
 unique_name_in_owner = true
 texture_filter = 1
-scale = Vector2(2, 2)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -25.0
+offset_right = 18.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("17_hg67v")
 
 [node name="AlbinoBoaPanel" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2" instance=ExtResource("7_gqgkr")]
@@ -378,10 +389,21 @@ button_text = "Albino Boa Constrictor"
 snake_skin = ExtResource("11_vavnl")
 skin_path = "res://assets/sprites/boa_constrictor_albino.png"
 
-[node name="AlbinoBoaLock" type="Sprite2D" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/AlbinoBoaPanel"]
+[node name="AlbinoBoaLock" type="TextureRect" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/AlbinoBoaPanel"]
 unique_name_in_owner = true
 texture_filter = 1
-scale = Vector2(2, 2)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -25.0
+offset_right = 18.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("17_hg67v")
 
 [node name="AlbinoBurmesePythonPanel" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2" instance=ExtResource("7_gqgkr")]
@@ -391,10 +413,21 @@ button_text = "Albino Burmese Python"
 snake_skin = ExtResource("13_dajl3")
 skin_path = "res://assets/sprites/burmese_python_albino.png"
 
-[node name="AlbinoBurmesePythonLock" type="Sprite2D" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/AlbinoBurmesePythonPanel"]
+[node name="AlbinoBurmesePythonLock" type="TextureRect" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/AlbinoBurmesePythonPanel"]
 unique_name_in_owner = true
 texture_filter = 1
-scale = Vector2(2, 2)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -25.0
+offset_right = 18.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("17_hg67v")
 
 [node name="AlbinoCornSnakePanel" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2" instance=ExtResource("7_gqgkr")]
@@ -404,10 +437,21 @@ button_text = "Albino Corn Snake"
 snake_skin = ExtResource("15_y8vwf")
 skin_path = "res://assets/sprites/corn_snake_albino.png"
 
-[node name="AlbinoCornSnakeLock" type="Sprite2D" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/AlbinoCornSnakePanel"]
+[node name="AlbinoCornSnakeLock" type="TextureRect" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/AlbinoCornSnakePanel"]
 unique_name_in_owner = true
 texture_filter = 1
-scale = Vector2(2, 2)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -25.0
+offset_right = 18.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("17_hg67v")
 
 [node name="AlbinoAnacondaPanel" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2" instance=ExtResource("7_gqgkr")]
@@ -417,10 +461,21 @@ button_text = "Albino Green Anaconda"
 snake_skin = ExtResource("19_hg67v")
 skin_path = "res://assets/sprites/green_anaconda_albino.png"
 
-[node name="AlbinoAnacondaLock" type="Sprite2D" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/AlbinoAnacondaPanel"]
+[node name="AlbinoAnacondaLock" type="TextureRect" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/AlbinoAnacondaPanel"]
 unique_name_in_owner = true
 texture_filter = 1
-scale = Vector2(2, 2)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -25.0
+offset_right = 18.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("17_hg67v")
 
 [node name="AlbinoKingSnakePanel" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2" instance=ExtResource("7_gqgkr")]
@@ -430,10 +485,21 @@ button_text = "Albino King Snake"
 snake_skin = ExtResource("20_pc1xl")
 skin_path = "res://assets/sprites/king_snake_albino.png"
 
-[node name="AlbinoKingSnakeLock" type="Sprite2D" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/AlbinoKingSnakePanel"]
+[node name="AlbinoKingSnakeLock" type="TextureRect" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/AlbinoKingSnakePanel"]
 unique_name_in_owner = true
 texture_filter = 1
-scale = Vector2(2, 2)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -25.0
+offset_right = 18.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("17_hg67v")
 
 [node name="AlbinnoReticulatedPythonPanel" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2" instance=ExtResource("7_gqgkr")]
@@ -443,10 +509,21 @@ button_text = "Albino Reticulated Python"
 snake_skin = ExtResource("21_r6tii")
 skin_path = "res://assets/sprites/reticulated_python_albino.png"
 
-[node name="AlbinoReticulatedPythonLock" type="Sprite2D" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/AlbinnoReticulatedPythonPanel"]
+[node name="AlbinoReticulatedPythonLock" type="TextureRect" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/AlbinnoReticulatedPythonPanel"]
 unique_name_in_owner = true
 texture_filter = 1
-scale = Vector2(2, 2)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -25.0
+offset_right = 18.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("17_hg67v")
 
 [node name="YoungTreeBoaPanel" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2" instance=ExtResource("7_gqgkr")]
@@ -456,10 +533,21 @@ button_text = "Young Emerald Tree Boa"
 snake_skin = ExtResource("23_hg67v")
 skin_path = "res://assets/sprites/emerald_tree_boa_young.png"
 
-[node name="YoungTreeBoaLock" type="Sprite2D" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/YoungTreeBoaPanel"]
+[node name="YoungTreeBoaLock" type="TextureRect" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/YoungTreeBoaPanel"]
 unique_name_in_owner = true
 texture_filter = 1
-scale = Vector2(2, 2)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -25.0
+offset_right = 18.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("17_hg67v")
 
 [node name="BackButton" type="Button" parent="TabContainer/Skin selector"]
