@@ -264,6 +264,7 @@ offset_bottom = 53.0
 text = "0"
 
 [node name="TimeLabel" type="Line2D" parent="."]
+position = Vector2(0, 60.5)
 points = PackedVector2Array(300, 230, 300, 30)
 width = 16.0
 default_color = Color(0.647061, 0.147944, 0.240398, 1)

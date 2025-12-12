@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bddu0odjfnm0e"]
+[gd_scene load_steps=9 format=3 uid="uid://bddu0odjfnm0e"]
 
 [ext_resource type="FontFile" uid="uid://cm40i6mvl1t3e" path="res://fonts/snake_business.ttf" id="1_t5gxd"]
 [ext_resource type="Script" uid="uid://do50scb6xxk4e" path="res://scenes/level_select/level_select.gd" id="1_vdlig"]
 [ext_resource type="FontFile" uid="uid://cxaq1lpo2t7ho" path="res://fonts/black_charcoal.TTF" id="3_3c84o"]
+[ext_resource type="Texture2D" uid="uid://3x5c8mq5jpni" path="res://assets/sprites/lock.png" id="4_3c84o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ek2u"]
 bg_color = Color(0.684098, 0.582663, 0.445276, 1)
@@ -110,6 +111,7 @@ text = "(Level one)"
 layout_mode = 2
 
 [node name="Level2Button" type="Button" parent="VBoxContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 0
@@ -124,10 +126,30 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_vdlig")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3c84o")
 text = "(Level two)"
 
+[node name="Level2Lock" type="TextureRect" parent="VBoxContainer/VBoxContainer/MarginContainer/Level2Button"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.502558
+anchor_top = 0.454545
+anchor_right = 0.497442
+anchor_bottom = 0.606061
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_3c84o")
+expand_mode = 4
+metadata/_edit_use_anchors_ = true
+
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="Level3Button" type="Button" parent="VBoxContainer/VBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 0
@@ -177,6 +199,22 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_vdlig")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vdlig")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3c84o")
 text = "(Level five)"
+[node name="Level3Lock" type="TextureRect" parent="VBoxContainer/VBoxContainer/MarginContainer2/Level3Button"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -25.0
+offset_right = 18.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_3c84o")
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2

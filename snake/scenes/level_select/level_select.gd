@@ -1,5 +1,18 @@
 extends Control
 
+func _ready() -> void:
+	if Global.get_high_score(Constants.DATA_LVL_1) >= Constants.LVL_2_PREREQUISITE:
+		%Level2Button.disabled = false
+		%Level2Lock.visible = false
+	else:
+		%Level2Button.disabled = true
+	if Global.get_high_score(Constants.DATA_LVL_2) >= Constants.LVL_3_PREREQUISITE:
+		%Level3Button.disabled = false
+		%Level3Lock.visible = false
+	else:
+		%Level3Button.disabled = true
+
+
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file(Global.previous_scene_paths.pop_front()) 
 
