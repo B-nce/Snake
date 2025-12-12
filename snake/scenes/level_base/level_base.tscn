@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c81kvk2hvopbe"]
+[gd_scene load_steps=23 format=3 uid="uid://c81kvk2hvopbe"]
 
 [ext_resource type="Script" uid="uid://7eurtcxo075w" path="res://scenes/level_base/level_base.gd" id="1_ncu3c"]
 [ext_resource type="PackedScene" uid="uid://iocv5fo1fth5" path="res://scenes/player/player.tscn" id="2_kr674"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cqm1n7i1a6s1t" path="res://assets/sprites/tall_grass_1.png" id="6_tn631"]
 [ext_resource type="Texture2D" uid="uid://d1k0p4d6l4ptd" path="res://assets/sprites/two_point_mark.png" id="7_48c0a"]
 [ext_resource type="Texture2D" uid="uid://c1fvsmjat7xlu" path="res://assets/sprites/tall_grass_purple_1.png" id="7_p2h7h"]
+[ext_resource type="PackedScene" uid="uid://domo6ipgg30s1" path="res://scenes/pause/pause_scene.tscn" id="11_uakon"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kr674"]
 texture = ExtResource("2_ncu3c")
@@ -216,6 +217,10 @@ offset_top = 53.0
 offset_right = 379.0
 offset_bottom = 105.0
 text = "0"
+
+[node name="PauseScene" parent="." instance=ExtResource("11_uakon")]
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [connection signal="apple_eaten" from="Player" to="." method="_on_player_apple_eaten"]
 [connection signal="snake_death" from="Player" to="." method="_on_player_snake_death"]

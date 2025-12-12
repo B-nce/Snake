@@ -78,6 +78,7 @@ theme_override_constants/separation = 100
 alignment = 1
 
 [node name="RetryButton" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 0
@@ -93,6 +94,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_3mpp1")
 text = "(Retry)"
 
 [node name="BackButton" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(550, 0)
 layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 0

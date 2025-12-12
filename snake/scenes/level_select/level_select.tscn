@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bddu0odjfnm0e"]
+[gd_scene load_steps=10 format=3 uid="uid://bddu0odjfnm0e"]
 
 [ext_resource type="FontFile" uid="uid://cm40i6mvl1t3e" path="res://fonts/snake_business.ttf" id="1_t5gxd"]
 [ext_resource type="Script" uid="uid://do50scb6xxk4e" path="res://scenes/level_select/level_select.gd" id="1_vdlig"]
 [ext_resource type="FontFile" uid="uid://cxaq1lpo2t7ho" path="res://fonts/black_charcoal.TTF" id="3_3c84o"]
 [ext_resource type="Texture2D" uid="uid://3x5c8mq5jpni" path="res://assets/sprites/lock.png" id="4_3c84o"]
+[ext_resource type="StyleBox" uid="uid://bqmtewd53t0v6" path="res://styles/disabled_button.tres" id="4_7g617"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ek2u"]
 bg_color = Color(0.684098, 0.582663, 0.445276, 1)
@@ -121,6 +122,7 @@ theme_override_colors/font_focus_color = Color(0.0745098, 0.423529, 0.105882, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_t5gxd")
 theme_override_font_sizes/font_size = 55
+theme_override_styles/disabled = ExtResource("4_7g617")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vdlig")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vdlig")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3c84o")
@@ -131,7 +133,7 @@ unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.502558
+anchor_left = 0.497442
 anchor_top = 0.454545
 anchor_right = 0.497442
 anchor_bottom = 0.606061
@@ -159,6 +161,7 @@ theme_override_colors/font_focus_color = Color(0.0745098, 0.423529, 0.105882, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_t5gxd")
 theme_override_font_sizes/font_size = 55
+theme_override_styles/disabled = ExtResource("4_7g617")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vdlig")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vdlig")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3c84o")
