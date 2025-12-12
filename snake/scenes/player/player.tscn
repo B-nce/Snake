@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://iocv5fo1fth5"]
+[gd_scene load_steps=4 format=3 uid="uid://iocv5fo1fth5"]
 
 [ext_resource type="Script" uid="uid://chxrivw74ah0o" path="res://scenes/player/player.gd" id="1_onrkg"]
+[ext_resource type="PackedScene" uid="uid://gvkc474jnny4" path="res://scenes/stars/stars.tscn" id="2_dovo2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8afob"]
 size = Vector2(16, 16)
@@ -15,3 +16,8 @@ shape = SubResource("RectangleShape2D_8afob")
 
 [node name="BodyParts" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[node name="Stars" parent="." instance=ExtResource("2_dovo2")]
+unique_name_in_owner = true
+visible = false
+z_index = 99
