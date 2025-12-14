@@ -131,7 +131,7 @@ unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.502558
+anchor_left = 0.497442
 anchor_top = 0.454545
 anchor_right = 0.497442
 anchor_bottom = 0.606061
@@ -163,6 +163,23 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_vdlig")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vdlig")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3c84o")
 text = "(Level three)"
+
+[node name="Level3Lock" type="TextureRect" parent="VBoxContainer/VBoxContainer/MarginContainer2/Level3Button"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -25.0
+offset_right = 18.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_3c84o")
 
 [node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -199,22 +216,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_vdlig")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vdlig")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3c84o")
 text = "(Level five)"
-[node name="Level3Lock" type="TextureRect" parent="VBoxContainer/VBoxContainer/MarginContainer2/Level3Button"]
-unique_name_in_owner = true
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -18.0
-offset_top = -25.0
-offset_right = 18.0
-offset_bottom = 25.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_3c84o")
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
