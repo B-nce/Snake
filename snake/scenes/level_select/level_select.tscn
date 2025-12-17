@@ -246,6 +246,24 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_vdlig")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3c84o")
 text = "(Level five)"
 
+[node name="MarginContainer6" type="MarginContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Level6Button" type="Button" parent="VBoxContainer/VBoxContainer/MarginContainer6"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_t5gxd")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/hover = SubResource("StyleBoxFlat_vdlig")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vdlig")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3c84o")
+text = "(Level six)"
+
 [node name="Level5Lock" type="TextureRect" parent="VBoxContainer/VBoxContainer/MarginContainer5/Level5Button"]
 unique_name_in_owner = true
 texture_filter = 1
@@ -289,4 +307,5 @@ text = "(back)"
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/MarginContainer2/Level3Button" to="." method="_on_level_3_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/MarginContainer4/Level4Button" to="." method="_on_level_4_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/MarginContainer5/Level5Button" to="." method="_on_level_5_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/MarginContainer6/Level6Button" to="." method="_on_level_6_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer2/BackButton" to="." method="_on_back_button_pressed"]

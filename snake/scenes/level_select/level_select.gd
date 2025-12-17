@@ -37,6 +37,9 @@ func _on_level_5_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/level_5/level_5.tscn")
 
 
+func _on_level_6_button_pressed() -> void:
+	Global.previous_scene_paths.push_front(self.scene_file_path) 
+	get_tree().change_scene_to_file("res://scenes/level_6/level_6.tscn")
 func set_level_2_disability() -> void:
 	if Global.get_high_score(Constants.DATA_LVL_1) >= Constants.LVL_2_PREREQUISITE:
 		%Level2Button.disabled = false

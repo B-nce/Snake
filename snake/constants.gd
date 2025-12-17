@@ -25,6 +25,7 @@ const DATA_LVL_2: StringName = "lvl2"
 const DATA_LVL_3: StringName = "lvl3"
 const DATA_LVL_4: StringName = "lvl4"
 const DATA_LVL_5: StringName = "lvl5"
+const DATA_LVL_6: StringName = "lvl6"
 const LVL_2_PREREQUISITE: int = 50
 const LVL_3_PREREQUISITE: int = 60
 const LVL_4_PREREQUISITE: int = 70
