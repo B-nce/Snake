@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c81kvk2hvopbe"]
+[gd_scene load_steps=37 format=3 uid="uid://c81kvk2hvopbe"]
 
 [ext_resource type="Script" uid="uid://7eurtcxo075w" path="res://scenes/level_base/level_base.gd" id="1_ncu3c"]
 [ext_resource type="PackedScene" uid="uid://iocv5fo1fth5" path="res://scenes/player/player.tscn" id="2_kr674"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://xpt1tdjdb7go" path="res://assets/sprites/desert_sprite.png" id="8_gnfto"]
 [ext_resource type="Texture2D" uid="uid://b3ub5hi1sbtut" path="res://assets/sprites/tall_grass_snow_1.png" id="11_bkv5l"]
 [ext_resource type="Texture2D" uid="uid://x5x0vndngc7i" path="res://assets/sprites/tall_grass_desert_1.png" id="12_3sd2b"]
+[ext_resource type="Texture2D" uid="uid://b0rej6xc50shn" path="res://assets/sprites/score_background.png" id="14_qgxpy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kr674"]
 texture = ExtResource("2_ncu3c")
@@ -256,13 +257,30 @@ offset_bottom = 23.0
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
-[node name="ScoreLabel" type="Label" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 1
+z_as_relative = false
+texture_filter = 1
+offset_left = 286.0
+offset_top = 5.0
+offset_right = 366.0
+offset_bottom = 37.0
+texture = ExtResource("14_qgxpy")
+
+[node name="ScoreLabel" type="Label" parent="TextureRect"]
 unique_name_in_owner = true
-offset_left = 289.0
-offset_top = 1.0
-offset_right = 379.0
-offset_bottom = 53.0
+z_index = 2
+z_as_relative = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="TimeLabel" type="Line2D" parent="."]
 position = Vector2(0, 60.5)
@@ -289,13 +307,30 @@ offset_right = 324.0
 offset_bottom = 138.0
 texture = ExtResource("7_48c0a")
 
-[node name="HighScoreLabel" type="Label" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="."]
+z_index = 1
+z_as_relative = false
+texture_filter = 1
+offset_left = 286.0
+offset_top = 49.0
+offset_right = 366.0
+offset_bottom = 81.0
+texture = ExtResource("14_qgxpy")
+
+[node name="HighScoreLabel" type="Label" parent="TextureRect2"]
 unique_name_in_owner = true
-offset_left = 289.0
-offset_top = 53.0
-offset_right = 379.0
-offset_bottom = 105.0
+z_index = 2
+z_as_relative = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="PauseScene" parent="." instance=ExtResource("11_uakon")]
 size_flags_horizontal = 4
