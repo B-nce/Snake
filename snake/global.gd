@@ -9,6 +9,7 @@ var saved_data: Dictionary = {
 		Constants.DATA_LVL_3: 0,
 		Constants.DATA_LVL_4: 0,
 		Constants.DATA_LVL_5: 0,
+		Constants.DATA_LVL_6: 0,
 		},
 	Constants.DATA_SELECTED_SKIN_PATH: "res://assets/sprites/ball_python.png"
 	}
