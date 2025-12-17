@@ -30,3 +30,13 @@ func _on_level_2_button_pressed() -> void:
 func _on_level_3_button_pressed() -> void:
 	Global.previous_scene_paths.push_front(self.scene_file_path) 
 	get_tree().change_scene_to_file("res://scenes/level_3/level_3.tscn")
+
+
+func _on_level_4_button_pressed() -> void:
+	Global.previous_scene_paths.push_front(self.scene_file_path) 
+	get_tree().change_scene_to_file("res://scenes/level_4/level_4.tscn")
+
+
+func _on_level_5_button_pressed() -> void:
+	Global.previous_scene_paths.push_front(self.scene_file_path) 
+	get_tree().change_scene_to_file("res://scenes/level_5/level_5.tscn")
