@@ -1,0 +1,143 @@
+[gd_scene load_steps=8 format=3 uid="uid://domo6ipgg30s1"]
+
+[ext_resource type="FontFile" uid="uid://cm40i6mvl1t3e" path="res://fonts/snake_business.ttf" id="1_aqi3r"]
+[ext_resource type="Script" uid="uid://dflgx1xuajw1e" path="res://scenes/pause/pause_scene.gd" id="1_suiv3"]
+[ext_resource type="FontFile" uid="uid://cxaq1lpo2t7ho" path="res://fonts/black_charcoal.TTF" id="2_suiv3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3eou"]
+bg_color = Color(0.714734, 0.581304, 0.271327, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0745098, 0.423529, 0.105882, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 150
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 150
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4l1b"]
+bg_color = Color(0.714734, 0.581304, 0.271327, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0745098, 0.423529, 0.105882, 1)
+corner_radius_top_left = 150
+corner_radius_top_right = 5
+corner_radius_bottom_right = 150
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_suiv3"]
+bg_color = Color(0.714734, 0.581304, 0.271327, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0745098, 0.423529, 0.105882, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 150
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 150
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fif7v"]
+bg_color = Color(0.714734, 0.581304, 0.271327, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0745098, 0.423529, 0.105882, 1)
+corner_radius_top_left = 150
+corner_radius_top_right = 5
+corner_radius_bottom_right = 150
+corner_radius_bottom_left = 5
+
+[node name="PauseScene" type="Control"]
+process_mode = 3
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_suiv3")
+
+[node name="Background" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.764706)
+metadata/_edit_use_anchors_ = true
+
+[node name="PauseLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 60.0
+offset_right = 150.0
+offset_bottom = 186.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("2_suiv3")
+theme_override_font_sizes/font_size = 100
+text = "Paused"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -451.0
+offset_top = -140.0
+offset_right = 451.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 100
+
+[node name="ContinueButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_aqi3r")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/hover = SubResource("StyleBoxFlat_k3eou")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k3eou")
+theme_override_styles/normal = SubResource("StyleBoxFlat_x4l1b")
+text = "(continue)"
+metadata/_edit_use_anchors_ = true
+
+[node name="BackButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_aqi3r")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_suiv3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_suiv3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fif7v")
+text = "(level select)"
+
+[connection signal="pressed" from="HBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
