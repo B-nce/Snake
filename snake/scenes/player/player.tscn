@@ -20,4 +20,5 @@ unique_name_in_owner = true
 [node name="Stars" parent="." instance=ExtResource("2_dovo2")]
 unique_name_in_owner = true
 visible = false
-z_index = 99
+z_index = 98
+z_as_relative = false

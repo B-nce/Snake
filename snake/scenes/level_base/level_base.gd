@@ -18,9 +18,13 @@ const AppleScene: PackedScene = preload("res://scenes/apple/apple.tscn")
 var delta_elapsed: float = 0.0
 var apple_position: Vector2
 var grid: AStarGrid2D
+@onready var is_game_over: bool = false
 
 
 func _ready() -> void:
+	_setup_astar()
+	_spawn_apple()
+	$PauseScene.hide()
 	_initialize_map_and_player()
 	_spawn_apple()
 	_setup_astar()
@@ -36,6 +40,7 @@ func _process(delta: float) -> void:
 		delta_elapsed -= 0.1
 		if(!$ScoreTimer.is_stopped()):
 			$TimeLabel._decrease(20/$ScoreTimer.wait_time)
+
 
 func _on_player_apple_eaten() -> void:
 	if !$ScoreTimer.is_stopped():
@@ -92,6 +97,7 @@ func _setup_astar() -> void:
 
 
 func _on_player_snake_death() -> void:
+	is_game_over = true
 	if score > high_score:
 		Global.save_high_score(level_name, score)
 	var game_over: GameOverScene = load("res://scenes/game_over/game_over.tscn").instantiate()
