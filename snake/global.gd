@@ -10,6 +10,7 @@ var saved_data: Dictionary = {
 		},
 	Constants.DATA_SELECTED_SKIN_PATH: "res://assets/sprites/ball_python.png"
 	}
+var number_of_players = 4
 
 
 func get_high_score(level_name: String) -> int:

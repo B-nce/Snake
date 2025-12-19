@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://h2i67x0c4716"]
+
+[ext_resource type="Script" uid="uid://eou0mlawhboy" path="res://scenes/score/score.gd" id="1_dvl6n"]
+[ext_resource type="Texture2D" uid="uid://cmh48ao1wb83h" path="res://assets/sprites/three_point_mark.png" id="3_5h0kc"]
+[ext_resource type="Texture2D" uid="uid://d1k0p4d6l4ptd" path="res://assets/sprites/two_point_mark.png" id="4_c54rh"]
+
+[node name="Score" type="Node2D"]
+script = ExtResource("1_dvl6n")
+
+[node name="ScoreTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="PlayerNumber" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 272.0
+offset_right = 91.0
+offset_bottom = 324.0
+
+[node name="ScoreLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 91.0
+offset_bottom = 53.0
+text = "0"
+
+[node name="HighScoreLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_top = 33.0
+offset_right = 90.0
+offset_bottom = 85.0
+text = "0"
+
+[node name="TimeLabel" type="Line2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-290, 36)
+points = PackedVector2Array(300, 230, 300, 30)
+width = 16.0
+default_color = Color(0.647061, 0.147944, 0.240398, 1)
+
+[node name="ThreePointMarker" type="TextureRect" parent="TimeLabel"]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 16)
+offset_left = 292.0
+offset_top = 72.0
+offset_right = 324.0
+offset_bottom = 88.0
+texture = ExtResource("3_5h0kc")
+
+[node name="TwoPointMarker" type="TextureRect" parent="TimeLabel"]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 16)
+offset_left = 292.0
+offset_top = 122.0
+offset_right = 324.0
+offset_bottom = 138.0
+texture = ExtResource("4_c54rh")

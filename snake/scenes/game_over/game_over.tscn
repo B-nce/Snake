@@ -115,10 +115,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -86.0
-offset_top = -44.5
-offset_right = 86.0
-offset_bottom = 44.5
+offset_left = -251.0
+offset_top = -161.0
+offset_right = 241.0
+offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.0745098, 0.423529, 0.105882, 1)
@@ -127,6 +127,8 @@ theme_override_constants/shadow_outline_size = 10
 theme_override_fonts/font = ExtResource("2_vtso4")
 theme_override_font_sizes/font_size = 70
 text = "Score"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HighScoreLabel" type="Label" parent="."]
 unique_name_in_owner = true

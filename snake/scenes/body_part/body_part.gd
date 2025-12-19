@@ -18,6 +18,10 @@ func set_texture(sprite_texture: Texture2D) -> void:
 
 func update_sprite(new_rotation: float, type: SnakeSpriteTypes.Type) -> void:
 	set_sprite_type(type)
+	rotate_sprite(new_rotation)
+
+
+func rotate_sprite(new_rotation: float) -> void:
 	sprite.rotation = new_rotation
 
 

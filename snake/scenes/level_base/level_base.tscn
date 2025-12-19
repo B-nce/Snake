@@ -1,15 +1,14 @@
-[gd_scene load_steps=22 format=3 uid="uid://c81kvk2hvopbe"]
+[gd_scene load_steps=21 format=3 uid="uid://c81kvk2hvopbe"]
 
 [ext_resource type="Script" uid="uid://7eurtcxo075w" path="res://scenes/level_base/level_base.gd" id="1_ncu3c"]
 [ext_resource type="PackedScene" uid="uid://iocv5fo1fth5" path="res://scenes/player/player.tscn" id="2_kr674"]
 [ext_resource type="Texture2D" uid="uid://bvwta8y6735xf" path="res://assets/sprites/green_tile_set.png" id="2_ncu3c"]
 [ext_resource type="Texture2D" uid="uid://coti70vxrwpc3" path="res://assets/sprites/purple_tile_set.png" id="2_txia2"]
-[ext_resource type="Script" uid="uid://qj14a648ye8m" path="res://scenes/level_base/time_label.gd" id="5_kr674"]
 [ext_resource type="Shader" uid="uid://1pimjkuyeig7" path="res://scenes/level_base/tall_grass.gdshader" id="5_tn631"]
-[ext_resource type="Texture2D" uid="uid://cmh48ao1wb83h" path="res://assets/sprites/three_point_mark.png" id="6_p2h7h"]
 [ext_resource type="Texture2D" uid="uid://cqm1n7i1a6s1t" path="res://assets/sprites/tall_grass_1.png" id="6_tn631"]
-[ext_resource type="Texture2D" uid="uid://d1k0p4d6l4ptd" path="res://assets/sprites/two_point_mark.png" id="7_48c0a"]
 [ext_resource type="Texture2D" uid="uid://c1fvsmjat7xlu" path="res://assets/sprites/tall_grass_purple_1.png" id="7_p2h7h"]
+[ext_resource type="PackedScene" uid="uid://h2i67x0c4716" path="res://scenes/score/score.tscn" id="8_48c0a"]
+[ext_resource type="PackedScene" uid="uid://bcrrspqjibwxb" path="res://scenes/apple/apple.tscn" id="9_cr6la"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kr674"]
 texture = ExtResource("2_ncu3c")
@@ -145,11 +144,32 @@ sources/2 = SubResource("TileSetAtlasSource_48c0a")
 scale = Vector2(2, 2)
 script = ExtResource("1_ncu3c")
 
-[node name="Player" parent="." instance=ExtResource("2_kr674")]
+[node name="Player1" parent="." instance=ExtResource("2_kr674")]
 unique_name_in_owner = true
 texture_filter = 1
 position = Vector2(152, 152)
 length = 5
+
+[node name="Player2" parent="." instance=ExtResource("2_kr674")]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(168, 152)
+length = 5
+player_number = 2
+
+[node name="Player3" parent="." instance=ExtResource("2_kr674")]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(184, 152)
+length = 5
+player_number = 3
+
+[node name="Player4" parent="." instance=ExtResource("2_kr674")]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(200, 152)
+length = 5
+player_number = 4
 
 [node name="Background" type="TileMapLayer" parent="."]
 texture_filter = 1
@@ -169,53 +189,25 @@ tile_set = SubResource("TileSet_7e5lm")
 [node name="Grass" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_p2h7h")
 
-[node name="PositionInfo" type="Label" parent="."]
-unique_name_in_owner = true
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="Score1" parent="." node_paths=PackedStringArray("player") groups=["score"] instance=ExtResource("8_48c0a")]
+player = NodePath("../Player1")
 
-[node name="ScoreTimer" type="Timer" parent="."]
+[node name="Score2" parent="." node_paths=PackedStringArray("player") groups=["score"] instance=ExtResource("8_48c0a")]
+player = NodePath("../Player2")
 
-[node name="ScoreLabel" type="Label" parent="."]
-unique_name_in_owner = true
-offset_left = 289.0
-offset_top = 1.0
-offset_right = 379.0
-offset_bottom = 53.0
-text = "0"
+[node name="Score3" parent="." node_paths=PackedStringArray("player") groups=["score"] instance=ExtResource("8_48c0a")]
+player = NodePath("../Player3")
 
-[node name="TimeLabel" type="Line2D" parent="."]
-position = Vector2(0, 60.5)
-points = PackedVector2Array(300, 230, 300, 30)
-width = 16.0
-default_color = Color(0.647061, 0.147944, 0.240398, 1)
-script = ExtResource("5_kr674")
+[node name="Score4" parent="." node_paths=PackedStringArray("player") groups=["score"] instance=ExtResource("8_48c0a")]
+player = NodePath("../Player4")
 
-[node name="ThreePointMarker" type="TextureRect" parent="TimeLabel"]
-texture_filter = 1
-custom_minimum_size = Vector2(32, 16)
-offset_left = 292.0
-offset_top = 72.0
-offset_right = 324.0
-offset_bottom = 88.0
-texture = ExtResource("6_p2h7h")
+[node name="FirstApple" parent="." instance=ExtResource("9_cr6la")]
 
-[node name="TwoPointMarker" type="TextureRect" parent="TimeLabel"]
-texture_filter = 1
-custom_minimum_size = Vector2(32, 16)
-offset_left = 292.0
-offset_top = 122.0
-offset_right = 324.0
-offset_bottom = 138.0
-texture = ExtResource("7_48c0a")
-
-[node name="HighScoreLabel" type="Label" parent="."]
-unique_name_in_owner = true
-offset_left = 289.0
-offset_top = 53.0
-offset_right = 379.0
-offset_bottom = 105.0
-text = "0"
-
-[connection signal="apple_eaten" from="Player" to="." method="_on_player_apple_eaten"]
-[connection signal="snake_death" from="Player" to="." method="_on_player_snake_death"]
+[connection signal="apple_eaten" from="Player1" to="." method="_on_player_apple_eaten"]
+[connection signal="snake_death" from="Player1" to="." method="_on_player_snake_death"]
+[connection signal="apple_eaten" from="Player2" to="." method="_on_player_apple_eaten"]
+[connection signal="snake_death" from="Player2" to="." method="_on_player_snake_death"]
+[connection signal="apple_eaten" from="Player3" to="." method="_on_player_apple_eaten"]
+[connection signal="snake_death" from="Player3" to="." method="_on_player_snake_death"]
+[connection signal="apple_eaten" from="Player4" to="." method="_on_player_apple_eaten"]
+[connection signal="snake_death" from="Player4" to="." method="_on_player_snake_death"]
