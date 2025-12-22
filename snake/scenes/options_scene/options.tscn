@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://blrf827ffsitx"]
+[gd_scene load_steps=34 format=3 uid="uid://blrf827ffsitx"]
 
 [ext_resource type="FontFile" uid="uid://cxaq1lpo2t7ho" path="res://fonts/black_charcoal.TTF" id="1_biovg"]
 [ext_resource type="Script" uid="uid://djv3qxmr51dwv" path="res://scenes/options_scene/options.gd" id="1_r1nbh"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cbiu6kef8lxco" path="res://assets/sprites/reticulated_python.png" id="14_cse3v"]
 [ext_resource type="Texture2D" uid="uid://clafsi82juo43" path="res://assets/sprites/emerald_tree_boa.png" id="15_cse3v"]
 [ext_resource type="Texture2D" uid="uid://clc8bj60tca8g" path="res://assets/sprites/corn_snake_albino.png" id="15_y8vwf"]
+[ext_resource type="Texture2D" uid="uid://dwhqoifvst7wl" path="res://assets/sprites/rattlesnake.png" id="16_pc1xl"]
 [ext_resource type="Texture2D" uid="uid://3x5c8mq5jpni" path="res://assets/sprites/lock.png" id="17_hg67v"]
 [ext_resource type="Texture2D" uid="uid://dhjuaqvt4va8q" path="res://assets/sprites/green_anaconda_albino.png" id="19_hg67v"]
 [ext_resource type="Texture2D" uid="uid://70t2mqv8spih" path="res://assets/sprites/king_snake_albino.png" id="20_pc1xl"]
@@ -353,6 +354,31 @@ button_text = "Emerald Tree Boa"
 snake_skin = ExtResource("15_cse3v")
 skin_path = "res://assets/sprites/emerald_tree_boa.png"
 
+[node name="RattleSnakePanel" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn" instance=ExtResource("7_gqgkr")]
+unique_name_in_owner = true
+layout_mode = 2
+button_text = "Emerald Tree Boa"
+snake_skin = ExtResource("16_pc1xl")
+skin_path = "res://assets/sprites/emerald_tree_boa.png"
+
+[node name="RattleSnakeLock" type="TextureRect" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn/RattleSnakePanel"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -25.0
+offset_right = 18.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_hg67v")
+metadata/_edit_use_anchors_ = true
+
 [node name="ContainerColumn2" type="VBoxContainer" parent="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -588,6 +614,7 @@ text = "(back)"
 [connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn/KingSnakePanel" to="." method="_on_snake_skin_panel_skin_selected"]
 [connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn/ReticulatedPythonPanel" to="." method="_on_snake_skin_panel_skin_selected"]
 [connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn/TreeBoaPanel" to="." method="_on_snake_skin_panel_skin_selected"]
+[connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn/RattleSnakePanel" to="." method="_on_snake_skin_panel_skin_selected"]
 [connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/AlbinoBallPythonPanel" to="." method="_on_snake_skin_panel_skin_selected"]
 [connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/AlbinoBoaPanel" to="." method="_on_snake_skin_panel_skin_selected"]
 [connection signal="skin_selected" from="TabContainer/Skin selector/ScrollContainer/HorizontalOutsideContainer/ContainerColumn2/AlbinoBurmesePythonPanel" to="." method="_on_snake_skin_panel_skin_selected"]

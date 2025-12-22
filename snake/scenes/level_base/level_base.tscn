@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c81kvk2hvopbe"]
+[gd_scene load_steps=43 format=3 uid="uid://c81kvk2hvopbe"]
 
 [ext_resource type="Script" uid="uid://7eurtcxo075w" path="res://scenes/level_base/level_base.gd" id="1_ncu3c"]
 [ext_resource type="PackedScene" uid="uid://iocv5fo1fth5" path="res://scenes/player/player.tscn" id="2_kr674"]
@@ -13,11 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://d1k0p4d6l4ptd" path="res://assets/sprites/two_point_mark.png" id="7_48c0a"]
 [ext_resource type="Texture2D" uid="uid://d1fcmys0cxjje" path="res://assets/sprites/snow_tile_set.png" id="7_hltye"]
 [ext_resource type="Texture2D" uid="uid://c1fvsmjat7xlu" path="res://assets/sprites/tall_grass_purple_1.png" id="7_p2h7h"]
-[ext_resource type="PackedScene" uid="uid://domo6ipgg30s1" path="res://scenes/pause/pause_scene.tscn" id="11_uakon"]
 [ext_resource type="Texture2D" uid="uid://cerkrshmdduc7" path="res://assets/sprites/jungle_tile_set.png" id="7_qgxpy"]
 [ext_resource type="Texture2D" uid="uid://xpt1tdjdb7go" path="res://assets/sprites/desert_sprite.png" id="8_gnfto"]
 [ext_resource type="Texture2D" uid="uid://25sbswubr3mo" path="res://assets/sprites/andaluse_tiles_set.png" id="10_bkv5l"]
 [ext_resource type="Texture2D" uid="uid://b3ub5hi1sbtut" path="res://assets/sprites/tall_grass_snow_1.png" id="11_bkv5l"]
+[ext_resource type="PackedScene" uid="uid://domo6ipgg30s1" path="res://scenes/pause/pause_scene.tscn" id="11_uakon"]
 [ext_resource type="Texture2D" uid="uid://x5x0vndngc7i" path="res://assets/sprites/tall_grass_desert_1.png" id="12_3sd2b"]
 [ext_resource type="Texture2D" uid="uid://b0rej6xc50shn" path="res://assets/sprites/score_background.png" id="14_qgxpy"]
 

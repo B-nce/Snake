@@ -81,4 +81,10 @@ func set_level_5_disability() -> void:
 
 
 func set_level_6_disability() -> void:
-	pass #TODO: finish when level 6 is done
+	if Global.get_high_score(Constants.DATA_LVL_6) >= Constants.LVL_6_PREREQUISITE:
+		%Level6Button.disabled = false
+		%Level6Button.tooltip_text = ""
+		%Level6Lock.visible = false
+	else:
+		%Level6Button.tooltip_text = "To unlock get a high score of at least 150 on level 5."
+		%Level6Button.disabled = true

@@ -138,15 +138,14 @@ anchor_left = 0.497442
 anchor_top = 0.454545
 anchor_right = 0.497442
 anchor_bottom = 0.606061
-offset_left = -20.0
+offset_left = -15.9997
 offset_top = -20.0
-offset_right = 20.0
+offset_right = 20.0003
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_3c84o")
 expand_mode = 4
-metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -173,7 +172,7 @@ text = "(Level three)"
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -202,6 +201,7 @@ theme_override_colors/font_focus_color = Color(0.0745098, 0.423529, 0.105882, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_t5gxd")
 theme_override_font_sizes/font_size = 55
+theme_override_styles/disabled = ExtResource("4_7g617")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vdlig")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vdlig")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3c84o")
@@ -241,15 +241,36 @@ theme_override_colors/font_focus_color = Color(0.0745098, 0.423529, 0.105882, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_t5gxd")
 theme_override_font_sizes/font_size = 55
+theme_override_styles/disabled = ExtResource("4_7g617")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vdlig")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vdlig")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3c84o")
 text = "(Level five)"
 
+[node name="Level5Lock" type="TextureRect" parent="VBoxContainer/VBoxContainer/MarginContainer5/Level5Button"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.497442
+anchor_top = 0.454545
+anchor_right = 0.497442
+anchor_bottom = 0.606061
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_3c84o")
+expand_mode = 4
+metadata/_edit_use_anchors_ = true
+
 [node name="MarginContainer6" type="MarginContainer" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="Level6Button" type="Button" parent="VBoxContainer/VBoxContainer/MarginContainer6"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 0
@@ -259,12 +280,13 @@ theme_override_colors/font_focus_color = Color(0.0745098, 0.423529, 0.105882, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_t5gxd")
 theme_override_font_sizes/font_size = 55
+theme_override_styles/disabled = ExtResource("4_7g617")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vdlig")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vdlig")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3c84o")
 text = "(Level six)"
 
-[node name="Level5Lock" type="TextureRect" parent="VBoxContainer/VBoxContainer/MarginContainer5/Level5Button"]
+[node name="Level6Lock" type="TextureRect" parent="VBoxContainer/VBoxContainer/MarginContainer6/Level6Button"]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 1
