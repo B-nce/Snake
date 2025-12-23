@@ -23,7 +23,11 @@ const COLLISION_MASK_PLAYER: int = 2
 
 #save data keys
 const DATA_HIGHSCORES: StringName = "high_scores"
-const DATA_SELECTED_SKIN_PATH: StringName = "selected_skin_path"
+const DATA_SELECTED_SKIN_PATH: StringName = "selected_skin_path_"
+const DATA_SELECTED_SKIN_PATH_1: StringName = "selected_skin_path_1"
+const DATA_SELECTED_SKIN_PATH_2: StringName = "selected_skin_path_2"
+const DATA_SELECTED_SKIN_PATH_3: StringName = "selected_skin_path_3"
+const DATA_SELECTED_SKIN_PATH_4: StringName = "selected_skin_path_4"
 const DATA_LVL_1: StringName = "lvl1"
 const DATA_LVL_2: StringName = "lvl2"
 const DATA_LVL_3: StringName = "lvl3"

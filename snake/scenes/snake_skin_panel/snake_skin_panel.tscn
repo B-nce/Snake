@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://2p6lj4tqjqww"]
+[gd_scene load_steps=6 format=3 uid="uid://2p6lj4tqjqww"]
 
 [ext_resource type="Script" uid="uid://c0lauqcp4054k" path="res://scenes/snake_skin_panel/snake_skin_panel.gd" id="1_7rjww"]
 [ext_resource type="PackedScene" uid="uid://dbq1olpjwj3my" path="res://scenes/snake_skin_displayer/snake_skin_displayer.tscn" id="1_o5gjp"]
@@ -7,18 +7,6 @@
 [sub_resource type="FontVariation" id="FontVariation_o5gjp"]
 base_font = ExtResource("3_41eqd")
 baseline_offset = 2.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rjww"]
-bg_color = Color(0.714734, 0.581304, 0.271327, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.0745098, 0.423529, 0.105882, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5gjp"]
 bg_color = Color(0.682353, 0.584314, 0.447059, 1)
@@ -49,14 +37,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.0745098, 0.423529, 0.105882, 1)
 theme_override_colors/font_color = Color(0.0745098, 0.423529, 0.105882, 1)
 theme_override_colors/font_focus_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_pressed_color = Color(0.0745098, 0.423529, 0.105882, 1)
 theme_override_constants/outline_size = 7
 theme_override_fonts/font = SubResource("FontVariation_o5gjp")
 theme_override_font_sizes/font_size = 35
-theme_override_styles/focus = SubResource("StyleBoxFlat_7rjww")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7rjww")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7rjww")
+theme_override_styles/focus = SubResource("StyleBoxFlat_o5gjp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o5gjp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o5gjp")
 theme_override_styles/normal = SubResource("StyleBoxFlat_o5gjp")
 
 [node name="CenterContainer" type="CenterContainer" parent="SkinSelectButton"]
@@ -79,4 +69,3 @@ custom_minimum_size = Vector2(144, 96)
 layout_mode = 2
 
 [connection signal="skin_selected" from="." to="." method="_on_skin_select_button_pressed"]
-[connection signal="pressed" from="SkinSelectButton" to="." method="_on_skin_select_button_pressed"]

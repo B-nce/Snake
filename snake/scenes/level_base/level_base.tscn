@@ -148,28 +148,53 @@ script = ExtResource("1_ncu3c")
 unique_name_in_owner = true
 texture_filter = 1
 position = Vector2(152, 152)
+health_points = null
+despawn_after_seconds = null
 length = 5
+move_interval = null
+movement_is_enabled = null
+map_border = null
+player_number = null
+initial_direction = null
 
 [node name="Player2" parent="." instance=ExtResource("2_kr674")]
 unique_name_in_owner = true
 texture_filter = 1
 position = Vector2(168, 152)
+health_points = null
+despawn_after_seconds = null
 length = 5
+move_interval = null
+movement_is_enabled = null
+map_border = null
 player_number = 2
+initial_direction = null
 
 [node name="Player3" parent="." instance=ExtResource("2_kr674")]
 unique_name_in_owner = true
 texture_filter = 1
 position = Vector2(184, 152)
+health_points = null
+despawn_after_seconds = null
 length = 5
+move_interval = null
+movement_is_enabled = null
+map_border = null
 player_number = 3
+initial_direction = null
 
 [node name="Player4" parent="." instance=ExtResource("2_kr674")]
 unique_name_in_owner = true
 texture_filter = 1
 position = Vector2(200, 152)
+health_points = null
+despawn_after_seconds = null
 length = 5
+move_interval = null
+movement_is_enabled = null
+map_border = null
 player_number = 4
+initial_direction = null
 
 [node name="Background" type="TileMapLayer" parent="."]
 texture_filter = 1

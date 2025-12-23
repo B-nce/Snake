@@ -8,7 +8,10 @@ var saved_data: Dictionary = {
 		Constants.DATA_LVL_2: 0, 
 		Constants.DATA_LVL_3: 0,
 		},
-	Constants.DATA_SELECTED_SKIN_PATH: "res://assets/sprites/ball_python.png"
+	Constants.DATA_SELECTED_SKIN_PATH_1: "res://assets/sprites/ball_python.png",
+	Constants.DATA_SELECTED_SKIN_PATH_2: "res://assets/sprites/burmese_python.png",
+	Constants.DATA_SELECTED_SKIN_PATH_3: "res://assets/sprites/corn_snake.png",
+	Constants.DATA_SELECTED_SKIN_PATH_4: "res://assets/sprites/green_anaconda.png"
 	}
 var number_of_players = 4
 
@@ -22,12 +25,12 @@ func save_high_score(level_name: String, score: int) -> void:
 	_save_all_data()
 
 
-func get_selected_skin() -> String:
-	return saved_data[Constants.DATA_SELECTED_SKIN_PATH]
+func get_selected_skin(player_number: int) -> String:
+	return saved_data[Constants.DATA_SELECTED_SKIN_PATH + str(player_number)]
 
 
-func save_selected_skin(skin_path: String) -> void:
-	saved_data[Constants.DATA_SELECTED_SKIN_PATH] = skin_path
+func save_selected_skin(skin_path: String, player_number: int) -> void:
+	saved_data[Constants.DATA_SELECTED_SKIN_PATH + str(player_number)] = skin_path
 	_save_all_data()
 	
 

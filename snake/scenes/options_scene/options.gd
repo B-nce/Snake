@@ -3,6 +3,8 @@ extends Control
 
 const volume_offset : float = 0.5
 
+var skin_dictionary : Dictionary = {}
+
 func _ready() -> void:	
 	%VolumeSlider.set_value_no_signal(AudioServer.get_bus_volume_db(0)/volume_offset)
 	%MuteBox.set_pressed_no_signal(AudioServer.is_bus_mute(0))
@@ -77,6 +79,9 @@ func _ready() -> void:
 		%YoungTreeBoaLock.visible = true
 		%YoungTreeBoaLock.offset.x += %YoungTreeBoaPanel.size.x/2
 		%YoungTreeBoaLock.offset.y += %YoungTreeBoaPanel.size.y/4
+	build_list()
+	$"TabContainer/Skin selector".set_skin_dictionary(skin_dictionary)
+	load_skins()
 
 
 func _on_h_slider_value_changed(value: float) -> void:
@@ -97,9 +102,25 @@ func _on_resolutions_item_selected(index: int) -> void:
 			DisplayServer.window_set_size(Vector2i(1280,720))
 
 
-func _on_snake_skin_panel_skin_selected(snake_path: String, snake_skin: Texture2D) -> void:
-	Global.save_selected_skin(snake_path)
-
-
 func _on_back_button_pressed() -> void:
+	for snake_skin_selector: SnakeSkinSelector in %SnakeSkinSelectorsContainer.get_children():
+		var skin = skin_dictionary[snake_skin_selector.skin_index]
+		Global.save_selected_skin(skin,snake_skin_selector.player_number)
 	get_tree().change_scene_to_file(Global.previous_scene_paths.pop_front()) 
+
+
+func build_list() -> void:
+	var i: int = 0
+	for child: SnakeSkinPanel in %ContainerColumn.get_children():
+		skin_dictionary[i] = child.skin_path
+		i += 1
+	for child: SnakeSkinPanel in %ContainerColumn2.get_children():
+		if !child.get_button_disability():
+			skin_dictionary[i] = child.skin_path
+			i += 1
+
+
+func load_skins() -> void:
+	for snake_skin_selector: SnakeSkinSelector in %SnakeSkinSelectorsContainer.get_children():
+		var skin_path = Global.get_selected_skin(snake_skin_selector.player_number)
+		snake_skin_selector.set_index(skin_dictionary.find_key(skin_path))

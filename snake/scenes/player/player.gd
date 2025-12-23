@@ -16,8 +16,7 @@ const BodyPartScene: PackedScene = preload("res://scenes/body_part/body_part.tsc
 
 @export var health_points: int = 1
 @export var despawn_after_seconds: float = 5
-@export_range(2, 100, 1) var length: int = 2
-@export var texture: Texture2D = load(Global.get_selected_skin()) 
+@export_range(2, 100, 1) var length: int = 2 
 @export var move_interval: float = 1
 @export var movement_is_enabled: bool = true
 @export var map_border: Rect2 = Rect2(Vector2(0,0), Vector2(18,20))
@@ -28,6 +27,7 @@ var _timer: float = 0
 var _previous_tail_position: Vector2
 
 @onready var rotation_value: float = _get_rotation_from_initial_direction()
+@onready var texture: Texture2D = load(Global.get_selected_skin(player_number))
 
 
 func _ready() -> void:
