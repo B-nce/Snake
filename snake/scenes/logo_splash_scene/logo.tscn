@@ -35,14 +35,14 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="HFlowContainer"]
+[node name="Title" type="Label" parent="HFlowContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_cc1fu")
 theme_override_font_sizes/font_size = 100
 text = "Hullarabló Games"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="HFlowContainer"]
+[node name="Logo" type="TextureRect" parent="HFlowContainer"]
 custom_minimum_size = Vector2(748, 421)
 layout_mode = 2
 texture = ExtResource("1_gvxpq")
