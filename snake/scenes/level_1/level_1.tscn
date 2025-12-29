@@ -10,43 +10,21 @@ level_name = "lvl1"
 
 [node name="Player1" parent="Level" index="0"]
 position = Vector2(40, 24)
-health_points = 1
-despawn_after_seconds = 5.0
 length = 3
-move_interval = 1.0
-movement_is_enabled = true
-map_border = Rect2(0, 0, 18, 20)
-player_number = 1
 initial_direction = 3
 
 [node name="Player2" parent="Level" index="1"]
 position = Vector2(264, 40)
-health_points = 1
-despawn_after_seconds = 5.0
 length = 3
-move_interval = 1.0
-movement_is_enabled = true
-map_border = Rect2(0, 0, 18, 20)
 initial_direction = 1
 
 [node name="Player3" parent="Level" index="2"]
 position = Vector2(24, 280)
-health_points = 1
-despawn_after_seconds = 5.0
 length = 3
-move_interval = 1.0
-movement_is_enabled = true
-map_border = Rect2(0, 0, 18, 20)
-initial_direction = 0
 
 [node name="Player4" parent="Level" index="3"]
 position = Vector2(248, 296)
-health_points = 1
-despawn_after_seconds = 5.0
 length = 3
-move_interval = 1.0
-movement_is_enabled = true
-map_border = Rect2(0, 0, 18, 20)
 initial_direction = 2
 
 [node name="Background" parent="Level" index="4"]

@@ -16,7 +16,6 @@ initial_direction = 3
 [node name="Player2" parent="Level" index="1"]
 position = Vector2(40, 264)
 length = 3
-initial_direction = 0
 
 [node name="Player3" parent="Level" index="2"]
 position = Vector2(248, 56)
