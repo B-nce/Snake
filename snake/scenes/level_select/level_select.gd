@@ -4,11 +4,7 @@ extends Control
 func _ready() -> void:
 	if Global.number_of_players > 1:
 		return
-	set_level_2_disability()
-	set_level_3_disability()
-	set_level_4_disability()
-	set_level_5_disability()
-	set_level_6_disability()
+	set_level_disability()
 
 
 func _on_back_button_pressed() -> void:
@@ -43,51 +39,24 @@ func _on_level_5_button_pressed() -> void:
 func _on_level_6_button_pressed() -> void:
 	Global.previous_scene_paths.push_front(self.scene_file_path) 
 	get_tree().change_scene_to_file("res://scenes/level_6/level_6.tscn")
-func set_level_2_disability() -> void:
-	if Global.get_high_score(Constants.DATA_LVL_1) >= Constants.LVL_2_PREREQUISITE:
-		%Level2Button.disabled = false
-		%Level2Button.tooltip_text = ""
-	else:
-		%Level2Button.tooltip_text = "To unlock get a high score of at least 50 on level 1."
-		%Level2Button.disabled = true
-		%Level2Lock.visible = true
 
 
-func set_level_3_disability() -> void:
-	if Global.get_high_score(Constants.DATA_LVL_2) >= Constants.LVL_3_PREREQUISITE:
-		%Level3Button.disabled = false
-		%Level3Button.tooltip_text = ""
-	else:
-		%Level3Button.tooltip_text = "To unlock get a high score of at least 60 on level 2."
-		%Level3Button.disabled = true
-		%Level3Lock.visible = true
-
-
-func set_level_4_disability() -> void:
-	if Global.get_high_score(Constants.DATA_LVL_4) >= Constants.LVL_4_PREREQUISITE:
-		%Level4Button.disabled = false
-		%Level4Button.tooltip_text = ""
-	else:
-		%Level4Button.tooltip_text = "To unlock get a high score of at least 70 on level 3."
-		%Level4Button.disabled = true
-		%Level4Lock.visible = true
-
-
-func set_level_5_disability() -> void:
-	if Global.get_high_score(Constants.DATA_LVL_5) >= Constants.LVL_5_PREREQUISITE:
-		%Level5Button.disabled = false
-		%Level5Button.tooltip_text = ""
-	else:
-		%Level5Button.tooltip_text = "To unlock get a high score of at least 90 on level 4."
-		%Level5Button.disabled = true
-		%Level5Lock.visible = true
-
-
-func set_level_6_disability() -> void:
-	if Global.get_high_score(Constants.DATA_LVL_6) >= Constants.LVL_6_PREREQUISITE:
-		%Level6Button.disabled = false
-		%Level6Button.tooltip_text = ""
-	else:
-		%Level6Button.tooltip_text = "To unlock get a high score of at least 150 on level 5."
-		%Level6Button.disabled = true
-		%Level6Lock.visible = true
+func set_level_disability() -> void:
+	if Global.number_of_players > 1:
+		return
+	var lock_texture = load("res://assets/sprites/lock.png")
+	var levels = %LevelContainer.get_children()
+	print(levels)
+	for i in range(0,levels.size()-1):
+		if Constants.LVL_PREREQUISITES[Constants.DATA_LVL + str(i + 2)] <= Global.get_high_score(Constants.DATA_LVL + str(i + 1)):
+			levels[i+1].tooltip_text = ""
+		else:
+			var texture_rect: TextureRect = TextureRect.new()
+			texture_rect.texture = lock_texture
+			levels[i+1].add_child(texture_rect)
+			texture_rect.set_anchors_preset(Control.PRESET_CENTER_TOP, true)
+			texture_rect.scale.x = 2
+			texture_rect.scale.y = 2
+			texture_rect.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+			levels[i+1].disabled = true
+			levels[i+1].tooltip_text = "To unlock get a high score of at least " + str(Constants.LVL_PREREQUISITES[Constants.DATA_LVL + str(i + 2)]) + " on level " + str(i + 1)
