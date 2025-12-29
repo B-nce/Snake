@@ -120,7 +120,7 @@ func _spawn_apple() ->void:
 
 func _point_in_area(point: Vector2) -> bool:
 	point *= self.scale
-	point += horizontal_offset
+	point.x += horizontal_offset
 	var query_parameters: PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
 	query_parameters.collision_mask = Constants.COLLISION_MASK_PLAYER
 	query_parameters.collide_with_areas = true

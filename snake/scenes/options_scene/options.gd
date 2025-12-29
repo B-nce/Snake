@@ -41,10 +41,6 @@ func _on_snake_skin_panel_skin_selected(snake_path: String, snake_skin: Texture2
 	Global.save_selected_skin(snake_path)
 
 
-func _on_back_button_pressed() -> void:
-	get_tree().change_scene_to_file(Global.previous_scene_paths.pop_front()) 
-
-
 func set_albino_ball_python_disability() -> void:
 	if Global.get_high_score(Constants.DATA_LVL_1) >= Constants.ALBINO_BALL_PYTHON_PREREQUISITE:
 		%AlbinoBallPythonPanel.set_button_disability(false)
@@ -136,24 +132,6 @@ func set_yound_tree_boa_disability() -> void:
 	build_list()
 	$"TabContainer/Skin selector".set_skin_dictionary(skin_dictionary)
 	load_skins()
-
-
-func _on_h_slider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(0,value*volume_offset)
-
-
-func _on_check_box_toggled(toggled_on: bool) -> void:
-	AudioServer.set_bus_mute(0,toggled_on)
-
-
-func _on_resolutions_item_selected(index: int) -> void:
-	match index:
-		0:
-			DisplayServer.window_set_size(Vector2i(1920,1080))
-		1:
-			DisplayServer.window_set_size(Vector2i(1600,900))
-		2:
-			DisplayServer.window_set_size(Vector2i(1280,720))
 
 
 func _on_back_button_pressed() -> void:

@@ -1,25 +1,23 @@
-[gd_scene load_steps=43 format=3 uid="uid://c81kvk2hvopbe"]
+[gd_scene load_steps=41 format=3 uid="uid://c81kvk2hvopbe"]
 
 [ext_resource type="Script" uid="uid://7eurtcxo075w" path="res://scenes/level_base/level_base.gd" id="1_ncu3c"]
 [ext_resource type="PackedScene" uid="uid://iocv5fo1fth5" path="res://scenes/player/player.tscn" id="2_kr674"]
 [ext_resource type="Texture2D" uid="uid://bvwta8y6735xf" path="res://assets/sprites/green_tile_set.png" id="2_ncu3c"]
 [ext_resource type="Texture2D" uid="uid://coti70vxrwpc3" path="res://assets/sprites/purple_tile_set.png" id="2_txia2"]
 [ext_resource type="Texture2D" uid="uid://ct4p48m4owfny" path="res://assets/sprites/desert_tile_set.png" id="5_hltye"]
-[ext_resource type="Script" uid="uid://qj14a648ye8m" path="res://scenes/level_base/time_label.gd" id="5_kr674"]
 [ext_resource type="Shader" uid="uid://1pimjkuyeig7" path="res://scenes/level_base/tall_grass.gdshader" id="5_tn631"]
-[ext_resource type="Texture2D" uid="uid://cmh48ao1wb83h" path="res://assets/sprites/three_point_mark.png" id="6_p2h7h"]
 [ext_resource type="Texture2D" uid="uid://dwyduqh8lhe8b" path="res://assets/sprites/andalucia_tile_set.png" id="6_qgxpy"]
 [ext_resource type="Texture2D" uid="uid://cqm1n7i1a6s1t" path="res://assets/sprites/tall_grass_1.png" id="6_tn631"]
-[ext_resource type="Texture2D" uid="uid://d1k0p4d6l4ptd" path="res://assets/sprites/two_point_mark.png" id="7_48c0a"]
 [ext_resource type="Texture2D" uid="uid://d1fcmys0cxjje" path="res://assets/sprites/snow_tile_set.png" id="7_hltye"]
 [ext_resource type="Texture2D" uid="uid://c1fvsmjat7xlu" path="res://assets/sprites/tall_grass_purple_1.png" id="7_p2h7h"]
 [ext_resource type="Texture2D" uid="uid://cerkrshmdduc7" path="res://assets/sprites/jungle_tile_set.png" id="7_qgxpy"]
+[ext_resource type="PackedScene" uid="uid://h2i67x0c4716" path="res://scenes/score/score.tscn" id="8_48c0a"]
 [ext_resource type="Texture2D" uid="uid://xpt1tdjdb7go" path="res://assets/sprites/desert_sprite.png" id="8_gnfto"]
+[ext_resource type="PackedScene" uid="uid://bcrrspqjibwxb" path="res://scenes/apple/apple.tscn" id="9_cr6la"]
 [ext_resource type="Texture2D" uid="uid://25sbswubr3mo" path="res://assets/sprites/andaluse_tiles_set.png" id="10_bkv5l"]
 [ext_resource type="Texture2D" uid="uid://b3ub5hi1sbtut" path="res://assets/sprites/tall_grass_snow_1.png" id="11_bkv5l"]
 [ext_resource type="PackedScene" uid="uid://domo6ipgg30s1" path="res://scenes/pause/pause_scene.tscn" id="11_uakon"]
 [ext_resource type="Texture2D" uid="uid://x5x0vndngc7i" path="res://assets/sprites/tall_grass_desert_1.png" id="12_3sd2b"]
-[ext_resource type="Texture2D" uid="uid://b0rej6xc50shn" path="res://assets/sprites/score_background.png" id="14_qgxpy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kr674"]
 texture = ExtResource("2_ncu3c")
@@ -383,16 +381,6 @@ player = NodePath("../Player3")
 player = NodePath("../Player4")
 
 [node name="FirstApple" parent="." instance=ExtResource("9_cr6la")]
-[node name="TextureRect2" type="TextureRect" parent="."]
-z_index = 1
-z_as_relative = false
-texture_filter = 1
-offset_left = 286.0
-offset_top = 49.0
-offset_right = 366.0
-offset_bottom = 81.0
-texture = ExtResource("14_qgxpy")
-
 
 [node name="PauseScene" parent="." instance=ExtResource("11_uakon")]
 size_flags_horizontal = 4

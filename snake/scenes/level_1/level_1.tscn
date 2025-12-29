@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=4 uid="uid://cs3vwhjl6w3l3"]
+[gd_scene load_steps=3 format=4 uid="uid://cs3vwhjl6w3l3"]
 
+[ext_resource type="PackedScene" uid="uid://domo6ipgg30s1" path="res://scenes/pause/pause_scene.tscn" id="2_ghvtn"]
 [ext_resource type="PackedScene" uid="uid://c81kvk2hvopbe" path="res://scenes/level_base/level_base.tscn" id="3_janvk"]
 
 [node name="Level1" type="Node2D"]
@@ -53,5 +54,7 @@ position = Vector2(357.5, 1.5)
 
 [node name="FirstApple" parent="Level" index="12"]
 position = Vector2(144, 160)
+
+[node name="PauseScene" parent="Level" instance=ExtResource("2_ghvtn")]
 
 [editable path="Level"]
