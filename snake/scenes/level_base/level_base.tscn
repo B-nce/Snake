@@ -1,9 +1,23 @@
-[gd_scene load_steps=11 format=3 uid="uid://c81kvk2hvopbe"]
+[gd_scene load_steps=41 format=3 uid="uid://c81kvk2hvopbe"]
 
 [ext_resource type="Script" uid="uid://7eurtcxo075w" path="res://scenes/level_base/level_base.gd" id="1_ncu3c"]
 [ext_resource type="PackedScene" uid="uid://iocv5fo1fth5" path="res://scenes/player/player.tscn" id="2_kr674"]
 [ext_resource type="Texture2D" uid="uid://bvwta8y6735xf" path="res://assets/sprites/green_tile_set.png" id="2_ncu3c"]
 [ext_resource type="Texture2D" uid="uid://coti70vxrwpc3" path="res://assets/sprites/purple_tile_set.png" id="2_txia2"]
+[ext_resource type="Texture2D" uid="uid://ct4p48m4owfny" path="res://assets/sprites/desert_tile_set.png" id="5_hltye"]
+[ext_resource type="Shader" uid="uid://1pimjkuyeig7" path="res://scenes/level_base/tall_grass.gdshader" id="5_tn631"]
+[ext_resource type="Texture2D" uid="uid://dwyduqh8lhe8b" path="res://assets/sprites/andalucia_tile_set.png" id="6_qgxpy"]
+[ext_resource type="Texture2D" uid="uid://cqm1n7i1a6s1t" path="res://assets/sprites/tall_grass_1.png" id="6_tn631"]
+[ext_resource type="Texture2D" uid="uid://d1fcmys0cxjje" path="res://assets/sprites/snow_tile_set.png" id="7_hltye"]
+[ext_resource type="Texture2D" uid="uid://c1fvsmjat7xlu" path="res://assets/sprites/tall_grass_purple_1.png" id="7_p2h7h"]
+[ext_resource type="Texture2D" uid="uid://cerkrshmdduc7" path="res://assets/sprites/jungle_tile_set.png" id="7_qgxpy"]
+[ext_resource type="PackedScene" uid="uid://h2i67x0c4716" path="res://scenes/score/score.tscn" id="8_48c0a"]
+[ext_resource type="Texture2D" uid="uid://xpt1tdjdb7go" path="res://assets/sprites/desert_sprite.png" id="8_gnfto"]
+[ext_resource type="PackedScene" uid="uid://bcrrspqjibwxb" path="res://scenes/apple/apple.tscn" id="9_cr6la"]
+[ext_resource type="Texture2D" uid="uid://25sbswubr3mo" path="res://assets/sprites/andaluse_tiles_set.png" id="10_bkv5l"]
+[ext_resource type="Texture2D" uid="uid://b3ub5hi1sbtut" path="res://assets/sprites/tall_grass_snow_1.png" id="11_bkv5l"]
+[ext_resource type="PackedScene" uid="uid://domo6ipgg30s1" path="res://scenes/pause/pause_scene.tscn" id="11_uakon"]
+[ext_resource type="Texture2D" uid="uid://x5x0vndngc7i" path="res://assets/sprites/tall_grass_desert_1.png" id="12_3sd2b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kr674"]
 texture = ExtResource("2_ncu3c")
@@ -53,9 +67,85 @@ texture = ExtResource("2_txia2")
 5:2/0 = 0
 6:2/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r4foc"]
+texture = ExtResource("5_hltye")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bkv5l"]
+texture = ExtResource("6_qgxpy")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3dygm"]
+texture = ExtResource("7_qgxpy")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gnfto"]
+texture = ExtResource("7_hltye")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qgxpy"]
+texture = ExtResource("8_gnfto")
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_8cj0n"]
 sources/1 = SubResource("TileSetAtlasSource_janvk")
 sources/0 = SubResource("TileSetAtlasSource_kr674")
+sources/2 = SubResource("TileSetAtlasSource_r4foc")
+sources/4 = SubResource("TileSetAtlasSource_3dygm")
+sources/5 = SubResource("TileSetAtlasSource_gnfto")
+sources/6 = SubResource("TileSetAtlasSource_qgxpy")
+sources/3 = SubResource("TileSetAtlasSource_bkv5l")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ncu3c"]
 texture = ExtResource("2_ncu3c")
@@ -107,21 +197,138 @@ texture = ExtResource("2_txia2")
 5:2/0 = 0
 6:2/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3sd2b"]
+texture = ExtResource("6_qgxpy")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_idvcd"]
+texture = ExtResource("10_bkv5l")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_7e5lm"]
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 2
 sources/1 = SubResource("TileSetAtlasSource_xqidk")
 sources/0 = SubResource("TileSetAtlasSource_ncu3c")
+sources/2 = SubResource("TileSetAtlasSource_3sd2b")
+sources/3 = SubResource("TileSetAtlasSource_idvcd")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tn631"]
+shader = ExtResource("5_tn631")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tn631"]
+texture = ExtResource("6_tn631")
+texture_region_size = Vector2i(20, 16)
+0:0/0 = 0
+0:0/0/material = SubResource("ShaderMaterial_tn631")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_48c0a"]
+shader = ExtResource("5_tn631")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_48c0a"]
+texture = ExtResource("7_p2h7h")
+texture_region_size = Vector2i(20, 16)
+0:0/0 = 0
+0:0/0/material = SubResource("ShaderMaterial_48c0a")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hltye"]
+shader = ExtResource("5_tn631")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e5rkq"]
+texture = ExtResource("11_bkv5l")
+texture_region_size = Vector2i(20, 16)
+0:0/0 = 0
+0:0/0/material = SubResource("ShaderMaterial_hltye")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gnfto"]
+shader = ExtResource("5_tn631")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8fpbh"]
+texture = ExtResource("12_3sd2b")
+texture_region_size = Vector2i(20, 16)
+0:0/0 = 0
+0:0/0/material = SubResource("ShaderMaterial_gnfto")
+
+[sub_resource type="TileSet" id="TileSet_p2h7h"]
+sources/1 = SubResource("TileSetAtlasSource_tn631")
+sources/2 = SubResource("TileSetAtlasSource_48c0a")
+sources/4 = SubResource("TileSetAtlasSource_e5rkq")
+sources/5 = SubResource("TileSetAtlasSource_8fpbh")
 
 [node name="Level" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_ncu3c")
 
-[node name="Player" parent="." instance=ExtResource("2_kr674")]
+[node name="Player1" parent="." instance=ExtResource("2_kr674")]
 unique_name_in_owner = true
 texture_filter = 1
 position = Vector2(152, 152)
 length = 5
+
+[node name="Player2" parent="." instance=ExtResource("2_kr674")]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(168, 152)
+length = 5
+player_number = 2
+
+[node name="Player3" parent="." instance=ExtResource("2_kr674")]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(184, 152)
+length = 5
+player_number = 3
+
+[node name="Player4" parent="." instance=ExtResource("2_kr674")]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(200, 152)
+length = 5
+player_number = 4
+
+[node name="Background" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_set = SubResource("TileSet_8cj0n")
+collision_enabled = false
 
 [node name="Floor" type="TileMapLayer" parent="."]
 unique_name_in_owner = true
@@ -133,20 +340,32 @@ collision_enabled = false
 texture_filter = 1
 tile_set = SubResource("TileSet_7e5lm")
 
-[node name="PositionInfo" type="Label" parent="."]
-unique_name_in_owner = true
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="Grass" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_p2h7h")
 
-[node name="ScoreTimer" type="Timer" parent="."]
+[node name="Score1" parent="." node_paths=PackedStringArray("player") groups=["score"] instance=ExtResource("8_48c0a")]
+player = NodePath("../Player1")
 
-[node name="ScoreLabel" type="Label" parent="."]
-unique_name_in_owner = true
-offset_left = 289.0
-offset_top = 1.0
-offset_right = 379.0
-offset_bottom = 53.0
-text = "0"
+[node name="Score2" parent="." node_paths=PackedStringArray("player") groups=["score"] instance=ExtResource("8_48c0a")]
+player = NodePath("../Player2")
 
-[connection signal="apple_eaten" from="Player" to="." method="_on_player_apple_eaten"]
-[connection signal="snake_death" from="Player" to="." method="_on_player_snake_death"]
+[node name="Score3" parent="." node_paths=PackedStringArray("player") groups=["score"] instance=ExtResource("8_48c0a")]
+player = NodePath("../Player3")
+
+[node name="Score4" parent="." node_paths=PackedStringArray("player") groups=["score"] instance=ExtResource("8_48c0a")]
+player = NodePath("../Player4")
+
+[node name="FirstApple" parent="." instance=ExtResource("9_cr6la")]
+
+[node name="PauseScene" parent="." instance=ExtResource("11_uakon")]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[connection signal="apple_eaten" from="Player1" to="." method="_on_player_apple_eaten"]
+[connection signal="snake_death" from="Player1" to="." method="_on_player_snake_death"]
+[connection signal="apple_eaten" from="Player2" to="." method="_on_player_apple_eaten"]
+[connection signal="snake_death" from="Player2" to="." method="_on_player_snake_death"]
+[connection signal="apple_eaten" from="Player3" to="." method="_on_player_apple_eaten"]
+[connection signal="snake_death" from="Player3" to="." method="_on_player_snake_death"]
+[connection signal="apple_eaten" from="Player4" to="." method="_on_player_apple_eaten"]
+[connection signal="snake_death" from="Player4" to="." method="_on_player_snake_death"]

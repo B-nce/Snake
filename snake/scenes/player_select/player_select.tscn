@@ -1,0 +1,203 @@
+[gd_scene load_steps=10 format=3 uid="uid://bv3w0s1lsyf07"]
+
+[ext_resource type="Script" uid="uid://bwka8dvv74lko" path="res://scenes/player_select/player_select.gd" id="1_8qlfc"]
+[ext_resource type="FontFile" uid="uid://cxaq1lpo2t7ho" path="res://fonts/black_charcoal.TTF" id="1_vqdd7"]
+[ext_resource type="FontFile" uid="uid://cm40i6mvl1t3e" path="res://fonts/snake_business.ttf" id="2_bowpx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h04ql"]
+bg_color = Color(0.684098, 0.582663, 0.445276, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bowpx"]
+bg_color = Color(0.714734, 0.581304, 0.271327, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0745098, 0.423529, 0.105882, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 50
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qlfc"]
+bg_color = Color(0.714734, 0.581304, 0.271327, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0745098, 0.423529, 0.105882, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 50
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdb3i"]
+bg_color = Color(0.714734, 0.581304, 0.271327, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0745098, 0.423529, 0.105882, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 5
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8u83"]
+bg_color = Color(0.714734, 0.581304, 0.271327, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0745098, 0.423529, 0.105882, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 150
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 150
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y1n5n"]
+bg_color = Color(0.714734, 0.581304, 0.271327, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0745098, 0.423529, 0.105882, 1)
+corner_radius_top_left = 150
+corner_radius_top_right = 5
+corner_radius_bottom_right = 150
+corner_radius_bottom_left = 5
+
+[node name="PlayerSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8qlfc")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h04ql")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -123.5
+offset_top = 19.0
+offset_right = 123.5
+offset_bottom = 145.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("1_vqdd7")
+theme_override_font_sizes/font_size = 100
+text = "Number of players:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -125.0
+offset_right = 350.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="TwoPlayerButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 250)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_hover_pressed_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_hover_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_pressed_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_fonts/font = ExtResource("2_bowpx")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_bowpx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8qlfc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cdb3i")
+text = "(  )
+(  )"
+
+[node name="ThreePlayerButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 250)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_hover_pressed_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_hover_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_pressed_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_fonts/font = ExtResource("2_bowpx")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_bowpx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8qlfc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cdb3i")
+text = "(  )
+(  )
+(  )"
+
+[node name="FourPlayerButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 250)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_hover_pressed_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_hover_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_pressed_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_fonts/font = ExtResource("2_bowpx")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_bowpx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8qlfc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cdb3i")
+text = "(  )
+(  )
+(  )
+(  )"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -328.0
+offset_top = -130.0
+offset_right = 327.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_bowpx")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/hover = SubResource("StyleBoxFlat_t8u83")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_t8u83")
+theme_override_styles/normal = SubResource("StyleBoxFlat_y1n5n")
+text = "(back)"
+
+[connection signal="pressed" from="HBoxContainer/TwoPlayerButton" to="." method="_on_two_player_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ThreePlayerButton" to="." method="_on_three_player_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/FourPlayerButton" to="." method="_on_four_player_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://dgkjjvsv6fsvg"]
+
+[ext_resource type="PackedScene" uid="uid://2p6lj4tqjqww" path="res://scenes/snake_skin_panel/snake_skin_panel.tscn" id="1_segnd"]
+[ext_resource type="Script" uid="uid://cafnt8f52mg8f" path="res://scenes/snake_skin_selector/snake_skin_selector.gd" id="1_sid7f"]
+[ext_resource type="Texture2D" uid="uid://bu7nrfg50q1rh" path="res://assets/sprites/ball_python.png" id="2_segnd"]
+[ext_resource type="Texture2D" uid="uid://wsnjtm3ej3fm" path="res://assets/sprites/left_arrow.png" id="3_lesmg"]
+[ext_resource type="Texture2D" uid="uid://e8g3xvt82nv7" path="res://assets/sprites/right_arrow.png" id="4_sid7f"]
+[ext_resource type="Texture2D" uid="uid://b76g2jttgivo6" path="res://assets/sprites/left_arrow_pressed.png" id="5_udhod"]
+[ext_resource type="FontFile" uid="uid://cxaq1lpo2t7ho" path="res://fonts/black_charcoal.TTF" id="5_xw763"]
+[ext_resource type="Texture2D" uid="uid://d2ybrhxi4kp8w" path="res://assets/sprites/left_arrow_hover.png" id="6_r7l6p"]
+[ext_resource type="Texture2D" uid="uid://cla7hu1pneu8u" path="res://assets/sprites/right_arrow_pressed.png" id="8_myh5q"]
+[ext_resource type="Texture2D" uid="uid://qtu3mjdm5t5c" path="res://assets/sprites/right_arrow_hover.png" id="9_mr2kx"]
+
+[node name="SnakeSkinSelector" type="Control"]
+custom_minimum_size = Vector2(270, 370)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1010.0
+offset_bottom = -270.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sid7f")
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SnakeSkinPanel" parent="MainContainer" instance=ExtResource("1_segnd")]
+layout_mode = 2
+snake_skin = ExtResource("2_segnd")
+skin_path = "res://assets/sprites/ball_python.png"
+
+[node name="CenterContainer" parent="MainContainer/SnakeSkinPanel/SkinSelectButton" index="0"]
+offset_left = -67.0
+offset_top = -63.5
+offset_right = 77.0
+offset_bottom = 63.5
+
+[node name="ArrowsContainer" type="HBoxContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="LeftButton" type="TextureButton" parent="MainContainer/ArrowsContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(115, 90)
+layout_mode = 2
+texture_normal = ExtResource("3_lesmg")
+texture_pressed = ExtResource("5_udhod")
+texture_hover = ExtResource("6_r7l6p")
+stretch_mode = 0
+
+[node name="RightButton" type="TextureButton" parent="MainContainer/ArrowsContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(115, 90)
+layout_mode = 2
+texture_normal = ExtResource("4_sid7f")
+texture_pressed = ExtResource("8_myh5q")
+texture_hover = ExtResource("9_mr2kx")
+stretch_mode = 0
+
+[node name="PlayerLabel" type="Label" parent="MainContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0745098, 0.423529, 0.105882, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("5_xw763")
+theme_override_font_sizes/font_size = 70
+
+[connection signal="pressed" from="MainContainer/ArrowsContainer/LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="MainContainer/ArrowsContainer/RightButton" to="." method="_on_right_button_pressed"]
+
+[editable path="MainContainer/SnakeSkinPanel"]

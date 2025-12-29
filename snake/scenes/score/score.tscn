@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://h2i67x0c4716"]
+
+[ext_resource type="Script" uid="uid://eou0mlawhboy" path="res://scenes/score/score.gd" id="1_dvl6n"]
+[ext_resource type="Texture2D" uid="uid://b0rej6xc50shn" path="res://assets/sprites/score_background.png" id="2_dvl6n"]
+[ext_resource type="Texture2D" uid="uid://cmh48ao1wb83h" path="res://assets/sprites/three_point_mark.png" id="3_5h0kc"]
+[ext_resource type="Texture2D" uid="uid://d1k0p4d6l4ptd" path="res://assets/sprites/two_point_mark.png" id="4_c54rh"]
+
+[node name="Score" type="Node2D"]
+script = ExtResource("1_dvl6n")
+
+[node name="ScoreTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="PlayerNumber" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 272.0
+offset_right = 91.0
+offset_bottom = 324.0
+
+[node name="ScoreBackground" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 36.0
+offset_bottom = 24.0
+texture = ExtResource("2_dvl6n")
+expand_mode = 1
+
+[node name="ScoreLabel" type="Label" parent="ScoreBackground"]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -11.0
+offset_right = -4.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "0"
+
+[node name="HighScoreBackground" type="TextureRect" parent="."]
+texture_filter = 1
+offset_top = 32.0
+offset_right = 36.0
+offset_bottom = 56.0
+texture = ExtResource("2_dvl6n")
+expand_mode = 1
+
+[node name="HighScoreLabel" type="Label" parent="HighScoreBackground"]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = -11.0
+offset_right = -3.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "0"
+
+[node name="TimeLabel" type="Line2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-290, 36)
+points = PackedVector2Array(300, 230, 300, 30)
+width = 16.0
+default_color = Color(0.647061, 0.147944, 0.240398, 1)
+
+[node name="ThreePointMarker" type="TextureRect" parent="TimeLabel"]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 16)
+offset_left = 292.0
+offset_top = 72.0
+offset_right = 324.0
+offset_bottom = 88.0
+texture = ExtResource("3_5h0kc")
+
+[node name="TwoPointMarker" type="TextureRect" parent="TimeLabel"]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 16)
+offset_left = 292.0
+offset_top = 122.0
+offset_right = 324.0
+offset_bottom = 138.0
+texture = ExtResource("4_c54rh")

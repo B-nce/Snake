@@ -1,3 +1,4 @@
+class_name SnakeSkinPanel
 extends Control
 
 signal skin_selected
@@ -5,11 +6,22 @@ signal skin_selected
 @export var snake_skin: Texture2D
 @export var skin_path: String
 
+
 func _ready() -> void:
 	%SnakeSkinDisplayer.snake_skin = snake_skin
 	%SnakeSkinDisplayer.draw_after_texture()
 	%SkinSelectButton.text = button_text
 
 
-func _on_skin_select_button_pressed() -> void:
-	skin_selected.emit(skin_path, snake_skin)
+func set_button_disability(disabled: bool) -> void:
+	%SkinSelectButton.disabled = disabled
+
+
+func get_button_disability() -> bool:
+	return %SkinSelectButton.disabled
+
+
+func change_skin(new_skin_path: String) -> void:
+	%SnakeSkinDisplayer.snake_skin = ImageTexture.create_from_image(Image.load_from_file(new_skin_path)) 
+	%SnakeSkinDisplayer.draw_after_texture()
+	skin_path = new_skin_path

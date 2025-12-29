@@ -2,63 +2,87 @@ extends Node2D
 
 
 const AppleScene: PackedScene = preload("res://scenes/apple/apple.tscn")
+
+@export var level_name: String
+ 
+@onready var high_score = Global.get_high_score(level_name)
 @onready var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var map_size_in_tiles: Vector2 = ($Floor as TileMapLayer).get_used_rect().size
 @onready var wall_tiles: Array[Vector2i] = ($Wall as TileMapLayer).get_used_cells()
-@onready var player: Player = %Player as Player
-var apple_position: Vector2
-var grid: AStarGrid2D
+@onready var viewport_size: Vector2 = get_viewport().get_visible_rect().size
+@onready var new_scale: float = viewport_size.y / (self.map_size_in_tiles.y * Constants.SPRITE_SIZE)
+@onready var map_border_size: Vector2 = self.map_size_in_tiles * new_scale * Constants.SPRITE_SIZE
+@onready var horizontal_offset: float = (viewport_size.x  / 2) - (map_border_size.x / 2)
+@onready var apple_position: Vector2 = $FirstApple.position
 
+var grid: AStarGrid2D
+var players: Array[Player] #these can't be @onready because I want them to be typed
+var scores: Array[Score]
 
 func _ready() -> void:
+	players.assign(get_tree().get_nodes_in_group(Constants.GROUP_PLAYER))
+	scores.assign(get_tree().get_nodes_in_group(Constants.GROUP_SCORE))
+	$PauseScene.hide()
 	_setup_astar()
+	_initialize_map_and_players()
+	_intialize_scores()
+	_reset_scores()
+
+
+func _on_player_apple_eaten(player: Player) -> void:
+	_update_score(player.player_number)
 	_spawn_apple()
-	$ScoreTimer.set_wait_time(_calculate_distance(apple_position, player.position))
-	$ScoreTimer.start()
-	_initialize_map_and_player()
+	_reset_scores()
 
 
-func _on_player_apple_eaten() -> void:
-	if !$ScoreTimer.is_stopped():
-		_update_score(_calculate_score_from_time($ScoreTimer.wait_time, $ScoreTimer.wait_time - $ScoreTimer.time_left))
-		$ScoreTimer.stop()
-	_spawn_apple()
-	$ScoreTimer.set_wait_time(_calculate_distance(apple_position, player.position))
-	$ScoreTimer.start()
+func _update_score(player_nr: int) -> void:
+	for score: Score in scores:
+		if score.player_number == player_nr:
+			score.update_score()
 
 
-func _initialize_map_and_player() -> void:
-	var viewport_size: Vector2 = get_viewport().get_visible_rect().size
-	var new_scale: float = viewport_size.y / (self.map_size_in_tiles.y * Constants.SPRITE_SIZE)
-	var map_border_size: Vector2 = self.map_size_in_tiles * new_scale * Constants.SPRITE_SIZE
-	var horizontal_offset: float = (viewport_size.x  / 2) - (map_border_size.x / 2)
+func _reset_scores() -> void:
+	#resets the score timers of alive players
+	for score: Score in scores:
+		if players.any(func(p: Player): return p == score.player):
+			score.restart_score(apple_position)
+
+
+func _intialize_scores() -> void:	
+	var scores_to_delete: Array[Score] 
+	for score in scores:
+		if score.player.player_number > Global.number_of_players:
+			score.queue_free()
+			scores_to_delete.append(score)
+	for score in scores_to_delete:
+		scores.erase(score)
+		
+	for score: Score in scores:
+		score.horizontal_offset = horizontal_offset
+		score.grid_scale = self.scale
+		score.grid = grid
+
+
+func _initialize_map_and_players() -> void:
 	#make map fill the screen vertically and center horizontally
 	self.scale = Vector2(new_scale, new_scale)
 	self.position.x += horizontal_offset
-	#player needs to be set separately since it's top layer
-	player.map_border = Rect2(Vector2(horizontal_offset, 0), map_border_size)
-	player.scale = self.scale
-	player.position *= self.scale
-	player.position.x += horizontal_offset
-	player.create_snake_body()
+	
+	var players_to_delete: Array[Player] 
+	for player in players:
+		if player.player_number > Global.number_of_players:
+			player.queue_free()
+			players_to_delete.append(player)
+	for player in players_to_delete:
+		players.erase(player)
+	
+	for player in players:
+		player.map_border = Rect2(Vector2(horizontal_offset, 0), map_border_size)
+		player.scale = self.scale		#player needs to be set separately since it's top layer
+		player.position *= self.scale
+		player.position.x += horizontal_offset
+		player.create_snake_body()
 
-
-func _calculate_score_from_time(wait_time: int, time_elapsed: float) -> int:
-	if time_elapsed < wait_time/4:
-		return 3
-	else:
-		return 2 if time_elapsed < wait_time/2 else 1
-
-
-func _update_score(score: int) -> void:
-	%ScoreLabel.text = str(%ScoreLabel.text.to_int() + score)
-
-
-func _calculate_distance(a_pos: Vector2, p_pos: Vector2) -> int:
-	var a_grid_pos: Vector2 = a_pos/Constants.SPRITE_SIZE
-	var p_grid_pos: Vector2 = floor(p_pos/Constants.SPRITE_SIZE)
-	var road: Array[Vector2i] = grid.get_id_path(p_grid_pos,a_grid_pos)
-	return road.size()-1
 
 
 func _setup_astar() -> void:
@@ -71,26 +95,32 @@ func _setup_astar() -> void:
 	grid.update()
 
 
-func _on_player_snake_death() -> void:
-	var label: Label = Label.new()
-	add_child(label)
-	label.text = "GAME OVER"
-	label.size = Vector2(40,40)
+func _on_player_snake_death(player: Player) -> void:
+	players.erase(player)
+	player.queue_free()
+	if(players.is_empty()):
+		var game_over: GameOverScene = load("res://scenes/game_over/game_over.tscn").instantiate()
+		get_tree().root.add_child(game_over)
+		var high_score_active: bool =  Global.number_of_players == 1 and scores[0].score > high_score
+		game_over.set_scores(scores, high_score_active)
+		if high_score_active:
+			Global.save_high_score(level_name, scores[0].score)
 
 
 func _spawn_apple() ->void:
+	apple_position = _get_random_position()
+	
+	while await _point_in_area(apple_position):
+		apple_position = _get_random_position()
+	
 	var apple: Node2D = AppleScene.instantiate()
 	add_child(apple)
-
-	var apple_position: Vector2i = _get_random_position()
-	
-	while _point_in_area(apple_position):
-		apple_position = _get_random_position()
-		
 	apple.position = apple_position
 
 
 func _point_in_area(point: Vector2) -> bool:
+	point *= self.scale
+	point.x += horizontal_offset
 	var query_parameters: PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
 	query_parameters.collision_mask = Constants.COLLISION_MASK_PLAYER
 	query_parameters.collide_with_areas = true
@@ -98,7 +128,8 @@ func _point_in_area(point: Vector2) -> bool:
 	query_parameters.position = point
 	
 	var space_state = get_world_2d().direct_space_state
-	var result: Array[Dictionary] = space_state.intersect_point(query_parameters, 1)
+	await get_tree().physics_frame
+	var result: Array[Dictionary] = space_state.intersect_point(query_parameters)
 	return result.size() > 0
 
 
