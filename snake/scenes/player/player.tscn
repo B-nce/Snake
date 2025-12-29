@@ -23,12 +23,6 @@ visible = false
 z_index = 98
 z_as_relative = false
 
-[node name="PlayerNumber" type="Label" parent="."]
-offset_left = 3.0
-offset_top = 6.0
-offset_right = 93.0
-offset_bottom = 58.0
-
 [node name="DeathTimer" type="Timer" parent="."]
 one_shot = true
 

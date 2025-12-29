@@ -171,6 +171,7 @@ text = "(Level three)"
 
 [node name="Level3Lock" type="TextureRect" parent="VBoxContainer/VBoxContainer/MarginContainer2/Level3Button"]
 unique_name_in_owner = true
+visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -251,6 +252,7 @@ text = "(Level five)"
 
 [node name="Level5Lock" type="TextureRect" parent="VBoxContainer/VBoxContainer/MarginContainer5/Level5Button"]
 unique_name_in_owner = true
+visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -290,6 +292,7 @@ text = "(Level six)"
 
 [node name="Level6Lock" type="TextureRect" parent="VBoxContainer/VBoxContainer/MarginContainer6/Level6Button"]
 unique_name_in_owner = true
+visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1

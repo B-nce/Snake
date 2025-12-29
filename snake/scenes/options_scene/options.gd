@@ -37,10 +37,6 @@ func _on_resolutions_item_selected(index: int) -> void:
 			DisplayServer.window_set_size(Vector2i(1280,720))
 
 
-func _on_snake_skin_panel_skin_selected(snake_path: String, snake_skin: Texture2D) -> void:
-	Global.save_selected_skin(snake_path)
-
-
 func set_albino_ball_python_disability() -> void:
 	if Global.get_high_score(Constants.DATA_LVL_1) >= Constants.ALBINO_BALL_PYTHON_PREREQUISITE:
 		%AlbinoBallPythonPanel.set_button_disability(false)

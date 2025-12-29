@@ -16,6 +16,8 @@ var grid_scale: Vector2
 
 func _ready() -> void:
 	$PlayerNumber.text = "P" + str(player.player_number)
+	if Global.number_of_players > 1:
+		$HighScoreBackground.hide()
 
 func _process(delta: float) -> void:
 	delta_elapsed += delta

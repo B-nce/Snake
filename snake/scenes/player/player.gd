@@ -32,7 +32,7 @@ var _previous_tail_position: Vector2
 
 func _ready() -> void:
 	self.top_level = true
-	$PlayerNumber.text = str(player_number)
+
 
 func set_snake_skin(new_texture: Texture2D) -> void:
 	self.texture = new_texture

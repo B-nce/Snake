@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=4 uid="uid://cs3vwhjl6w3l3"]
+[gd_scene load_steps=2 format=4 uid="uid://cs3vwhjl6w3l3"]
 
-[ext_resource type="PackedScene" uid="uid://domo6ipgg30s1" path="res://scenes/pause/pause_scene.tscn" id="2_ghvtn"]
 [ext_resource type="PackedScene" uid="uid://c81kvk2hvopbe" path="res://scenes/level_base/level_base.tscn" id="3_janvk"]
 
 [node name="Level1" type="Node2D"]
@@ -11,21 +10,43 @@ level_name = "lvl1"
 
 [node name="Player1" parent="Level" index="0"]
 position = Vector2(40, 24)
+health_points = 1
+despawn_after_seconds = 5.0
 length = 3
+move_interval = 1.0
+movement_is_enabled = true
+map_border = Rect2(0, 0, 18, 20)
+player_number = 1
 initial_direction = 3
 
 [node name="Player2" parent="Level" index="1"]
 position = Vector2(264, 40)
+health_points = 1
+despawn_after_seconds = 5.0
 length = 3
+move_interval = 1.0
+movement_is_enabled = true
+map_border = Rect2(0, 0, 18, 20)
 initial_direction = 1
 
 [node name="Player3" parent="Level" index="2"]
 position = Vector2(24, 280)
+health_points = 1
+despawn_after_seconds = 5.0
 length = 3
+move_interval = 1.0
+movement_is_enabled = true
+map_border = Rect2(0, 0, 18, 20)
+initial_direction = 0
 
 [node name="Player4" parent="Level" index="3"]
 position = Vector2(248, 296)
+health_points = 1
+despawn_after_seconds = 5.0
 length = 3
+move_interval = 1.0
+movement_is_enabled = true
+map_border = Rect2(0, 0, 18, 20)
 initial_direction = 2
 
 [node name="Background" parent="Level" index="4"]
@@ -54,7 +75,5 @@ position = Vector2(357.5, 0)
 
 [node name="FirstApple" parent="Level" index="12"]
 position = Vector2(144, 160)
-
-[node name="PauseScene" parent="Level" instance=ExtResource("2_ghvtn")]
 
 [editable path="Level"]
