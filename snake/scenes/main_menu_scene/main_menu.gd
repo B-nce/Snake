@@ -1,14 +1,15 @@
 extends Control
 
 
-func _on_new_game_pressed() -> void:
+func _on_single_player_pressed() -> void:
+	Global.number_of_players = 1
 	Global.previous_scene_paths.push_front(self.scene_file_path) 
 	get_tree().change_scene_to_file("res://scenes/level_select/level_select.tscn")
 
 
-func _on_level_select_pressed() -> void:
+func _on_multi_player_pressed() -> void:
 	Global.previous_scene_paths.push_front(self.scene_file_path) 
-	get_tree().change_scene_to_file("res://scenes/level_select/level_select.tscn")
+	get_tree().change_scene_to_file("res://scenes/player_select/player_select.tscn")
 
 
 func _on_options_pressed() -> void:

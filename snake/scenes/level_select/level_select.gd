@@ -1,6 +1,9 @@
 extends Control
 
+
 func _ready() -> void:
+	if Global.number_of_players > 1:
+		return
 	set_level_2_disability()
 	set_level_3_disability()
 	set_level_4_disability()

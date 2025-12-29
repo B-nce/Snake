@@ -131,6 +131,7 @@ text = "(Level two)"
 
 [node name="Level2Lock" type="TextureRect" parent="VBoxContainer/VBoxContainer/MarginContainer/Level2Button"]
 unique_name_in_owner = true
+visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -209,6 +210,7 @@ text = "(Level four)"
 
 [node name="Level4Lock" type="TextureRect" parent="VBoxContainer/VBoxContainer/MarginContainer4/Level4Button"]
 unique_name_in_owner = true
+visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
