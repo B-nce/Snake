@@ -142,6 +142,8 @@ func _move_and_reset_timer() -> void:
 func _take_damage() -> void:
 	health_points -= 1
 	if health_points <= 0:
+		%Stars.visible = true
+		%Stars.play_animation()
 		movement_is_enabled = false
 		$DeathTimer.start(despawn_after_seconds)
 

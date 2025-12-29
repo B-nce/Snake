@@ -29,6 +29,8 @@ corner_radius_bottom_right = 150
 corner_radius_bottom_left = 5
 
 [node name="GameOver" type="Control"]
+z_index = 99
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -78,6 +80,7 @@ theme_override_constants/separation = 100
 alignment = 1
 
 [node name="RetryButton" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 0
@@ -93,6 +96,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_3mpp1")
 text = "(Retry)"
 
 [node name="BackButton" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(550, 0)
 layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 0

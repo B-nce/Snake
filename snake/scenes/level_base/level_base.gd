@@ -22,6 +22,7 @@ var scores: Array[Score]
 func _ready() -> void:
 	players.assign(get_tree().get_nodes_in_group(Constants.GROUP_PLAYER))
 	scores.assign(get_tree().get_nodes_in_group(Constants.GROUP_SCORE))
+	$PauseScene.hide()
 	_setup_astar()
 	_initialize_map_and_players()
 	_intialize_scores()
@@ -107,18 +108,19 @@ func _on_player_snake_death(player: Player) -> void:
 
 
 func _spawn_apple() ->void:
-	var apple: Node2D = AppleScene.instantiate()
-	add_child(apple)
-
 	apple_position = _get_random_position()
 	
-	while _point_in_area(apple_position):
+	while await _point_in_area(apple_position):
 		apple_position = _get_random_position()
-		
+	
+	var apple: Node2D = AppleScene.instantiate()
+	add_child(apple)
 	apple.position = apple_position
 
 
 func _point_in_area(point: Vector2) -> bool:
+	point *= self.scale
+	point += horizontal_offset
 	var query_parameters: PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
 	query_parameters.collision_mask = Constants.COLLISION_MASK_PLAYER
 	query_parameters.collide_with_areas = true
@@ -126,7 +128,8 @@ func _point_in_area(point: Vector2) -> bool:
 	query_parameters.position = point
 	
 	var space_state = get_world_2d().direct_space_state
-	var result: Array[Dictionary] = space_state.intersect_point(query_parameters, 1)
+	await get_tree().physics_frame
+	var result: Array[Dictionary] = space_state.intersect_point(query_parameters)
 	return result.size() > 0
 
 
