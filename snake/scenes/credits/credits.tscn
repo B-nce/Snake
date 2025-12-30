@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsdogec681mbr"]
+
+[ext_resource type="FontFile" uid="uid://cxaq1lpo2t7ho" path="res://fonts/black_charcoal.TTF" id="1_8n0nl"]
+[ext_resource type="Script" uid="uid://cdlxnfcli83uo" path="res://scenes/credits/credits.gd" id="1_c8xcy"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c8xcy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -359.5
+offset_right = 359.5
+offset_bottom = 366.0
+grow_horizontal = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8n0nl")
+theme_override_font_sizes/font_size = 100
+text = "Hullarabló Games"
+horizontal_alignment = 1
+
+[node name="Design" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8n0nl")
+theme_override_font_sizes/font_size = 70
+text = "Game Development & Design"
+horizontal_alignment = 1
+
+[node name="Dominik" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8n0nl")
+theme_override_font_sizes/font_size = 45
+text = "Bakó Dominik"
+horizontal_alignment = 1
+
+[node name="Bence" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8n0nl")
+theme_override_font_sizes/font_size = 45
+text = "Bokor Bence"
+horizontal_alignment = 1
+
+[node name="Tihi" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8n0nl")
+theme_override_font_sizes/font_size = 45
+text = "Szabó Tihamér"
+horizontal_alignment = 1
+
+[node name="Separator" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8n0nl")
+theme_override_font_sizes/font_size = 45
+horizontal_alignment = 1
+
+[node name="Audio" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8n0nl")
+theme_override_font_sizes/font_size = 70
+text = "Music & Audio"
+horizontal_alignment = 1
+
+[node name="Vamosz" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8n0nl")
+theme_override_font_sizes/font_size = 45
+text = "Vámos Balázs"
+horizontal_alignment = 1
