@@ -3,6 +3,8 @@ extends Node
 const SAVE_PATH: String = "user://snake.save"
 var previous_scene_paths: Array[String] 
 var saved_data: Dictionary = {
+	Constants.DATA_VOLUME: 0,
+	Constants.DATA_IS_MUTED: false,
 	Constants.DATA_HIGHSCORES: {
 		Constants.DATA_LVL_1: 0,
 		Constants.DATA_LVL_2: 0, 
@@ -35,11 +37,30 @@ func get_selected_skin(player_number: int) -> String:
 func save_selected_skin(skin_path: String, player_number: int) -> void:
 	saved_data[Constants.DATA_SELECTED_SKIN_PATH + str(player_number)] = skin_path
 	_save_all_data()
-	
+
+
+func save_volume(volume: float) -> void:
+	saved_data[Constants.DATA_VOLUME] = volume
+	_save_all_data()
+
+
+func get_volume() -> int:
+	return saved_data[Constants.DATA_VOLUME]
+
+
+func save_is_muted(is_muted: bool) -> void:
+	saved_data[Constants.DATA_IS_MUTED] = is_muted
+	_save_all_data()
+
+
+func get_is_muted() -> int:
+	return saved_data[Constants.DATA_IS_MUTED]
+
 
 func _ready() -> void:
 	_load_all_data()
-
+	AudioServer.set_bus_mute(0, Global.get_is_muted())
+	AudioServer.set_bus_volume_db(0, Global.get_volume() * Constants.VOLUME_OFFSET)
 
 func _save_all_data() -> void:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)

@@ -47,6 +47,7 @@ func _physics_process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if movement_is_enabled:
+		$DirectionChangeSound.play()
 		if event.is_action_pressed("up_" + str(player_number)):
 			if rotation_value == Constants.ROTATION_LEFT or rotation_value == Constants.ROTATION_RIGHT :
 				rotation_value = Constants.ROTATION_UP
@@ -153,6 +154,7 @@ func _on_death_timer_timeout() -> void:
 
 
 func _eat_apple(apple: Node2D) -> void:
+	$EatingSound.play()
 	apple.queue_free()
 	_add_body_part(_previous_tail_position, SnakeSpriteTypes.Type.TAIL, Constants.GROUP_BODY)
 	_correct_snake_sprites()
