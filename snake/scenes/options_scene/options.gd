@@ -1,12 +1,11 @@
 extends Control
 
 
-const volume_offset : float = 0.5
-
 var skin_dictionary : Dictionary = {}
 
-func _ready() -> void:	
-	%VolumeSlider.set_value_no_signal(AudioServer.get_bus_volume_db(0)/volume_offset)
+
+func _ready() -> void:
+	%VolumeSlider.set_value_no_signal(AudioServer.get_bus_volume_db(0) / Constants.VOLUME_OFFSET)
 	%MuteBox.set_pressed_no_signal(AudioServer.is_bus_mute(0))
 	set_skin_disablity()
 	build_list()
@@ -14,11 +13,13 @@ func _ready() -> void:
 
 
 func _on_h_slider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(0,value*volume_offset)
+	AudioServer.set_bus_volume_db(0, value * Constants.VOLUME_OFFSET)
+	Global.save_volume(value)
 
 
 func _on_check_box_toggled(toggled_on: bool) -> void:
-	AudioServer.set_bus_mute(0,toggled_on)
+	AudioServer.set_bus_mute(0, toggled_on)
+	Global.save_is_muted(toggled_on)
 
 
 func _on_resolutions_item_selected(index: int) -> void:

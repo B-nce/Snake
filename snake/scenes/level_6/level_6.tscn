@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=4 uid="uid://sjgfbvx6xvlo"]
+[gd_scene load_steps=3 format=4 uid="uid://sjgfbvx6xvlo"]
 
 [ext_resource type="PackedScene" uid="uid://c81kvk2hvopbe" path="res://scenes/level_base/level_base.tscn" id="1_0n2f3"]
+[ext_resource type="AudioStream" uid="uid://c184e15g5ia8k" path="res://assets/sounds/tihi_theme.wav" id="2_40yeo"]
 
 [node name="Level6" type="Node2D"]
 
@@ -55,5 +56,8 @@ position = Vector2(144, 160)
 
 [node name="PauseScene" parent="Level" index="13"]
 visible = false
+
+[node name="LevelTheme" parent="Level" index="14"]
+stream = ExtResource("2_40yeo")
 
 [editable path="Level"]
