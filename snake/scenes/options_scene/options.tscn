@@ -219,33 +219,9 @@ layout_mode = 2
 theme_override_icons/checked = ExtResource("4_xwbtl")
 theme_override_icons/unchecked = ExtResource("5_hxipp")
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/Volume options/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label4" type="Label" parent="TabContainer/Volume options/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(0.0745098, 0.423529, 0.105882, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 10
-theme_override_fonts/font = ExtResource("1_biovg")
-theme_override_font_sizes/font_size = 40
-text = "Resolution:"
-
-[node name="Resolutions" type="OptionButton" parent="TabContainer/Volume options/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-selected = 2
-item_count = 3
-popup/item_0/text = "1920 x 1080"
-popup/item_0/id = 0
-popup/item_1/text = "1600 x 900"
-popup/item_1/id = 1
-popup/item_2/text = "1280 x 720"
-popup/item_2/id = 2
-
 [node name="BackButton" type="Button" parent="TabContainer/Volume options/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 6
 focus_mode = 0
 theme_override_colors/font_hover_color = Color(0.0745098, 0.423529, 0.105882, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -532,7 +508,6 @@ text = "(back)"
 
 [connection signal="value_changed" from="TabContainer/Volume options/VBoxContainer/HBoxContainer/VolumeSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="toggled" from="TabContainer/Volume options/VBoxContainer/HBoxContainer2/MuteBox" to="." method="_on_check_box_toggled"]
-[connection signal="item_selected" from="TabContainer/Volume options/VBoxContainer/HBoxContainer3/Resolutions" to="." method="_on_resolutions_item_selected"]
 [connection signal="pressed" from="TabContainer/Volume options/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="TabContainer/Skin collection/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="TabContainer/Skin selector/BackButton" to="." method="_on_back_button_pressed"]

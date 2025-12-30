@@ -42,8 +42,9 @@ func _on_back_button_pressed() -> void:
 func build_list() -> void:
 	var i: int = 0
 	for child: SnakeSkinPanel in %ContainerColumn.get_children():
-		skin_dictionary[i] = child.skin_path
-		i += 1
+		if !child.get_button_disability():
+			skin_dictionary[i] = child.skin_path
+			i += 1
 	for child: SnakeSkinPanel in %ContainerColumn2.get_children():
 		if !child.get_button_disability():
 			skin_dictionary[i] = child.skin_path

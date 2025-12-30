@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://iocv5fo1fth5"]
+[gd_scene load_steps=10 format=3 uid="uid://iocv5fo1fth5"]
 
 [ext_resource type="Script" uid="uid://chxrivw74ah0o" path="res://scenes/player/player.gd" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://gvkc474jnny4" path="res://scenes/stars/stars.tscn" id="2_dovo2"]
 [ext_resource type="AudioStream" uid="uid://bn8mxkyv113ms" path="res://assets/sounds/apple_eaten.wav" id="3_gmlin"]
+[ext_resource type="AudioStream" uid="uid://ds3x7702imm1k" path="res://assets/sounds/collision.wav" id="4_0owmy"]
 [ext_resource type="AudioStream" uid="uid://bbuo5tdm8okbm" path="res://assets/sounds/turn_1.wav" id="4_75vfm"]
 [ext_resource type="AudioStream" uid="uid://cbrfltesyhevb" path="res://assets/sounds/turn_2.wav" id="5_0owmy"]
 [ext_resource type="AudioStream" uid="uid://epxdxvryp3yf" path="res://assets/sounds/turn_3.wav" id="6_qek5x"]
@@ -38,6 +39,9 @@ one_shot = true
 
 [node name="EatingSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_gmlin")
+
+[node name="CollisionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0owmy")
 
 [node name="DirectionChangeSound" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_gmlin")

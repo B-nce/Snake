@@ -22,6 +22,6 @@ func get_button_disability() -> bool:
 
 
 func change_skin(new_skin_path: String) -> void:
-	%SnakeSkinDisplayer.snake_skin = ImageTexture.create_from_image(Image.load_from_file(new_skin_path)) 
+	%SnakeSkinDisplayer.snake_skin = ResourceLoader.load(new_skin_path) 
 	%SnakeSkinDisplayer.draw_after_texture()
 	skin_path = new_skin_path

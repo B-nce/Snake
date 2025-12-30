@@ -141,6 +141,7 @@ func _move_and_reset_timer() -> void:
 
 
 func _take_damage() -> void:
+	$CollisionSound.play()
 	health_points -= 1
 	if health_points <= 0:
 		%Stars.visible = true
