@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://blrf827ffsitx"]
+[gd_scene load_steps=34 format=3 uid="uid://blrf827ffsitx"]
 
 [ext_resource type="FontFile" uid="uid://cxaq1lpo2t7ho" path="res://fonts/black_charcoal.TTF" id="1_biovg"]
 [ext_resource type="Script" uid="uid://djv3qxmr51dwv" path="res://scenes/options_scene/options.gd" id="1_r1nbh"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bmwikfj3b2xs6" path="res://assets/sprites/king_snake.png" id="13_tlsi4"]
 [ext_resource type="Texture2D" uid="uid://cbiu6kef8lxco" path="res://assets/sprites/reticulated_python.png" id="14_cse3v"]
 [ext_resource type="Texture2D" uid="uid://clafsi82juo43" path="res://assets/sprites/emerald_tree_boa.png" id="15_cse3v"]
+[ext_resource type="Texture2D" uid="uid://dwhqoifvst7wl" path="res://assets/sprites/rattlesnake.png" id="15_pc1xl"]
 [ext_resource type="Texture2D" uid="uid://clc8bj60tca8g" path="res://assets/sprites/corn_snake_albino.png" id="15_y8vwf"]
 [ext_resource type="Texture2D" uid="uid://dhjuaqvt4va8q" path="res://assets/sprites/green_anaconda_albino.png" id="19_hg67v"]
 [ext_resource type="Texture2D" uid="uid://70t2mqv8spih" path="res://assets/sprites/king_snake_albino.png" id="20_pc1xl"]
@@ -352,6 +353,12 @@ skin_path = "res://assets/sprites/reticulated_python.png"
 layout_mode = 2
 button_text = "Emerald Tree Boa"
 snake_skin = ExtResource("15_cse3v")
+skin_path = "res://assets/sprites/emerald_tree_boa.png"
+
+[node name="RattleSnakePanel" parent="TabContainer/Skin collection/ScrollContainer/HorizontalOutsideContainer/ContainerColumn" instance=ExtResource("7_gqgkr")]
+layout_mode = 2
+button_text = "Rattlesnake"
+snake_skin = ExtResource("15_pc1xl")
 skin_path = "res://assets/sprites/emerald_tree_boa.png"
 
 [node name="ContainerColumn2" type="VBoxContainer" parent="TabContainer/Skin collection/ScrollContainer/HorizontalOutsideContainer"]
