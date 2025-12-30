@@ -53,7 +53,4 @@ position = Vector2(357.5, 0)
 [node name="FirstApple" parent="Level" index="12"]
 position = Vector2(144, 160)
 
-[node name="PauseScene" parent="Level" index="13"]
-visible = false
-
 [editable path="Level"]
