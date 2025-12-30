@@ -18,7 +18,8 @@ func _on_options_pressed() -> void:
 
 
 func _on_credits_pressed() -> void:
-	pass # Replace with function body.
+	Global.previous_scene_paths.push_front(self.scene_file_path) 
+	get_tree().change_scene_to_file("res://scenes/credits/credits.tscn")
 
 
 func _on_exit_pressed() -> void:
