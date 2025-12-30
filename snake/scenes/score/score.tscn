@@ -12,6 +12,7 @@ script = ExtResource("1_dvl6n")
 unique_name_in_owner = true
 
 [node name="PlayerNumber" type="Label" parent="."]
+texture_filter = 1
 offset_left = 1.0
 offset_top = 272.0
 offset_right = 91.0

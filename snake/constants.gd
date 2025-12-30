@@ -7,6 +7,8 @@ const ROTATION_LEFT: float = (PI/2)*3
 const ROTATION_RIGHT: float = PI/2
 const SPRITE_SIZE: int = 16
 const EPSILON: float = 0.001
+const VOLUME_OFFSET : float = 0.5
+
 
 #node groups
 const GROUP_HEAD: StringName = "head"
@@ -22,6 +24,8 @@ const COLLISION_LAYER_ITEM: int = 1
 const COLLISION_MASK_PLAYER: int = 2
 
 #save data keys
+const DATA_VOLUME: StringName = "volume"
+const DATA_IS_MUTED: StringName = "is_muted"
 const DATA_HIGHSCORES: StringName = "high_scores"
 const DATA_SELECTED_SKIN_PATH: StringName = "selected_skin_path_"
 const DATA_SELECTED_SKIN_PATH_1: StringName = "selected_skin_path_1"

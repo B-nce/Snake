@@ -61,6 +61,10 @@ func _intialize_scores() -> void:
 		score.horizontal_offset = horizontal_offset
 		score.grid_scale = self.scale
 		score.grid = grid
+		if Global.number_of_players == 1: #if we only have one player, the scores only contains 1 item
+			score.load_high_score(level_name)
+		else:
+			score.hide_high_score()
 
 
 func _initialize_map_and_players() -> void:

@@ -16,8 +16,7 @@ var grid_scale: Vector2
 
 func _ready() -> void:
 	$PlayerNumber.text = "P" + str(player.player_number)
-	if Global.number_of_players > 1:
-		$HighScoreBackground.hide()
+
 
 func _process(delta: float) -> void:
 	delta_elapsed += delta
@@ -40,6 +39,14 @@ func update_score() -> void:
 		$ScoreTimer.stop()
 		score += _calculate_score_from_time($ScoreTimer.wait_time, time_elapsed)
 		%ScoreLabel.text = str(score)
+
+
+func load_high_score(level_name: String) -> void:
+	%HighScoreLabel.text = str(Global.get_high_score(level_name))
+
+
+func hide_high_score() -> void:
+	$HighScoreBackground.hide()
 
 
 func _calculate_distance(a_pos: Vector2, p_pos: Vector2) -> int:

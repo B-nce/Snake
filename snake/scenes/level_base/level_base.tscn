@@ -358,8 +358,12 @@ player = NodePath("../Player4")
 [node name="FirstApple" parent="." instance=ExtResource("9_cr6la")]
 
 [node name="PauseScene" parent="." instance=ExtResource("11_uakon")]
+visible = false
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="LevelTheme" type="AudioStreamPlayer" parent="."]
+autoplay = true
 
 [connection signal="apple_eaten" from="Player1" to="." method="_on_player_apple_eaten"]
 [connection signal="snake_death" from="Player1" to="." method="_on_player_snake_death"]
